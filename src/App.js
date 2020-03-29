@@ -8,10 +8,6 @@ import MainPage from "./Components/MainPage";
 import Map from "./Components/Map";
 import Messages from "./Components/Messages/Messages";
 import UserProfile from "./Components/UserProfile";
-var geolocation = require("geolocation");
-
-@observer
-class App extends Component {
 
 
 
