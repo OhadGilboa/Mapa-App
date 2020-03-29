@@ -30,18 +30,17 @@ router.post("/users", async function(req, res) {
   console.log(user);
   let query = `INSERT INTO users VALUES 
   (null, 
+    '${user.email}',
     '${user.first_name}', 
     '${user.last_name}',
+    '${user.pitch}',
     '${user.age}',
-    '${user.email}',
-    '${user.password}',
-    '${user.status}',
+    '${user.user_password}',
+    '${user.user_status}',
     '${user.gender}',
     '${user.picture}',
-    '${user.isCheckedIn ? "1" : "0"}',
-    '${user.hobbies}'
-    '${user.lookingFor}'
-    '${user.conversations}',
+    '${user.latitude}',
+    '${user.longitude}',
     )`;
   await sequelize.query(query);
 });
@@ -67,19 +66,32 @@ router.put("/user/:toUpdate", async function(req, res) {
 // Messages Routes:
 
 // Get messages by id
-router.get("/messages/:id", async function(req, res) {
-    let conversationId = req.params.id
+router.get("/conversation/:id", async function(req, res) {
+  let conversationId = req.params.id;
   await sequelize
-    .query(`SELECT * 
-    FROM users,conversations 
-    WHERE conversation.id= ${conversationId}
-    AND users.conversation_id = conversation.id`)
+    .query(
+      `SELECT * 
+    FROM messages
+    WHERE messages.conversationId= ${conversationId}`
+    )
     .spread(function(results, metadata) {
       res.send(results);
     });
 });
 
-// Post messages
-// Get messages by user id
+// Post message
+router.post("/message", async function(req, res) {
+  let message = req.body;
+  console.log(message);
+  let query = `INSERT INTO messages VALUES 
+  (null, 
+    '${message.message_date}',
+    '${message.message_text}', 
+    '${message.conversationId}',
+    '${message.user_sending_id}',
+    '${message.user_receiving_id}'
+    )`;
+  await sequelize.query(query);
+});
 
 module.exports = router;
