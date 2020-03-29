@@ -5,7 +5,7 @@ import { observer, inject } from "mobx-react";
 @observer
 class MainPage extends Component {
   render() {
-    return <div></div>;
+    return <div className="mainPage-comp">This is main page</div>;
   }
 }
 export default MainPage;

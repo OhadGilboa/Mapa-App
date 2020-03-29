@@ -2,6 +2,18 @@ import React, { Component } from "react";
 import "./App.css";
 import { observer } from "mobx-react";
 
+import Navbar from "./Components/Navbar";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import MainPage from "./Components/MainPage";
+import Map from "./Components/Map";
+import Messages from "./Components/Messages/Messages";
+import UserProfile from "./Components/UserProfile";
+var geolocation = require("geolocation");
+
+@observer
+class App extends Component {
+
+
 
 @observer
 class App extends Component {
@@ -27,21 +39,24 @@ class App extends Component {
     return value * Math.PI / 180;
   }
 
+
   showPosition(position) {
     const data = position.coords.latitude + ", " + position.coords.longitude;
-    console.log(data)
+    console.log(data);
   }
 
-  getLocation() {
+ getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.toDoIfGetCurrentPositionSuccess, this.toDoIfGetCurrentPositionFail, this.options);
     }
   }
 
+
   toDoIfGetCurrentPositionSuccess(position) {
     console.log(position);
     //add position to the user
   }
+
 
   toDoIfGetCurrentPositionFail() {
     //don't know what to do after... maybe try again?
@@ -53,6 +68,20 @@ class App extends Component {
     this.getLocation()
     return (
       <div className="App">
+
+        {this.getLocation()}
+        <Router>
+          <div className="mainRoutes">
+            <Route exact path="/" render={() => <div> signup </div>} />
+            <Route path="/MainPage" exact render={() => <div> <MainPage/> </div>} />
+            <Route path="/Map" exact render={() => <div> <Map/> </div>} />
+            <Route path="/Messages" exact render={() => <div> <Messages/> </div>} />
+            <Route path="/Profile" exact render={() => <div> <UserProfile/> </div>} />
+          </div>
+          <Navbar />
+        </Router>
+
+
       </div>
     );
   }

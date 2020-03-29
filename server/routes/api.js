@@ -32,16 +32,16 @@ router.post("/users", async function(req, res) {
   (null, 
     '${user.first_name}', 
     '${user.last_name}',
-    '${client.age}',
-    '${client.email}',
-    '${client.password}',
-    '${client.status}',
-    '${client.gender}',
-    '${client.picture}',
-    '${client.isCheckedIn ? "1" : "0"}',
-    '${client.hobbies}'
-    '${client.lookingFor}'
-    '${client.conversations}',
+    '${user.age}',
+    '${user.email}',
+    '${user.password}',
+    '${user.status}',
+    '${user.gender}',
+    '${user.picture}',
+    '${user.isCheckedIn ? "1" : "0"}',
+    '${user.hobbies}'
+    '${user.lookingFor}'
+    '${user.conversations}',
     )`;
   await sequelize.query(query);
 });
