@@ -16,13 +16,6 @@ app.use(function (req, res, next) {
     next()
 })
 
-// Mongoose setup
-const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Hackathon2", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
 app.use('/', api)
 
 
