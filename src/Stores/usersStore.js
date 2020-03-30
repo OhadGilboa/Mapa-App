@@ -31,6 +31,8 @@ export class UsersStore {
     }
 
 
+    
+
     @action updateEmail = (newEmail) => { this.email = newEmail }
     @action updateFirstName = (newFirstName) => { this.first_name = newFirstName }
     @action updateLastName = (newLastName) => { this.last_name = newLastName }

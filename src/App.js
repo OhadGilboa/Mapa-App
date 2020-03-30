@@ -66,7 +66,7 @@ class App extends Component {
 
   async componentDidMount() {
     const usersOnline = await this.getUsersOnline()
-    this.props.User.updateUsersInRange(usersOnline.data)
+    this.props.usersStore.updateUsersInRange(usersOnline.data)
   }
 
   render() {
