@@ -1,3 +1,30 @@
-div{
-    color:white
+.title {
+    color: white;
+    display: grid;
+    align-items: flex-end;
+}
+
+.imgContainer {
+    height: 8vh;
+    display: grid;
+}
+
+.image {
+    border-radius: 50%;
+    height: 5.5vh;
+    width: 5.5vh;
+    align-self: center;
+    justify-self: center;
+}
+
+.name {
+    font-size: 1.3vh;
+    display: grid;
+    align-self: center;
+    justify-self: self-start;
+}
+
+.imageAndName {
+    display: grid;
+    grid-template-columns: 9vh 15vh 55vw;
 }
