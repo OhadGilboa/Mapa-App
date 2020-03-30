@@ -1,6 +1,7 @@
 var config={
 
-    dbUrl: 'mongodb://nik72619c:nikhil1997@ds261116.mlab.com:61116/dating-app'
+        db: 'mongodb://username:password@url:port/db',
+        db_dev: 'mongodb://url:port/db',
 }
 
 module.exports=config;
