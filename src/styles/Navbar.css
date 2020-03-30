@@ -16,3 +16,7 @@
 .vl{
     background-color: white;
 }
+
+.link:active{
+    font-size: 95%;
+}

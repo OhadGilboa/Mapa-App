@@ -10,6 +10,7 @@ import Messages from "./Components/Messages/Messages";
 import UserProfile from "./Components/UserProfile";
 import Header from "./Components/Header";
 import Main from "./Components/Main";
+import LoginRegister from "./Components/LoginRegister";
 
 
 
@@ -65,27 +66,23 @@ class App extends Component {
   render() {
     this.getLocation()
     return (
-        <Router>
-          <div className="mainRoutes">
-
-            <div className="header">Hackthon
+      <Router>
+        <div className="mainRoutes">
+          <div className="header">Hackthon
                 <Header />
-            </div>
-
-            <div className="container">
-              <Route exact path="/" render={() => <div> signup </div>} />
-              <Route path="/MainPage" exact render={() => <div> <MainPage /> </div>} />
-              <Route path="/Map" exact render={() => <div> <Map /> </div>} />
-              <Route path="/Messages" exact render={() => <div> <Messages /> </div>} />
-              <Route path="/Profile" exact render={() => <div> <UserProfile /> </div>} />
-            </div>
-
-            <div className="navbar">
-              <Navbar />
-            </div>
-
           </div>
-        </Router>
+          <div className="container">
+            <Route exact path="/" render={() => <div> <LoginRegister /> </div>} />
+            <Route path="/MainPage" exact render={() => <div> <MainPage /> </div>} />
+            <Route path="/Map" exact render={() => <div> <Map /> </div>} />
+            <Route path="/Messages" exact render={() => <div> <Messages /> </div>} />
+            <Route path="/Profile" exact render={() => <div> <UserProfile /> </div>} />
+          </div>
+          <div className="navbar">
+            <Navbar />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
