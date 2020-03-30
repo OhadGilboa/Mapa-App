@@ -8,6 +8,9 @@ import MainPage from "./Components/MainPage";
 import Map from "./Components/Map";
 import Messages from "./Components/Messages/Messages";
 import UserProfile from "./Components/UserProfile";
+import Header from "./Components/Header";
+import Main from "./Components/Main";
+import LoginRegister from "./Components/LoginRegister";
 
 
 
@@ -41,7 +44,7 @@ class App extends Component {
     console.log(data);
   }
 
- getLocation() {
+  getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.toDoIfGetCurrentPositionSuccess, this.toDoIfGetCurrentPositionFail, this.options);
     }
@@ -63,22 +66,23 @@ class App extends Component {
   render() {
     this.getLocation()
     return (
-      <div className="App">
-
-        {this.getLocation()}
-        <Router>
-          <div className="mainRoutes">
-            <Route exact path="/" render={() => <div> signup </div>} />
-            <Route path="/MainPage" exact render={() => <div> <MainPage/> </div>} />
-            <Route path="/Map" exact render={() => <div> <Map/> </div>} />
-            <Route path="/Messages" exact render={() => <div> <Messages/> </div>} />
-            <Route path="/Profile" exact render={() => <div> <UserProfile/> </div>} />
+      <Router>
+        <div className="mainRoutes">
+          <div className="header">Hackthon
+                <Header />
           </div>
-          <Navbar />
-        </Router>
-
-
-      </div>
+          <div className="container">
+            <Route exact path="/" render={() => <div> <LoginRegister /> </div>} />
+            <Route path="/MainPage" exact render={() => <div> <MainPage /> </div>} />
+            <Route path="/Map" exact render={() => <div> <Map /> </div>} />
+            <Route path="/Messages" exact render={() => <div> <Messages /> </div>} />
+            <Route path="/Profile" exact render={() => <div> <UserProfile /> </div>} />
+          </div>
+          <div className="navbar">
+            <Navbar />
+          </div>
+        </div>
+      </Router>
     );
   }
 }

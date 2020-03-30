@@ -1,0 +1,29 @@
+body{
+}
+.mainRoutes {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100vh;
+}
+
+.header {
+    height: 8vh;
+    box-shadow: 0px 2px 15px -5px rgba(0, 0, 0, 0.75);
+    background-color: #000000;
+    color: white;
+    display: grid;
+    justify-content: center;
+    align-content: flex-end;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+
+.container {
+    background-color: #F1F5F2;
+    height: 84vh;
+}
+
+.navbar {
+    height: 8vh;
+}
