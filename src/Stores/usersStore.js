@@ -1,9 +1,4 @@
 import { observable, computed, action } from 'mobx'
-
-
-
-
-
 export class User {
     @observable userid
     @observable email
@@ -56,16 +51,4 @@ export class User {
     @computed get getLatitude() { return this.latitude }
     @computed get getLongitude() { return this.longitude }
     @computed get getUserMode() { return this.mode }
-
-
-
-
-
-
-
-
-
-
-
-
 }
