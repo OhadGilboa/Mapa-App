@@ -1,7 +1,7 @@
 import { observable, computed, action } from 'mobx'
 
 export class UsersStore {
-    @observable userid
+    @observable userId
     @observable email
     @observable first_name
     @observable last_name
@@ -16,8 +16,8 @@ export class UsersStore {
     @observable usersInRange = []
 
 
-    constructor(userid, email, first_name, last_name, user_password, user_status, gender, picture, latitude, longitude, mode) {
-        this.userid = userid
+    constructor(userId, email, first_name, last_name, user_password, user_status, gender, picture, latitude, longitude, mode) {
+        this.userId = userId
         this.email = email
         this.first_name = first_name
         this.last_name = last_name
@@ -43,7 +43,7 @@ export class UsersStore {
         this.usersInRange=users  
     }
 
-    @computed get getUserID() { return this.userid }
+    @computed get getUserId() { return this.userId }
     @computed get getEmail() { return this.email }
     @computed get getFirstName() { return this.first_name }
     @computed get getLastName() { return this.last_name }
