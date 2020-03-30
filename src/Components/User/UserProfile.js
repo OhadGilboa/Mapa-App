@@ -8,8 +8,7 @@ class UserProfile extends Component {
     render() {
         return (
             <div className="profile-comp">
-                <p>{this.props.usersStore.getFirstName()} {this.props.usersStore.getLastName()} </p>
-                <span>{this.props.usersStore.getUserPicture()}</span>
+                <div>USER PROFILE</div>
             </div>
         );
     }

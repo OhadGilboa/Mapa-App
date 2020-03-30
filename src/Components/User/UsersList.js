@@ -5,11 +5,16 @@ import User from "./User";
 @inject('usersStore')
 @observer
 class UsersList extends Component {
+
+  componentDidMount(){
+    this.props.usersStore.getUsers()
+  }
   render() {
-    let users = this.props.usersStore.getUsersList()
+    let users = this.props.usersStore.users
+    console.log(users)
     return (
       <div className="mainPage-comp">
-        {users.map(u => <User key={u.getEmail()}/>)}
+        {users.map(u => <User user={u} key={u.email}/>)}
       </div>
     )
   }

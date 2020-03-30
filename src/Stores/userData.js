@@ -7,6 +7,5 @@ export class UserData {
     @action addUser = (name, email, picture) => {
         const user = { name, email, picture }
         this.user = user
-
     }
 }
