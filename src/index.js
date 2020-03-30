@@ -5,9 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { UserData } from './Stores/userData';
 import { Provider } from 'mobx-react';
+import {UsersStore} from './Stores/usersStore';
 
+let usersStore = new UsersStore();
 let userData = new UserData();
-const stores = {userData}
+const stores = {userData, usersStore}
 ReactDOM.render(<Provider {...stores}> <App /> </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

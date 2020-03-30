@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
 import { observer, inject } from "mobx-react";
-
 import Navbar from "./Components/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import MainPage from "./Components/UsersList";
+import MainPage from "./Components/User/UsersList";
 import Map from "./Components/Map";
 import Messages from "./Components/Messages/Messages";
 import UserProfile from "./Components/User/UserProfile";
 import Header from "./Components/Header";
-import Main from "./Components/Main";
-import LoginRegister from "./Components/LoginRegister";
+import LoginFacebook from "./Components/Facebook";
 const axios = require('axios')
 
 @inject("usersStore")
@@ -76,11 +74,11 @@ class App extends Component {
     return (
       <Router>
         <div className="mainRoutes">
-          <div className="header">Hackthon
+          <div className="header">
                 <Header />
           </div>
           <div className="container">
-            <Route exact path="/" render={() => <div> <LoginRegister /> </div>} />
+          <Route exact path="/" render={() => <div> <LoginFacebook /> </div>} />
             <Route path="/MainPage" exact render={() => <div> <MainPage /> </div>} />
             <Route path="/Map" exact render={() => <div> <Map /> </div>} />
             <Route path="/Messages" exact render={() => <div> <Messages /> </div>} />

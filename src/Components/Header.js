@@ -8,7 +8,6 @@ class Header extends Component {
   render() {
     const user = this.props.userData.user
     //const user = this.props.userData.getUser();
-    console.log(user)
     return <div>
     <div className="title"> Mapa - Meet awesome people around</div>
         <div>

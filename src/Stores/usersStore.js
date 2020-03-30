@@ -1,5 +1,6 @@
 import { observable, computed, action } from 'mobx'
-export class User {
+
+export class UsersStore {
     @observable userid
     @observable email
     @observable first_name
