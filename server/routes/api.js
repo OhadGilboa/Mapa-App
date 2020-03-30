@@ -1,7 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const Sequelize = require("sequelize");
+
+
+//const sequelize = new Sequelize("mysql://root:12345678@localhost/hackaton");
 const sequelize = new Sequelize("mysql://root:1234@localhost/hackaton");
+// const sequelize = new Sequelize("mysql://root:password@localhost/hackaton");
+
 
 // User Routes:
 
