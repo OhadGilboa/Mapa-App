@@ -5,7 +5,7 @@ const loginOperations={
 
         console.log('userObject received at fetchUser function', userObject);
 
-        User.find({"email":userObject.email,"password":userObject.password},(err,content)=>{
+        User.find({"email":userObject.email,"user_password":userObject.password},(err,content)=>{
 
             console.log('making the query for login...');
             if(err){
@@ -41,11 +41,18 @@ const loginOperations={
     registerUser: function (userObject,request, response){
         console.log('register userObject', userObject);
         let user=new User({
-            name: userObject.name,
-            gender: userObject.gender,
             email: userObject.email,
-            password: userObject.password,
-            profile_image_url: userObject.url
+            first_name: userObject.first_name,
+            last_name: userObject.last_name,
+            pitch: userObject.pitch,
+            user_password: userObject.user_password,
+            user_status: userObject.user_status,
+            gender: userObject.gender,
+            picture: userObject.picture,
+            latitude: userObject.latitude,
+            longtitude: userObject.longtitude,
+            mode: userObject.mode,
+            usersInRange: userObject.usersInRange
         });
         console.log('creating user for saving');
         user.save(err=>{
