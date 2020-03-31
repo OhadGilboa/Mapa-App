@@ -14,6 +14,17 @@ export class UserData {
     mode: ""
   };
 
+
+    @action addPosition() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(async function(position){
+                const response = position.coords.latitude + ", " + position.coords.longitude;
+                
+                console.log(response);
+            }, this.options);
+        }
+    }
+
   @action getUserActive = async () => {
     let user = await axios.get(`${userRoute}/user/${this.user.email}`);
     return user
