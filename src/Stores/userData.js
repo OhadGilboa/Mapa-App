@@ -41,7 +41,7 @@ export class UserData {
 
     @action updateUserProfile = async (column, value) => {
         this.user[column] = value
-        let user = await axios.get(`${userRoute}/user/${this.user.email}`);
+        let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
         await axios.put(`${userRoute}/user`, {
             "column": column,
             "value": value,
@@ -69,7 +69,7 @@ export class UserData {
                 mode: ""
             });
         } else {
-            //maybe update the user status?!
+
         }
     };
 }          

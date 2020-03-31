@@ -1,10 +1,9 @@
 
-
 .userList{
     height: 100vh;
     display: grid;
     position: relative;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(6,1fr);
     scroll-behavior: smooth;
 }
 
