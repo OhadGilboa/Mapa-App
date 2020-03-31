@@ -14,24 +14,14 @@ export class UserData {
         user_status: "active",
         mode: "",
         latitude: 0,
-        longitude: 0,
+        longitude: 0
     };
 
-    @action addPosition() {
+    @action async addPosition() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(async (position) => {
+            await navigator.geolocation.getCurrentPosition(async (position) => {
                 this.user.latitude = await position.coords.latitude
                 this.user.longitude = await position.coords.longitude
-                await axios.put(`${userRoute}/user`, {
-                    column: "latitude",
-                    value: this.user.latitude,
-                    facebookId: `${this.user.facebookId}`
-                });
-                await axios.put(`${userRoute}/user`, {
-                    column: "longitude",
-                    value: this.user.longitude,
-                    facebookId: `${this.user.facebookId}`
-                });
             }, this.options);
         }
     }
@@ -60,7 +50,9 @@ export class UserData {
     };
 
     @action addUserToDataBase = async () => {
+        this.addPosition()
         let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
+        console.log(this.user.longitude)
         if (!user.data[0]) {
             await axios.post(`${userRoute}/user`, {
                 facebookId: this.user.facebookId,
@@ -72,8 +64,8 @@ export class UserData {
                 user_status: "",
                 user_gender: "",
                 picture: this.user.picture,
-                latitude: 0,
-                longitude: 0,
+                latitude: this.user.latitude,
+                longitude: this.user.longitude,
                 mode: ""
             });
         } else {
