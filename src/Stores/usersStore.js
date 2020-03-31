@@ -7,8 +7,8 @@ export class UsersStore {
     @observable users =[]
 
     @computed get numOfUsers() {
-        return this.users.length;
-    }
+        return this.users.length;}
+
     
     @action getUsers = async () =>{
         let users = await axios.get(`${userRoute}/users`)
