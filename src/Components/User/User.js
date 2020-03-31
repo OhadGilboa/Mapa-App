@@ -11,13 +11,13 @@ class User extends Component {
 
         return (
             <div className="user">
-                <div className="status">{user.user_status}</div>
-                <div className="firstName">{user.first_name}</div>
-                <div className="lastName">{user.last_name}</div>
+                {/* <div className="status">{user.user_status}</div> */}
+                <div className="person-name" className="firstName">{user.first_name}</div>
+                <div className="person-name" className="lastName">{user.last_name}</div>
                 <div className="mode" className={user.mode}></div>
-                <div className="imgContainer">
+                {/* <div className="imgContainer">
                 <img src={user.picture} alt={user.first_name}></img>
-                </div>
+                </div> */}
             </div>
         );
     }
