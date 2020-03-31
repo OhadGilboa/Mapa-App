@@ -5,8 +5,8 @@ const Sequelize = require("sequelize");
 
 
 
-// const sequelize = new Sequelize("mysql://root:12345678@localhost/hackaton");
-  const sequelize = new Sequelize("mysql://root:1234@localhost/hackaton");
+const sequelize = new Sequelize("mysql://root:12345678@localhost/hackaton");
+// const sequelize = new Sequelize("mysql://root:1234@localhost/hackaton");
 // const sequelize = new Sequelize("mysql://root:password@localhost/hackaton");
 
 
@@ -59,11 +59,12 @@ router.post("/user", async function(req, res) {
 // Put user
 router.put("/user", async function(req, res) {
   let data = req.body;
+  console.log(data)
   await sequelize
     .query(
     `UPDATE users
     SET ${data.column} = '${data.value}'
-    WHERE "facebookId" = "${data.facebookId}"`
+    WHERE facebookId = "${data.facebookId}"`
     )
     .spread(function(results, metadata) {
       res.send(results);
