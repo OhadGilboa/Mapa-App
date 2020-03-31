@@ -1,4 +1,7 @@
-.user-profile {
-    display: grid;
-    justify-content: center;
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
 }
+

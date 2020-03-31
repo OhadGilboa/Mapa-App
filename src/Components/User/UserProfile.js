@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import Popup from "reactjs-popup";
+import "../../styles/UserProfile.css";
 
 @inject("userData")
 @inject("usersStore")
@@ -49,38 +50,66 @@ class UserProfile extends Component {
 
   render() {
     const user = this.props.userData.user;
+    console.log(user);
     return (
       <div className="user-profile">
         <div className="imgContainer">
           <img src={user.picture} alt={user.first_name}></img>
         </div>
         <div className="profile-name">
-          <div className="profile-firstName">{user.first_name}</div>
-          <div className="profile-lastName">{user.last_name}</div>
+          name: {user.first_name + " " + user.last_name}
         </div>
-        <div className="profile-age">age: {user.age}</div>
-        {user.age === "---" ? (
-          <Popup
-            trigger={
-              <button>
-                <i className="fas fa-pencil-alt"></i>
-              </button>
-            }
-            position="right center"
-          >
-            <div>
-              <div>state your age</div>
-              <input
-                value={this.state.input}
-                onChange={this.changeValue}
-              ></input>
-              <button onClick={this.updateAge}> save </button>
-            </div>
-          </Popup>
-        ) : null}
         <div className="profile-email">email: {user.email}</div>
-        <div className="profile-gender">gender: {user.gender}</div>
-        {user.gender === "---" ? (
+
+        <div className="profile-age">
+          age: {user.age}
+          {user.age === "---" ? (
+            <Popup
+              className="PopUp"
+              trigger={
+                <button className="PopUp">
+                  <i className="fas fa-pencil-alt"></i>
+                </button>
+              }
+              position="right center"
+            >
+              <div>
+                <div>state your age</div>
+                <input
+                  value={this.state.input}
+                  onChange={this.changeValue}
+                ></input>
+                <button onClick={this.updateAge}> save </button>
+              </div>
+            </Popup>
+          ) : null}
+        </div>
+
+        <div className="profile-gender">
+          gender: {user.gender}
+          {user.gender === "---" ? (
+            <Popup
+              trigger={
+                <button>
+                  <i className="fas fa-pencil-alt"></i>
+                </button>
+              }
+              position="right center"
+            >
+              <div>
+                <div>state your gender</div>
+                <input
+                  value={this.state.input}
+                  onChange={this.changeValue}
+                ></input>
+                <button onClick={this.updateGender}> save </button>
+              </div>
+            </Popup>
+          ) : null}
+        </div>
+
+        <div className="profile-status">
+          status: {user.user_status}
           <Popup
             trigger={
               <button>
@@ -90,45 +119,36 @@ class UserProfile extends Component {
             position="right center"
           >
             <div>
-              <div>state your gender</div>
+              <div>change your status</div>
               <input
                 value={this.state.input}
                 onChange={this.changeValue}
               ></input>
-              <button onClick={this.updateGender}> save </button>
+              <button onClick={this.updateStatus}> save </button>
             </div>
           </Popup>
-        ) : null}
-        <div className="profile-status">status: {user.user_status}</div>
-        <Popup
-          trigger={
-            <button>
-              <i className="fas fa-pencil-alt"></i>
-            </button>
-          }
-          position="right center"
-        >
-          <div>
-            <div>change your status</div>
-            <input value={this.state.input} onChange={this.changeValue}></input>
-            <button onClick={this.updateStatus}> save </button>
-          </div>
-        </Popup>
-        <div className="profile-mode">mode: {user.mode}</div>
-        <Popup
-          trigger={
-            <button>
-              <i className="fas fa-pencil-alt"></i>
-            </button>
-          }
-          position="right center"
-        >
-          <div>
-            <div>change your mode</div>
-            <input value={this.state.input} onChange={this.changeValue}></input>
-            <button onClick={this.updateMode}> save </button>
-          </div>
-        </Popup>
+        </div>
+
+        <div className="profile-mode">
+          mode: {user.mode}
+          <Popup
+            trigger={
+              <button>
+                <i className="fas fa-pencil-alt"></i>
+              </button>
+            }
+            position="right center"
+          >
+            <div>
+              <div>change your mode</div>
+              <input
+                value={this.state.input}
+                onChange={this.changeValue}
+              ></input>
+              <button onClick={this.updateMode}> save </button>
+            </div>
+          </Popup>
+        </div>
       </div>
     );
   }
