@@ -56,7 +56,7 @@
 
 --   INSERT INTO hackaton.users(userId,facebookId, email, first_name, last_name, pitch, age, user_status,gender,picture,latitude,longitude, mode)
 --     VALUES 
---         (null,'10157306388551094','yambam@gmail.com' , 'yam' , 'ohana', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/72.jpg', 31.963139899999998, 34.80461460000001, "online"),
+--         (null,'10157306388551009','yambam@gmail.com' , 'yam' , 'ohana', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/72.jpg', 31.963139899999998, 34.80461460000001, "online"),
 --         (null,'10157306388551095','amitAlon@gmail.com' , 'amit' , 'alon', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/71.jpg', 30.963139899999998, 33.80461460000001, "cigarette"),
 --         (null,'10157306388551096','inbarkal@gmail.com' , 'inbar' , 'kal', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/70.jpg', 32.963139899999998, 32.80461460000001, "cigarette"),
 --         (null,'10157306388551097','maoz@gmail.com' , 'maoz' , 'tzur', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/20.jpg', 32.963139899999998, 32.80461460000001, "walk "),
@@ -91,3 +91,6 @@
     --     (null, "2008-11-11 14:33:44", "Love you too", 2, 3, 2),
     --     (null, "2008-11-11 13:35:44", "i pee on your grave", 2, 2, 3)
 
+-- UPDATE users SET facebookId = "10157306388551006" WHERE facebookId = "10157306388551094"
+
+DELETE FROM users WHERE facebookId = "10157306388551094" 
