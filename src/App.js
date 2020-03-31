@@ -9,7 +9,7 @@ import Messages from "./Components/Messages/Messages";
 import UserProfile from "./Components/User/UserProfile";
 import Header from "./Components/Header";
 import LoginFacebook from "./Components/Facebook";
-const axios = require('axios')
+// const axios = require('axios')
 
 @inject("usersStore")
 @inject("userData")
@@ -21,11 +21,21 @@ class App extends Component {
     //return axios.get(`http://localhost:4200/transactions`)
   }
 
-  async componentDidMount() {
-    const usersOnline = await this.getUsersOnline()
+  //async componentDidMount() {
+  // const usersOnline = await this.getUsersOnline()
     //this.props.usersStore.updateUsersInRange(usersOnline.data)
-  }
+   //}
+  
+  // getUsersOnline() {
+  //   return axios.get(`http://localhost:4200/transactions`)
+  // }
 
+  // async componentDidMount() {
+  //   const usersOnline = await this.getUsersOnline()
+  //   this.props.usersStore.updateUsersInRange(usersOnline.data)
+  // }
+
+    
   render() {
     return (
       <Router>

@@ -51,13 +51,26 @@
 --     (message_id)
 -- );
 
-  -- INSERT INTO hackaton.users(userId, email, first_name, last_name, pitch, age, user_status,gender,picture,latitude,longitude, mode)
-  --   VALUES 
-  --       (null, 'yambam@gmail.com' , 'yam' , 'ohana', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/72.jpg', 31.963139899999998, 34.80461460000001, "online"),
-  --       (null,'amitAlon@gmail.com' , 'amit' , 'alon', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/71.jpg', 30.963139899999998, 33.80461460000001, "cigarette"),
-  --       (null,'inbarkal@gmail.com' , 'inbar' , 'kal', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/70.jpg', 32.963139899999998, 32.80461460000001, "cigarette"),
-  --       (null,'maoz@gmail.com' , 'maoz' , 'tzur', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/20.jpg', 32.963139899999998, 32.80461460000001, "walk with my dog "),
-  --       (null,'yoav@gmail.com' , 'yoav' , 'kal', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/80.jpg', 31.963139899999998, 31.80461460000001, "drink bear")
+
+
+--   INSERT INTO hackaton.users(userid, email, first_name, last_name, pitch, age, user_status,gender,picture,latitude,longitude, mode)
+--     VALUES 
+--         (null, 'yambam@gmail.com' , 'yam' , 'ohana', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/72.jpg', 31.963139899999998, 34.80461460000001, "online"),
+--         (null,'amitAlon@gmail.com' , 'amit' , 'alon', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/71.jpg', 30.963139899999998, 33.80461460000001, "cigarette"),
+--         (null,'inbarkal@gmail.com' , 'inbar' , 'kal', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/70.jpg', 32.963139899999998, 32.80461460000001, "cigarette"),
+--         (null,'maoz@gmail.com' , 'maoz' , 'tzur', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/20.jpg', 32.963139899999998, 32.80461460000001, "walk "),
+--         (null,'yoav@gmail.com' , 'yoav' , 'kal', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/80.jpg', 31.963139899999998, 31.80461460000001, "drink"),
+--         (null, 'bam@gmail.com' , 'moran' , 'ohana', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/67.jpg', 31.963139899999998, 34.80461460000001, "eat"),
+--         (null,'yarden@gmail.com' , 'affmit' , 'alon', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/77.jpg', 30.963139899999998, 33.80461460000001, "cigarette"),
+--         (null,'bbbbb@gmail.com' , 'shmolib' , 'kal', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/45.jpg', 32.963139899999998, 32.80461460000001, "cigarette"),
+--         (null,'dddd@gmail.com' , 'yogev' , 'tzur', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/34.jpg', 32.963139899999998, 32.80461460000001, "walk "),
+--         (null,'yoav@gmail.com' , 'yfff' , 'kal', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/33.jpg', 31.963139899999998, 31.80461460000001, "drink"),
+--         (null, 'bam@gmail.com' , 'moran' , 'ohana', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/12.jpg', 31.963139899999998, 34.80461460000001, "eat"),
+--         (null,'yarden@gmail.com' , 'affmit' , 'alon', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/28.jpg', 30.963139899999998, 33.80461460000001, "cigarette"),
+--         (null,'bbbbb@gmail.com' , 'shmolib' , 'kal', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/42.jpg', 32.963139899999998, 32.80461460000001, "cigarette"),
+--         (null,'dddd@gmail.com' , 'yogev' , 'tzur', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/44.jpg', 32.963139899999998, 32.80461460000001, "walk "),
+--         (null,'yoav@gmail.com' , 'yfff' , 'kal', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/45.jpg', 31.963139899999998, 31.80461460000001, "drink")
+
 
     -- INSERT INTO hackaton.conversations
     -- VALUES
