@@ -39,6 +39,7 @@ export class UserData {
     this.user.facebookId = facebookId;
   };
 
+
   @action updateUserProfile = async (column, value) => {
     this.user[column] = value;
     await axios.put(`${userRoute}/user`, {

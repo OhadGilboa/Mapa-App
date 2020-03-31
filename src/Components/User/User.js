@@ -10,14 +10,13 @@ class User extends Component {
         const user = this.props.user
 
         return (
-            <div className="user">
-                {/* <div className="status">{user.user_status}</div> */}
-                <div className="person-name" className="firstName">{user.first_name}</div>
-                <div className="person-name" className="lastName">{user.last_name}</div>
-                <div className="mode" className={user.mode}></div>
-                {/* <div className="imgContainer">
-                <img src={user.picture} alt={user.first_name}></img>
-                </div> */}
+            <div className="bigUser">
+                <div className="user">
+                    <div className="person-name" className="fullName">{user.first_name + ' ' + user.last_name}</div>
+                    <div className="mode" className={user.mode}></div>
+                    <div className="distance"> 78KM</div>
+                </div>
+                <div className="vl"></div>
             </div>
         );
     }
