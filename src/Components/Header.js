@@ -11,8 +11,11 @@ class Header extends Component {
     return (
       <div>
         <div className="imageAndName">
-          <div className="imgContainer">{user ? <img className="image" src={this.props.userData.user.picture} alt={this.props.userData.user.name} /> : <div></div>}</div>
-          <div className="name">{user ? this.props.userData.user.name : null}</div>
+          <div className="imgContainer">{user ? <img className="image" src={user.picture} alt={user.first_name} /> : <div></div>}</div>
+          <div className="name">
+            <div className="firstName">{user ? user.first_name : null}</div>
+            <div className="lsatName">{user ? user.last_name : null}</div>
+          </div>
           <div className="title">Mapa</div>
         </div>
       </div>)

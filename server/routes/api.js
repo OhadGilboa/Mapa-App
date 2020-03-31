@@ -19,18 +19,28 @@ router.get("/users", async function(req, res) {
     });
 });
 
-// Get user by id
-router.get("/user/:id", async function(req, res) {
-  let userId = req.params.id;
+// // Get user by id
+// router.get("/user/:id", async function(req, res) {
+//   let userId = req.params.id;
+//   await sequelize
+//     .query(`SELECT * FROM users WHERE id = ${userId}`)
+//     .spread(function(results, metadata) {
+//       res.send(results);
+//     });
+// });
+
+// Get user by email
+router.get("/user/:email", async function(req, res) {
+  let {email} = req.params;
   await sequelize
-    .query(`SELECT * FROM users WHERE id = ${userId}`)
+    .query(`SELECT * FROM users WHERE email = '${email}'`)
     .spread(function(results, metadata) {
       res.send(results);
     });
 });
 
 // Post user
-router.post("/users", async function(req, res) {
+router.post("/user", async function(req, res) {
   let user = req.body;
   console.log(user);
   let query = `INSERT INTO users VALUES 
@@ -40,12 +50,12 @@ router.post("/users", async function(req, res) {
     '${user.last_name}',
     '${user.pitch}',
     '${user.age}',
-    '${user.user_password}',
     '${user.user_status}',
     '${user.gender}',
     '${user.picture}',
     '${user.latitude}',
     '${user.longitude}',
+    '${user.mode}'
     )`;
   await sequelize.query(query);
 });
