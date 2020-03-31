@@ -14,7 +14,8 @@ class Facebook extends Component {
             first_name: '',
             last_name: '',
             email: '',
-            picture: ''
+            picture: '',
+            facebookId: '',
         };
     }
 
@@ -25,12 +26,13 @@ class Facebook extends Component {
             first_name: response.first_name,
             last_name: response.last_name,
             email: response.email,
-            picture: response.picture.data.url
+            picture: response.picture.data.url,
+            facebookId: response.id
         });
-        if (this.state.first_name) {
-            this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture)
+        if (this.state.facebookId) {
+            this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture, this.state.facebookId)
             this.props.userData.addUserToDataBase()
-            this.props.userData.addPosition()
+
         }
     }
 

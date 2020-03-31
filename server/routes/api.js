@@ -4,8 +4,8 @@ const Sequelize = require("sequelize");
 
 
 
-const sequelize = new Sequelize("mysql://root:12345678@localhost/hackaton");
-//  const sequelize = new Sequelize("mysql://root:1234@localhost/hackaton");
+// const sequelize = new Sequelize("mysql://root:12345678@localhost/hackaton");
+  const sequelize = new Sequelize("mysql://root:1234@localhost/hackaton");
 // const sequelize = new Sequelize("mysql://root:password@localhost/hackaton");
 
 
@@ -21,21 +21,12 @@ router.get("/users", async function(req, res) {
     });
 });
 
-// // Get user by id
-// router.get("/user/:id", async function(req, res) {
-//   let userId = req.params.id;
-//   await sequelize
-//     .query(`SELECT * FROM users WHERE id = ${userId}`)
-//     .spread(function(results, metadata) {
-//       res.send(results);
-//     });
-// });
-
-// Get user by email
-router.get("/user/:email", async function(req, res) {
-  let {email} = req.params;
+// Get user by facebookId
+router.get("/user/:facebookId", async function(req, res) {
+  let {facebookId} = req.params;
+  console.log(facebookId)
   await sequelize
-    .query(`SELECT * FROM users WHERE email = '${email}'`)
+    .query(`SELECT * FROM users WHERE facebookId = '${facebookId}'`)
     .spread(function(results, metadata) {
       res.send(results);
     });
@@ -44,9 +35,10 @@ router.get("/user/:email", async function(req, res) {
 // Post user
 router.post("/user", async function(req, res) {
   let user = req.body;
-  console.log(user);
+  console.log(user)
   let query = `INSERT INTO users VALUES 
   (null, 
+    '${user.facebookId}',
     '${user.email}',
     '${user.first_name}', 
     '${user.last_name}',
@@ -65,12 +57,11 @@ router.post("/user", async function(req, res) {
 // Put user
 router.put("/user", async function(req, res) {
   let data = req.body;
-  console.log(data); //Check what is this and how to manipulate it
   await sequelize
     .query(
     `UPDATE users
     SET ${data.column} = '${data.value}'
-    WHERE userid = "${data.userid}"`
+    WHERE "facebookId" = "${data.facebookId}"`
     )
     .spread(function(results, metadata) {
       res.send(results);

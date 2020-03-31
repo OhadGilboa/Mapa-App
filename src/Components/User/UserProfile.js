@@ -59,7 +59,7 @@ class UserProfile extends Component {
           <div className="profile-lastName">{user.last_name}</div>
         </div>
         <div className="profile-age">age: {user.age}</div>
-        {user.age == "---" ? (
+        {user.age === "---" ? (
           <Popup
             trigger={
               <button>
@@ -80,7 +80,7 @@ class UserProfile extends Component {
         ) : null}
         <div className="profile-email">email: {user.email}</div>
         <div className="profile-gender">gender: {user.gender}</div>
-        {user.gender == "---" ? (
+        {user.gender === "---" ? (
           <Popup
             trigger={
               <button>
