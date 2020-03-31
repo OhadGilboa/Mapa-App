@@ -29,11 +29,7 @@ class Map extends Component {
     console.log(data);
   }
 
-  getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.toDoIfGetCurrentPositionSuccess, this.toDoIfGetCurrentPositionFail, this.options);
-    }
-  }
+
 
 
   toDoIfGetCurrentPositionSuccess(position) {

@@ -17,9 +17,9 @@ import LoginFacebook from "./Components/Facebook";
 @observer
 class App extends Component {
 
-  getUsersOnline() {
+  //getUsersOnline() {
     //return axios.get(`http://localhost:4200/transactions`)
-  }
+  //}
 
   //async componentDidMount() {
   // const usersOnline = await this.getUsersOnline()
