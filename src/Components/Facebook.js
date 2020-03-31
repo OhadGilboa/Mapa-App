@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import { inject, observer } from 'mobx-react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import UsersList from './User/UsersList';
 
 
 
@@ -32,6 +30,7 @@ class Facebook extends Component {
         if (this.state.first_name) {
             this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture)
             this.props.userData.addUserToDataBase()
+            this.props.userData.addPosition()
         }
     }
 

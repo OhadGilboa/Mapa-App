@@ -28,3 +28,10 @@
     display: grid;
     grid-template-columns: 9vh 15vh 55vw;
 }
+
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
