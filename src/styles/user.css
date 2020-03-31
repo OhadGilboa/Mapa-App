@@ -1,29 +1,25 @@
 .user {
-    border-radius: 10px;
+    border-radius: 20px;
     height: 8vh ;
-    width: 95vw;
-    margin: 5px;
-    padding: 2px;
+    width: 90vw;
+    margin: 3px;
+    padding: 4px;
     border: 2px solid black;
-    text-align: start;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     text-align: center;
-}
+    box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.55);
+    background-color:#ffda00; 
+    justify-items: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: Comic Sans MS ;
 
-.status {
-    position: inline-block;
-    text-align: center;
-    background-color: rgb(33, 128, 64);
 }
-
 .name {
+    font-size: 20px;
     text-align: center;
     position: inline-block;
-}
-
-.mode {
-    text-align: center;
 }
 
 .imgContainer {
@@ -33,37 +29,41 @@
     border-radius: 10%;
 }
 
-img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-
-.caffe {
-    background-image: url(https://img.icons8.com/material/32/000000/cafe--v1.png);
+.online {
+    background-image: url(https://img.icons8.com/ios/50/000000/coffee.png);
     background-position: center;
     background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
 }
 
 .cigarette {
+    height: 100%;
+    width: 100%;
     background: url(https://img.icons8.com/office/16/000000/smoking.png);
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .eat {
+    height: 100%;
+    width: 100%;
     background: url(https://img.icons8.com/doodle/48/000000/hot-dog.png);
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .drink {
+    height: 100%;
+    width: 100%;
     background-image: url(https://img.icons8.com/color/48/000000/beer-bottle-cap--v1.png);
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .walk {
+    height: 100%;
+    width: 100%;
     background-image: url(https://img.icons8.com/color/48/000000/walking.png);
     background-position: center;
     background-repeat: no-repeat;
