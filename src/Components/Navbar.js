@@ -8,7 +8,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar-comp">
-        <Link className="link" to="/MainPage">
+        <Link className="link" to="/UsersList">
           <i className="fas fa-list"></i>
         </Link>
         <Link className="link" to="/Map">
