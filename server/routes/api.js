@@ -50,7 +50,9 @@ router.post("/user", async function (req, res) {
     '${user.picture}',
     '${user.latitude}',
     '${user.longitude}',
-    '${user.mode}'
+    '${user.mode}',
+    '${user.range}',
+    ${user.silence}
     )`;
   await sequelize.query(query);
 });
@@ -63,6 +65,21 @@ router.put("/user", async function (req, res) {
     .query(
       `UPDATE users
     SET ${data.column} = '${data.value}'
+    WHERE facebookId = "${data.facebookId}"`
+    )
+    .spread(function (results, metadata) {
+      res.send(results);
+    });
+});
+
+//put user for boolean
+router.put("/boolean", async function (req, res) {
+  let data = req.body;
+  console.log(data)
+  await sequelize
+    .query(
+      `UPDATE users
+    SET ${data.column} = ${data.value}
     WHERE facebookId = "${data.facebookId}"`
     )
     .spread(function (results, metadata) {

@@ -104,8 +104,6 @@ class UserProfile extends Component {
   };
   render() {
     const user = this.props.userData.user;
-    console.log(user.range);
-    
     return (
       <div className="user-profile">
         <img className="profile-image" src={user.picture} alt={user.first_name}></img>

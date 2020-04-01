@@ -14,9 +14,13 @@
 
 }
 
-.icon{
+.iconSettings{
     margin-top: 5vh;
     margin-right: 2vw;
     width: 6vh;
     height: 6vh;
+}
+.sos{
+    background-color: #fd19008f;
+    border-radius: 10px;
 }

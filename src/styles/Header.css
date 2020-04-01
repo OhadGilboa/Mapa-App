@@ -46,14 +46,12 @@
     cursor: pointer;
 }
 
-.popup-settings {
+.popup-content {
     width: 75vw !important;
     height: 70vh;
     display: grid;
     justify-items: center;
 }
-
-
 
 .setButton:active {
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);

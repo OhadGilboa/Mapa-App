@@ -8,89 +8,93 @@ import message from "../User/icons/message.svg"
 import sos from "../User/icons/sos.svg"
 import "../../styles/Settings.css";
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
 import Radio from '@material-ui/core/Radio';
+import { inject, observer } from "mobx-react"
 
 
 
-export default function RadioButtons() {
-  const [selectedValue, setSelectedValue] = React.useState('a');
+const RadioButtons = inject("userData")(observer((props) => {
+  const [selectedValue, setSelectedValue] = React.useState(props.userData.user.mode);
 
   const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
+    setSelectedValue(event.target.value)
+    props.userData.setMode(event.target.value);
+    console.log(event.target.value)
+  }
 
-  return (
-    <div className="ModeSelector">
+  return(
+    <div className = "ModeSelector" >
       <div className="row">
-        <img className="icon dog" src={dog}></img>
-        <img className="icon dog" src={sport}></img>
-        <img className="icon dog" src={message}></img>
-        <img className="icon dog" src={sos}></img>
+        <img className="iconSettings dog" src={dog}></img>
+        <img className="iconSettings sport" src={sport}></img>
+        <img className="iconSettings message" src={message}></img>
+        <img className="iconSettings sos" src={sos}></img>
         <Radio
-          checked={selectedValue === 'a'}
+          checked={selectedValue === 'dog'}
           onChange={handleChange}
-          value="a"
+          value="dog"
           name="radio-button-demo"
-          inputProps={{ 'aria-label': 'A' }}
+          inputProps={{ 'aria-label': 'dog' }}
         />
         <Radio
-          checked={selectedValue === 'b'}
+          checked={selectedValue === 'sport'}
           onChange={handleChange}
-          value="b"
+          value="sport"
           name="radio-button-demo"
-          inputProps={{ 'aria-label': 'B' }}
+          inputProps={{ 'aria-label': 'sport' }}
         />
         <Radio
-          checked={selectedValue === 'c'}
+          checked={selectedValue === 'message'}
           onChange={handleChange}
-          value="c"
+          value="message"
           name="radio-button-demo"
-          inputProps={{ 'aria-label': 'C' }}
+          inputProps={{ 'aria-label': 'message' }}
         />
         <Radio
-          checked={selectedValue === 'd'}
+          checked={selectedValue === 'sos'}
           onChange={handleChange}
-          value="d"
+          value="sos"
           name="radio-button-demo"
-          inputProps={{ 'aria-label': 'D' }}
+          inputProps={{ 'aria-label': 'sos' }}
         />
       </div>
       <div className="row">
-        <img className="icon dog" src={cigarette}></img>
-        <img className="icon dog" src={beer}></img>
-        <img className="icon dog" src={coffee}></img>
-        <img className="icon dog" src={movie}></img>
+        <img className="iconSettings cigarette" src={cigarette}></img>
+        <img className="iconSettings beer" src={beer}></img>
+        <img className="iconSettings coffee" src={coffee}></img>
+        <img className="iconSettings movie" src={movie}></img>
         <Radio
-          checked={selectedValue === 'e'}
+          checked={selectedValue === 'cigarette'}
           onChange={handleChange}
-          value="e"
+          value="cigarette"
           name="radio-button-demo"
-          inputProps={{ 'aria-label': 'E' }}
+          inputProps={{ 'aria-label': 'cigarette' }}
         />
         <Radio
-          checked={selectedValue === 'f'}
+          checked={selectedValue === 'beer'}
           onChange={handleChange}
-          value="f"
+          value="beer"
           name="radio-button-demo"
-          inputProps={{ 'aria-label': 'F' }}
+          inputProps={{ 'aria-label': 'beer' }}
         />
         <Radio
-          checked={selectedValue === 'g'}
+          checked={selectedValue === 'coffee'}
           onChange={handleChange}
-          value="g"
+          value="coffee"
           name="radio-button-demo"
-          inputProps={{ 'aria-label': 'G' }}
+          inputProps={{ 'aria-label': 'coffee' }}
         />
         <Radio
-          checked={selectedValue === 'h'}
+          checked={selectedValue === 'movie'}
           onChange={handleChange}
-          value="h"
+          value="movie"
           name="radio-button-demo"
-          inputProps={{ 'aria-label': 'H' }}
+          inputProps={{ 'aria-label': 'movie' }}
         />
       </div>
-    </div>
-  );
-}
+    </div >
+  )
+}))
+
+
+export default RadioButtons
