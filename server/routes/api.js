@@ -6,7 +6,7 @@ const Sequelize = require("sequelize");
 
 
 // const sequelize = new Sequelize("mysql://root:12345678@localhost/hackaton");
- const sequelize = new Sequelize("mysql://root:1234@localhost/hackaton");
+const sequelize = new Sequelize("mysql://root:1234@localhost/hackaton");
 // const sequelize = new Sequelize("mysql://root:password@localhost/hackaton");
 
 
@@ -15,27 +15,26 @@ const Sequelize = require("sequelize");
 // User Routes:
 
 // Get users
-router.get("/users", async function(req, res) {
+router.get("/users", async function (req, res) {
   await sequelize
     .query("SELECT * FROM users")
-    .spread(function(results, metadata) {
+    .spread(function (results, metadata) {
       res.send(results);
     });
 });
 
 // Get user by facebookId
-router.get("/user/:facebookId", async function(req, res) {
-  let {facebookId} = req.params;
-  console.log(facebookId)
+router.get("/user/:facebookId", async function (req, res) {
+  let { facebookId } = req.params;
   await sequelize
     .query(`SELECT * FROM users WHERE facebookId = '${facebookId}'`)
-    .spread(function(results, metadata) {
+    .spread(function (results, metadata) {
       res.send(results);
     });
 });
 
 // Post user
-router.post("/user", async function(req, res) {
+router.post("/user", async function (req, res) {
   let user = req.body;
   console.log(user)
   let query = `INSERT INTO users VALUES 
@@ -57,16 +56,31 @@ router.post("/user", async function(req, res) {
 });
 
 // Put user
-router.put("/user", async function(req, res) {
+router.put("/user", async function (req, res) {
   let data = req.body;
   console.log(data)
   await sequelize
     .query(
-    `UPDATE users
+      `UPDATE users
     SET ${data.column} = '${data.value}'
     WHERE facebookId = "${data.facebookId}"`
     )
-    .spread(function(results, metadata) {
+    .spread(function (results, metadata) {
+      res.send(results);
+    });
+});
+
+//Put change 2 params in 1 call
+router.put("/user2", async function (req, res) {
+  let data = req.body;
+  await sequelize
+    .query(
+      `UPDATE users
+    SET ${data.column1} = '${data.value1}',
+    ${data.column2} = '${data.value2}'
+    WHERE facebookId = "${data.facebookId}"`
+    )
+    .spread(function (results, metadata) {
       res.send(results);
     });
 });
@@ -76,7 +90,7 @@ router.put("/user", async function(req, res) {
 // Messages Routes:
 
 // Get messages by id
-router.get("/conversation/:id", async function(req, res) {
+router.get("/conversation/:id", async function (req, res) {
   let conversationId = req.params.id;
   await sequelize
     .query(
@@ -84,13 +98,13 @@ router.get("/conversation/:id", async function(req, res) {
     FROM messages
     WHERE messages.conversationId= ${conversationId}`
     )
-    .spread(function(results, metadata) {
+    .spread(function (results, metadata) {
       res.send(results);
     });
 });
 
 // Post message
-router.post("/message", async function(req, res) {
+router.post("/message", async function (req, res) {
   let message = req.body;
   console.log(message);
   let query = `INSERT INTO messages VALUES 
@@ -103,5 +117,41 @@ router.post("/message", async function(req, res) {
     )`;
   await sequelize.query(query);
 });
+
+
+router.get("/distance/:facebookId", async function (req, res) {
+  const arrDistance = []
+  await sequelize
+    .query("SELECT * FROM users")
+    .spread(function (results, metadata) {
+      let { facebookId } = req.params;
+      let connectedUser = results.find(u => u.facebookId === facebookId)
+      results.map(u => {
+        let temp = {id: u.facebookId, distance: Math.round(calcDistanceBetweenTwoPeopleInKM(connectedUser.latitude, connectedUser.longitude, u.latitude, u.longitude) * 10) / 10}
+        arrDistance.push(temp)
+      })
+    });
+    res.send(arrDistance)
+});
+
+
+calcDistanceBetweenTwoPeopleInKM = (lat1, lon1, lat2, lon2) => {
+  const R = 6371;
+  const dLat = changeDegreesToRadians(lat2 - lat1);
+  const dLon = changeDegreesToRadians(lon2 - lon1);
+  const radLat1 = changeDegreesToRadians(lat1);
+  const tadLat2 = changeDegreesToRadians(lat2);
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(radLat1) * Math.cos(tadLat2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const d = R * c;
+  return d;
+}
+
+function changeDegreesToRadians(value) {
+  return value * Math.PI / 180;
+}
+
+
+
 
 module.exports = router;
