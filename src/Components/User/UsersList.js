@@ -18,14 +18,20 @@ class UsersList extends Component {
         }
       }
     }
-    console.log(users)
+  }
+
+  removeMyself(users) {
+    let indexToRemove = users.findIndex(u => u.facebookId === this.props.userData.facebookId)
+    users.splice(indexToRemove, 1)
   }
 
   componentDidMount() {
     this.props.usersStore.getUsers()
   }
+  
   render() {
     let users = this.props.usersStore.users
+    //this.removeMyself(users)
     { this.addingDistanceToUsers(users) }
     console.log(users)
     return (
