@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import Slider from "./Sliders/Slider"
 import ModeChanger from "./Sliders/ModeChanger"
+import Switches from "./Sliders/mySwitch"
 import "../styles/Settings.css";
-import movie from "./User/icons/movie.svg"
-import cigarette from "./User/icons/cigarette.svg"
-import beer from "./User/icons/beer.svg"
-import coffee from "./User/icons/coffee.svg"
-import dog from "./User/icons/dog.svg"
-import sport from "./User/icons/sport.svg"
-import message from "./User/icons/message.svg"
-import sos from "./User/icons/sos.svg"
+import { observer } from 'mobx-react';
 
 
 class Settings extends Component {
@@ -18,7 +12,10 @@ class Settings extends Component {
             <div>
                 <div className="rangeTitle">Range:</div>
                 <Slider />
+                <div className="rangeTitle">Mode:</div>
                 <ModeChanger />
+                <div className="rangeTitle">Silence:</div>
+                <Switches />
             </div>
         );
     }

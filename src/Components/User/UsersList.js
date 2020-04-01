@@ -4,13 +4,14 @@ import User from "./User";
 import "../../styles/userList.css"
 import "../../styles/user.css"
 
+@observer
 @inject('usersStore')
 @inject('userData')
-@observer
 class UsersList extends Component {
 
   addingDistanceToUsers(users) {
     let dis = this.props.userData.user.distance.data
+    console.log(dis)
     for (let u of users) {
       for (let d of dis) {
         if (u.facebookId === d.id) {
@@ -32,8 +33,7 @@ class UsersList extends Component {
   render() {
     let users = this.props.usersStore.users
     //this.removeMyself(users)
-    { this.addingDistanceToUsers(users) }
-    console.log(users)
+    this.addingDistanceToUsers(users) 
     return (
       <div className="userList">
         <div className="headerPlace"></div>

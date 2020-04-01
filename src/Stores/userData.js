@@ -17,6 +17,7 @@ export class UserData {
     longitude: 0,
     distance: [],
     range: 2,
+    silence: false
   };
 
   @action async addPosition() {
@@ -52,6 +53,16 @@ export class UserData {
     });
   };
 
+
+  @action updateUserBoolean = async (column, value) => {
+    this.user[column] = value;
+    await axios.put(`${userRoute}/boolean`, {
+      column,
+      value,
+      facebookId: `${this.user.facebookId}`
+    });
+  };
+
   @action addUserToDataBase = async () => {
     await this.addPosition();
     let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
@@ -69,7 +80,10 @@ export class UserData {
         picture: this.user.picture,
         latitude: this.user.latitude,
         longitude: this.user.longitude,
-        mode: ""
+        mode: "",
+        range: 2,
+        silence: false,
+
       });
     } else {
       this.user.email = user.data[0].email
@@ -78,9 +92,11 @@ export class UserData {
       this.user.user_status = user.data[0].user_status;
       this.user.gender = user.data[0].gender;
       this.user.mode = user.data[0].mode;
+      this.user.range = user.data[0].range;
+      this.user.silence = user.data[0].silence;
     }
   };
-
+  
   @action updateLocationToDB = async () => {
     await axios.put(`${userRoute}/user2`, {
       column1: "latitude",
@@ -93,10 +109,22 @@ export class UserData {
 
   @action getLocationsList = async () => {
     this.user.distance = await axios.get(`${userRoute}/distance/${this.user.facebookId}`);
+    console.log(this.user.distance)
   }
 
   @action setRange = range => {
     this.user.range = range
+    this.updateUserProfile("range",this.user.range)
+    
+  }
+  @action setMode = mode => {
+    this.user.mode = mode
+    console.log(this.user.mode)
+    this.updateUserProfile("mode",this.user.mode)
+  }
+  @action setSilence = silence => {
+    this.user.silence = silence
+    this.updateUserBoolean("silence",this.user.silence)
   }
 
 }
