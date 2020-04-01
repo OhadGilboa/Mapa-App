@@ -5,14 +5,28 @@ import "../../styles/userList.css"
 import "../../styles/user.css"
 
 @inject('usersStore')
+@inject('userData')
 @observer
 class UsersList extends Component {
+
+  addingDistanceToUsers(users) {
+    let dis = this.props.userData.user.distance.data
+    for (let u of users) {
+      for (let d of dis) {
+        if (u.facebookId === d.id) {
+          u.distance = d.distance
+        }
+      }
+    }
+    console.log(users)
+  }
 
   componentDidMount() {
     this.props.usersStore.getUsers()
   }
   render() {
     let users = this.props.usersStore.users
+    { this.addingDistanceToUsers(users) }
     console.log(users)
     return (
       <div className="userList">
@@ -21,7 +35,7 @@ class UsersList extends Component {
         {users.map(u => <User user={u} key={u.facebookId} />)}
         <div className="footerPlace"></div>
         <div className="vl"></div>
-        </div>
+      </div>
     )
   }
 }

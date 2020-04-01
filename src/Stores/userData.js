@@ -14,7 +14,8 @@ export class UserData {
     user_status: "active",
     mode: "",
     latitude: 0,
-    longitude: 0
+    longitude: 0,
+    distance: []
   };
 
   @action async addPosition() {
@@ -37,6 +38,7 @@ export class UserData {
     this.user.email = email;
     this.user.picture = picture;
     this.user.facebookId = facebookId;
+    this.getLocationsList()
   };
 
 
@@ -53,8 +55,9 @@ export class UserData {
   };
 
   @action addUserToDataBase = async () => {
-    this.addPosition();
+    await this.addPosition();
     let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
+    await this.updateLocationToDB();
     if (!user.data[0]) {
       console.log(user);
       await axios.post(`${userRoute}/user`, {
@@ -81,4 +84,20 @@ export class UserData {
       this.user.mode = user.data[0].mode;
     }
   };
+
+  @action updateLocationToDB = async () => {
+    await axios.put(`${userRoute}/user2`, {
+      column1: "latitude",
+      value1: this.user.latitude,
+      column2: "longitude",
+      value2: this.user.longitude,
+      facebookId: `${this.user.facebookId}`
+    });
+  }
+
+  @action getLocationsList = async () => {
+    this.user.distance = await axios.get(`${userRoute}/distance/${this.user.facebookId}`);
+    console.log(this.user.distance)
+  }
+
 }

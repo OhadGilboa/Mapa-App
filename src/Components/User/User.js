@@ -57,8 +57,8 @@ class User extends Component {
             <div className={user.mode ==="sos" ? "bigUser sosBackground" : "bigUser"}>
                 <div className="user">
                     <div className="person-name" className="fullName">{user.first_name + ' ' + user.last_name}</div>
+                    <div className="distance"> {user.distance}km</div>
                     {this.iconHandler(user)}
-                    <div className="distance"> 78KM</div>
                 </div>
                 <div className="vl"></div>
             </div>
