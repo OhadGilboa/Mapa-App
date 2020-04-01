@@ -1,7 +1,46 @@
+.user-profile{
+    display: grid;
+    grid-template-rows: 4fr 2fr 2fr 2fr 2fr 2fr 3fr 2fr;
+    position: absolute;
+    left: 14vw;
+    top: 13vh;
+    font-size: 5vw;
+    font-family: cursive;
+}
+.categories{
+    text-decoration: underline;
+}
 button{
     cursor: pointer;
     border: none;
     outline: none;
     background: none;
+    font-family: cursive;
 }
-
+.profile-image{
+    justify-self: center;
+    width: 23vw;
+    border-radius: 50%;
+    margin-bottom: 4vh;
+}
+.icon {
+    height: 6vh;
+    width: 6vh;
+    display: inline-block;
+    margin-left: 2vw;
+}
+.popup-content {
+    width: 100px !important;
+}
+.List {
+    max-width: 100px;
+    font-family: cursive;
+}
+.list-name {
+    font-size: 4vw;
+}
+input {
+    max-width: 90px;
+    font-family: cursive;
+    margin-left: 0.5vw;
+}
