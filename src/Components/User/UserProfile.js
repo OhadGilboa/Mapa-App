@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import Popup from "reactjs-popup";
 import "../../styles/UserProfile.css";
-
+import movie from "./icons/movie.svg"
+import cigarette from "./icons/cigarette.svg"
+import beer from "./icons/beer.svg"
+import coffee from "./icons/coffee.svg"
+import dog from "./icons/dog.svg"
+import sport from "./icons/sport.svg"
+import message from "./icons/message.svg"
+import sos from "./icons/sos.svg"
 @inject("userData")
 @inject("usersStore")
 @observer
@@ -10,84 +17,144 @@ class UserProfile extends Component {
   constructor() {
     super();
     this.state = {
-      input: ""
+      input: "",
+      isOpenAge: false,
+      isOpenMode: false,
+      isOpenStatus: false,
+      isOpenGender: false
     };
   }
-
+  iconHandler(mode) {
+    switch (mode) {
+        case "cigarette":
+            return (
+                <img src={cigarette} className="cigarette icon" alt={"cigarette"} />
+            )
+        case "movie":
+            return (
+                <img src={movie} className="movie icon" alt={"movie"} />
+            )
+        case "beer":
+            return (
+                <img src={beer} className="beer icon" alt={"beer"} />
+            )
+        case "coffee":
+            return (
+                <img src={coffee} className="coffee icon" alt={"coffee"} />
+            )
+        case "dog":
+            return (
+                <img src={dog} className="dog icon" alt={"dog"} />
+            )
+        case "sos":
+            return (
+                <img src={sos} className="sos icon" alt={"sos"} />
+            )
+        case "sport":
+            return (
+                <img src={sport} className="sport icon" alt={"sport"} />
+            )
+        default:
+            return (
+                <img src={message} className="message icon" alt={"message"} />
+            )
+    }
+}
+  HandleOpen = (name) => {
+    switch (name) {
+      case "age":
+        this.setState({
+          isOpenAge: true
+        })   
+        break;
+      case "mode":
+        this.setState({
+          isOpenMode: true
+        })   
+        break;
+      case "status":
+        this.setState({
+          isOpenStatus: true
+        })   
+        break;
+      case "gender":
+        this.setState({
+          isOpenGender: true
+        })   
+        break;
+      default:
+        break;
+    }
+  }
   changeValue = async e => {
     await this.setState({
       input: e.target.value
     });
   };
-
   updateStatus = async () => {
     this.props.userData.updateUserProfile("user_status", this.state.input);
     this.setState({
-      input: ""
+      input: "",
+      isOpenStatus: false
     });
   };
-
   updateMode = async () => {
     this.props.userData.updateUserProfile("mode", this.state.input);
     this.setState({
-      input: ""
+      input: "",
+      isOpenMode: false
     });
   };
-
   updateAge = async () => {
     this.props.userData.updateUserProfile("age", this.state.input);
     this.setState({
-      input: ""
+      input: "",
+      isOpenAge: false
     });
   };
-
   updateGender = async () => {
     this.props.userData.updateUserProfile("gender", this.state.input);
     this.setState({
-      input: ""
+      input: "",
+      isOpenGender: false
     });
   };
-
   render() {
     const user = this.props.userData.user;
     console.log(user);
     return (
       <div className="user-profile">
-        <div className="imgContainer">
-          <img src={user.picture} alt={user.first_name}></img>
-        </div>
+          <img className="profile-image" src={user.picture} alt={user.first_name}></img>
         <div className="profile-name">
-          name: {user.first_name + " " + user.last_name}
+        <span className="categories">Name:</span> {user.first_name + " " + user.last_name}
         </div>
-        <div className="profile-email">email: {user.email}</div>
-
+        <div className="profile-email"><span className="categories">Email:</span> {user.email}</div>
         <div className="profile-age">
-          age: {user.age}
-          {user.age === "---" ? (
+        <span className="categories">Age:</span> {user.age}
             <Popup
-              className="PopUp"
               trigger={
                 <button className="PopUp">
                   <i className="fas fa-pencil-alt"></i>
                 </button>
               }
               position="right center"
+              on="click"
+              open={this.state.isOpenAge}
+              onOpen={this.HandleOpen("age")}
             >
               <div>
-                <div>state your age</div>
+                <div className="list-name">Select Age</div>
                 <input
+                  type="text"
                   value={this.state.input}
                   onChange={this.changeValue}
                 ></input>
                 <button onClick={this.updateAge}> save </button>
               </div>
             </Popup>
-          ) : null}
         </div>
-
         <div className="profile-gender">
-          gender: {user.gender}
-          {user.gender === "---" ? (
+          <span className="categories">Gender:</span> {user.gender}
             <Popup
               trigger={
                 <button>
@@ -95,21 +162,27 @@ class UserProfile extends Component {
                 </button>
               }
               position="right center"
+              on="click"
+              open={this.state.isOpenGendr}
+              onOpen={this.HandleOpen("gender")}
             >
               <div>
-                <div>state your gender</div>
-                <input
+                <div className="list-name">Select Gender</div>
+                <select                 
                   value={this.state.input}
                   onChange={this.changeValue}
-                ></input>
+                 className="List">
+                <option value = "love">-select</option>
+                <option value = "male">male</option>
+                <option value = "female">female</option>
+                <option value = "Bigender">Bigender</option>
+                 </select>
                 <button onClick={this.updateGender}> save </button>
               </div>
             </Popup>
-          ) : null}
         </div>
-
         <div className="profile-status">
-          status: {user.user_status}
+        <span className="categories">Status:</span> {user.user_status}
           <Popup
             trigger={
               <button>
@@ -117,20 +190,27 @@ class UserProfile extends Component {
               </button>
             }
             position="right center"
+            on="click"
+            open={this.state.isOpenStatus}
+             onOpen={this.HandleOpen("status")}
           >
             <div>
-              <div>change your status</div>
-              <input
+              <div className="list-name">Select Status</div>
+              <select                 
                 value={this.state.input}
                 onChange={this.changeValue}
-              ></input>
+                 className="List">
+                <option value = "love">-select</option>
+                <option value = "online">online</option>
+                <option value = "offline">offline</option>
+                <option value = "doNotDisturb">Do Not Disturb</option>
+                 </select>
               <button onClick={this.updateStatus}> save </button>
             </div>
           </Popup>
         </div>
-
         <div className="profile-mode">
-          mode: {user.mode}
+        <span className="categories">Mode:</span>{this.iconHandler(user.mode)}
           <Popup
             trigger={
               <button>
@@ -138,16 +218,32 @@ class UserProfile extends Component {
               </button>
             }
             position="right center"
+            on="click"
+            open={this.state.isOpenMode}
+            onOpen={this.HandleOpen("mode")}
           >
             <div>
-              <div>change your mode</div>
-              <input
+              <div className="list-name">Select Mode</div>
+             <select 
                 value={this.state.input}
-                onChange={this.changeValue}
-              ></input>
+                onChange={this.changeValue} 
+                className="List">
+               <option value = "">-select-</option>
+               <option value = "message">Chat</option>
+               <option value = "sos">Help</option>
+               <option value = "sport">Sport</option>
+               <option value = "coffee">Coffee</option>
+               <option value = "dog">Dog Walking</option>
+               <option value = "cigarette">Smoking</option>
+               <option value = "beer">let's Drink</option>
+               <option value = "movie">Movie</option>
+             </select>
               <button onClick={this.updateMode}> save </button>
             </div>
           </Popup>
+        </div>
+        <div className="profile-location">
+        <span className="categories">Location:</span> {user.latitude + "," + user.longitude} 
         </div>
       </div>
     );
