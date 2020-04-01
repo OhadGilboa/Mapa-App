@@ -18,7 +18,7 @@ class UsersList extends Component {
       <div className="userList">
         <div className="headerPlace"></div>
         <div className="vl"></div>
-        {users.map(u => <User user={u} key={u.email} />)}
+        {users.map(u => <User user={u} key={u.facebookId} />)}
         <div className="footerPlace"></div>
         <div className="vl"></div>
         </div>

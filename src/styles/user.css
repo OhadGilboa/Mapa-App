@@ -1,25 +1,30 @@
-.footerPlace{
+.footerPlace {
     height: 7vh;
     width: 100%;
 }
 
-.headerPlace{
+.headerPlace {
     height: 9vh;
     width: 100%;
 }
 
-.bigUser{
+.bigUser {
     display: grid;
     grid-template-rows: 1fr 0.7px;
 }
 
-.vl{
+.vl {
     width: 100vw;
     height: 0.7px;
     background-color: rgb(216, 216, 216);
 }
 
-.help{
+.distance {
+    display: grid;
+    align-content: center;
+}
+
+.sos {
     background-color: #fd19008f;
 }
 
@@ -42,48 +47,15 @@
     border-radius: 10%;
 }
 
-.fullName{
+.fullName {
     display: grid;
     text-align: left;
     align-content: center;
 }
 
-.online {
-    background-image: url(https://img.icons8.com/ios/50/000000/coffee.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-}
-
-.cigarette {
-    height: 100%;
-    width: 100%;
-    background: url(https://img.icons8.com/office/16/000000/smoking.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.eat {
-    height: 100%;
-    width: 100%;
-    background: url(https://img.icons8.com/doodle/48/000000/hot-dog.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.drink {
-    height: 100%;
-    width: 100%;
-    background-image: url(https://img.icons8.com/color/48/000000/beer-bottle-cap--v1.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.walk {
-    height: 100%;
-    width: 100%;
-    background-image: url(https://img.icons8.com/color/48/000000/walking.png);
-    background-position: center;
-    background-repeat: no-repeat;
+.icon {
+    height: 5vh;
+    width: 5vh;
+    display: grid;
+    align-self: center;
 }
