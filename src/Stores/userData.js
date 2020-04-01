@@ -15,7 +15,8 @@ export class UserData {
     mode: "",
     latitude: 0,
     longitude: 0,
-    distance: []
+    distance: [],
+    range: 2,
   };
 
   @action async addPosition() {
@@ -49,9 +50,6 @@ export class UserData {
       value,
       facebookId: `${this.user.facebookId}`
     });
-    console.log(this.user.facebookId);
-    console.log(column);
-    console.log(value);
   };
 
   @action addUserToDataBase = async () => {
@@ -59,7 +57,6 @@ export class UserData {
     let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
     await this.updateLocationToDB();
     if (!user.data[0]) {
-      console.log(user);
       await axios.post(`${userRoute}/user`, {
         facebookId: this.user.facebookId,
         email: this.user.email,
@@ -75,7 +72,6 @@ export class UserData {
         mode: ""
       });
     } else {
-      console.log(user.data[0]);
       this.user.email = user.data[0].email
       this.user.pitch = user.data[0].pitch;
       this.user.age = user.data[0].age;
@@ -97,7 +93,10 @@ export class UserData {
 
   @action getLocationsList = async () => {
     this.user.distance = await axios.get(`${userRoute}/distance/${this.user.facebookId}`);
-    console.log(this.user.distance)
+  }
+
+  @action setRange = range => {
+    this.user.range = range
   }
 
 }

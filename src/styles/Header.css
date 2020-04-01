@@ -6,10 +6,10 @@
 
 .imgContainer {
     height: 8vh;
-    display: grid;  
+    display: grid;
 }
 
-.replace{
+.replace {
     height: 8vh;
     width: 100%;
 }
@@ -26,17 +26,35 @@
     font-size: 1.3vh;
     display: grid;
     align-self: center;
-    justify-self: self-start;
 }
 
 .imageAndName {
     display: grid;
-    grid-template-columns: 9vh 15vh 55vw;
+    grid-template-columns: 14% 28% 12% 42%;
 }
-
 
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
-  }
+}
+
+.fas {
+    font-size: 4vh;
+    align-self: center;
+    justify-self: right;
+    cursor: pointer;
+}
+
+.popup-settings {
+    width: 75vw !important;
+    height: 70vh;
+    display: grid;
+    justify-items: center;
+}
+
+
+
+.setButton:active {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
