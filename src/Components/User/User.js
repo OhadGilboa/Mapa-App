@@ -53,9 +53,8 @@ class User extends Component {
 
     render() {
         const user = this.props.user
-
         return (
-            <div className="bigUser">
+            <div className={user.mode ==="sos" ? "bigUser sosBackground" : "bigUser"}>
                 <div className="user">
                     <div className="person-name" className="fullName">{user.first_name + ' ' + user.last_name}</div>
                     {this.iconHandler(user)}

@@ -11,6 +11,7 @@
 .bigUser {
     display: grid;
     grid-template-rows: 1fr 0.7px;
+ 
 }
 
 .vl {
@@ -24,8 +25,9 @@
     align-content: center;
 }
 
-.sos {
+.sosBackground {
     background-color: #fd19008f;
+    width: 100vw;
 }
 
 .user {
