@@ -20,13 +20,20 @@ export class UserData {
     silence: false
   };
 
-  @action async addPosition() {
+  @action addPosition() {
     if (navigator.geolocation) {
-      await navigator.geolocation.getCurrentPosition(async position => {
-        this.user.latitude = await position.coords.latitude;
-        this.user.longitude = await position.coords.longitude;
+      navigator.geolocation.getCurrentPosition(position => {
+        debugger
+        this.user.latitude = position.coords.latitude;
+        this.user.longitude = position.coords.longitude;
       }, this.options);
     }
+  }
+
+  getPosition = function (options) {
+    return new Promise(function (resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    });
   }
 
   @action getUserActive = async () => {
@@ -40,7 +47,10 @@ export class UserData {
     this.user.email = email;
     this.user.picture = picture;
     this.user.facebookId = facebookId;
-    await this.addPosition()
+    const position = await this.getPosition()
+    debugger
+    this.user.latitude = position.coords.latitude;
+    this.user.longitude = position.coords.longitude;
     await this.addUserToDataBase()
     await this.getLocationsList()
   };
@@ -96,7 +106,7 @@ export class UserData {
       await this.updateLocationToDB();
     }
   };
-  
+
   @action updateLocationToDB = async () => {
     await axios.put(`${userRoute}/user2`, {
       column1: "latitude",
@@ -108,26 +118,27 @@ export class UserData {
   }
 
   @action getLocationsList = async () => {
+    debugger
     const dis = await axios.get(`${userRoute}/distance/${this.user.facebookId}`)
     this.setDistance(dis)
   }
 
   @action setRange = range => {
     this.user.range = range
-    this.updateUserProfile("range",this.user.range)
-    
+    this.updateUserProfile("range", this.user.range)
+
   }
   @action setMode = mode => {
     this.user.mode = mode
     console.log(this.user.mode)
-    this.updateUserProfile("mode",this.user.mode)
+    this.updateUserProfile("mode", this.user.mode)
   }
   @action setSilence = silence => {
     this.user.silence = silence
-    this.updateUserBoolean("silence",this.user.silence)
+    this.updateUserBoolean("silence", this.user.silence)
   }
 
-  @action setDistance = distance =>{
+  @action setDistance = distance => {
     this.user.distance = distance
   }
 
