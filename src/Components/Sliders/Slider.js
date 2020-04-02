@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
 import { inject, observer } from 'mobx-react';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -103,20 +104,27 @@ const IOSSlider = withStyles({
 
 
 const CustomizedSlider = inject("userData")(observer((props) => {
-    let range = props.userData.user
+    const [range, setRange] = useState(9);
+
+
     const classes = useStyles();
+    console.log(props.userData.rangeValue)
 
     const handleChange = (e, value) => {
         props.userData.setRange(value)
-        range = value
+        setRange(value)
     }
+
+    useEffect(() => {
+        // setRange(props.userData.user.range)
+    });
 
     return (
         <div className={classes.root}>
             {console.log(props.userData.user.range)}
             {console.log(range)}
             <Typography gutterBottom>iOS</Typography>
-            <IOSSlider max={10} aria-label="ios slider" onChangeCommitted={handleChange} defaultValue={String(range)} marks={marks} valueLabelDisplay="on" />
+            <IOSSlider max={10} aria-label="ios slider" onChangeCommitted={handleChange} defaultValue={props.userData.user.range || range} marks={marks} valueLabelDisplay="on" />
         </div>
     );
 }))
