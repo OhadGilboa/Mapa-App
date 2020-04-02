@@ -61,10 +61,10 @@ class UserProfile extends Component {
     }
   }
 
-  HandleOpenMode = () => this.setState({isOpenMode: true})
-  HandleOpenGender = () => this.setState({isOpenGender: true})
-  HandleOpenStatus = () => this.setState({isOpenStatus: true})
-  HandleOpenAge = () => this.setState({isOpenAge: true})
+  HandleOpenMode = () => this.setState({ isOpenMode: true })
+  HandleOpenGender = () => this.setState({ isOpenGender: true })
+  HandleOpenStatus = () => this.setState({ isOpenStatus: true })
+  HandleOpenAge = () => this.setState({ isOpenAge: true })
 
 
 
@@ -115,9 +115,7 @@ class UserProfile extends Component {
           <span className="categories">Age:</span> {user.age}
           <Popup
             trigger={
-              <button className="PopUp">
-                <i className="fas fa-pencil-alt"></i>
-              </button>
+              <i className="fas fa-pencil-alt"></i>
             }
             position="right center"
             on="click"
@@ -139,9 +137,7 @@ class UserProfile extends Component {
           <span className="categories">Gender:</span> {user.gender}
           <Popup
             trigger={
-              <button>
                 <i className="fas fa-pencil-alt"></i>
-              </button>
             }
             position="right center"
             on="click"
@@ -167,9 +163,7 @@ class UserProfile extends Component {
           <span className="categories">Status:</span> {user.user_status}
           <Popup
             trigger={
-              <button>
                 <i className="fas fa-pencil-alt"></i>
-              </button>
             }
             position="right center"
             on="click"
@@ -195,9 +189,7 @@ class UserProfile extends Component {
           <span className="categories">Mode:</span>{this.iconHandler(user.mode)}
           <Popup
             trigger={
-              <button>
                 <i className="fas fa-pencil-alt"></i>
-              </button>
             }
             position="right center"
             on="click"

@@ -1,4 +1,4 @@
-import { observable, action } from "mobx";
+import { observable, action, computed } from "mobx";
 import axios from "axios";
 const userRoute = "http://localhost:4200";
 
@@ -23,7 +23,6 @@ export class UserData {
   @action addPosition() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        debugger
         this.user.latitude = position.coords.latitude;
         this.user.longitude = position.coords.longitude;
       }, this.options);
@@ -48,7 +47,6 @@ export class UserData {
     this.user.picture = picture;
     this.user.facebookId = facebookId;
     const position = await this.getPosition()
-    debugger
     this.user.latitude = position.coords.latitude;
     this.user.longitude = position.coords.longitude;
     await this.addUserToDataBase()
@@ -117,13 +115,13 @@ export class UserData {
     });
   }
 
-  @action getLocationsList = async () => {
-    debugger
+  @action getLocationsList = async () => { 
     const dis = await axios.get(`${userRoute}/distance/${this.user.facebookId}`)
     this.setDistance(dis)
   }
 
   @action setRange = range => {
+    console.log(range)
     this.user.range = range
     this.updateUserProfile("range", this.user.range)
 
@@ -141,5 +139,8 @@ export class UserData {
   @action setDistance = distance => {
     this.user.distance = distance
   }
+
+
+  @computed get rangeValue(){return this.user.range}
 
 }
