@@ -27,7 +27,7 @@ class UsersList extends Component {
   }
 
   sortUsersList(users){
-    
+    users.sort()
   }
   
   render() {

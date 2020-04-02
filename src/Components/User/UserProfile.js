@@ -119,12 +119,12 @@ class UserProfile extends Component {
         <div className="vlOnUserProfile"></div>
         <div className="profile-mode">
           <div className="modeTitleAndIcon">
-            <div className="modeTitle userProfileTitle">Mode:</div>
+            <div className="modeTitleProfilePage userProfileTitle">Mode:</div>
             <div className="iconMode">{this.iconHandler(user.mode)}</div>
           </div>
           <Popup
             trigger={
-              <i className="fas fa-pencil-alt"></i>
+              <i className="fas fa-pencil-alt logoForProfilePage"></i>
             }
             position="left top"
             on="click"
@@ -159,7 +159,7 @@ class UserProfile extends Component {
           </div>
           <Popup
             trigger={
-              <i className="fas fa-pencil-alt"></i>
+              <i className="fas fa-pencil-alt logoForProfilePage"></i>
             }
             position="left top"
             on="click"
@@ -185,7 +185,7 @@ class UserProfile extends Component {
           </div>
           <Popup
             trigger={
-              <i className="fas fa-pencil-alt"></i>
+              <i className="fas fa-pencil-alt logoForProfilePage"></i>
             }
             position="left top"
             on="click"
@@ -215,7 +215,7 @@ class UserProfile extends Component {
           </div>
           <Popup
             trigger={
-              <i className="fas fa-pencil-alt"></i>
+              <i className="fas fa-pencil-alt logoForProfilePage"></i>
             }
             position="left top"
             on="click"
@@ -243,7 +243,7 @@ class UserProfile extends Component {
             <div className="locationTitle userProfileTitle">Location:</div>
             <div className="locationResult"> {Math.round(user.latitude * 100000) / 100000 + ", " + Math.round(user.longitude * 100000) / 100000}</div>
           </div>
-          <i className="fas fa-map-marker-alt" onClick={this.props.userData.addPosition()}></i>
+          <i className="fas fa-map-marker-alt logoForProfilePage" onClick={this.props.userData.addPosition()}></i>
         </div>
       </div>
     );

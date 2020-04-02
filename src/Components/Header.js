@@ -3,6 +3,7 @@ import { inject, observer } from "mobx-react";
 import Popup from "reactjs-popup";
 import "../styles/Header.css"
 import Settings from "./Settings"
+import logo from "./User/icons/logo.svg"
 
 @inject('userData')
 @observer
@@ -21,7 +22,10 @@ class Header extends Component {
             <div className="firstName">{user ? user.first_name : null}</div>
             <div className="lsatName">{user ? user.last_name : null}</div>
           </div>
+          <div className="titleAndLogo">
+          <img className="logo"src={logo} alt="logo"></img>
           <div className="title">Mapa</div>
+          </div>
           <Popup
             trigger={
               <i className="fas fa-sliders-h"></i>
