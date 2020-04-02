@@ -23,7 +23,6 @@ export class UserData {
   @action addPosition() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        debugger
         this.user.latitude = position.coords.latitude;
         this.user.longitude = position.coords.longitude;
       }, this.options);
@@ -48,7 +47,6 @@ export class UserData {
     this.user.picture = picture;
     this.user.facebookId = facebookId;
     const position = await this.getPosition()
-    debugger
     this.user.latitude = position.coords.latitude;
     this.user.longitude = position.coords.longitude;
     await this.addUserToDataBase()
@@ -118,7 +116,6 @@ export class UserData {
   }
 
   @action getLocationsList = async () => {
-    debugger
     const dis = await axios.get(`${userRoute}/distance/${this.user.facebookId}`)
     this.setDistance(dis)
   }

@@ -10,12 +10,14 @@
 .categories{
     text-decoration: underline;
 }
-button{
+.user-profile button{
     cursor: pointer;
     border: none;
     outline: none;
     background: none;
     font-family: cursive;
+    display: block;
+
 }
 .profile-image{
     justify-self: center;
@@ -29,8 +31,9 @@ button{
     display: inline-block;
     margin-left: 2vw;
 }
-.popup-content {
-    width: 100px !important;
+.user-profile .popup-content {
+    width: 30vh !important;
+    height: 10vh !important;
 }
 .List {
     max-width: 100px;
