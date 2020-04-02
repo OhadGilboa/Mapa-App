@@ -1,6 +1,17 @@
 .rangeTitle{
     color:black;
     font-size: 20px;
+    margin-top: 1vh;
+}
+
+.silenceTitle{
+    color:black;
+    font-size: 20px;
+}
+.modeTitle{
+    color:black;
+    font-size: 20px;
+    margin-bottom: 2vh;
 }
 
 .ModeSelector{
@@ -20,7 +31,16 @@
     width: 6vh;
     height: 6vh;
 }
+
 .sos{
     background-color: #fd19008f;
     border-radius: 10px;
+}
+
+.vlInSettings{
+    width:100%;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    background-color: rgba(201, 196, 196, 0.664);
+    height: 0.2vw;
 }

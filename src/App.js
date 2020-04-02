@@ -48,7 +48,7 @@ class App extends Component {
             <Route path="/UsersList" exact render={() => <div> {this.props.userData.user.first_name ? <UsersList /> : <LoginFacebook />}  </div>} />
             <Route path="/Map" exact render={() => <div>{this.props.userData.user.first_name ? <Map />: <LoginFacebook />}  </div>} />
             <Route path="/Messages" exact render={() => <div> {this.props.userData.user.first_name ?<Messages />: <LoginFacebook />}  </div>} />
-            <Route path="/Profile" exact render={() => <div> {this.props.userData.user.first_name ?<UserProfile /> : <LoginFacebook />} </div>} />
+            <Route path="/Profile" exact render={() => <div className="userProfileApp"> {this.props.userData.user.first_name ?<UserProfile /> : <LoginFacebook />} </div>} />
           </div>
           <div className="navbar">
             <Navbar />

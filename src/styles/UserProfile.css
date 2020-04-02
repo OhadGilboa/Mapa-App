@@ -1,49 +1,179 @@
-.user-profile{
+div {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.user-profile {
     display: grid;
-    grid-template-rows: 4fr 2fr 2fr 2fr 2fr 2fr 3fr 2fr;
-    position: absolute;
-    left: 14vw;
-    top: 13vh;
+    width: 100%;
+    grid-template-rows: 4fr 0.2 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr;
+    align-items: center;
     font-size: 5vw;
-    font-family: cursive;
 }
-.categories{
-    text-decoration: underline;
-}
-.user-profile button{
+
+.user-profile button {
     cursor: pointer;
     border: none;
     outline: none;
     background: none;
     font-family: cursive;
     display: block;
-
 }
-.profile-image{
+
+.profile-image {
     justify-self: center;
     width: 23vw;
     border-radius: 50%;
     margin-bottom: 4vh;
 }
+
+.text {
+    display: inline;
+    margin-left: 3vw;
+}
+
 .icon {
     height: 6vh;
     width: 6vh;
     display: inline-block;
-    margin-left: 2vw;
+    margin-left: 4vw;
+    width: 5vh;
+    height: 5vh;
 }
-.user-profile .popup-content {
-    width: 30vh !important;
-    height: 10vh !important;
-}
+
 .List {
-    max-width: 100px;
-    font-family: cursive;
+    width: 100%;
+    background-color:#F1F5F2;
+    margin-bottom: 1vh;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
 }
+
 .list-name {
-    font-size: 3vw;
+    font-size: 4vw;
+    text-align: center;
+    font-weight: bold;
+
+
 }
+
 input {
     max-width: 90px;
     font-family: cursive;
     margin-left: 0.5vw;
+}
+
+.iconMode {
+    display: inline-block;
+}
+
+.profile-age {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-content: center;
+}
+
+.profile-mode {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-content: center;
+}
+
+.profile-gender {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-content: center;
+}
+
+.profile-status {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-content: center;
+}
+
+.vlOnUserProfile {
+    width: 100%;
+    margin-bottom: 1.5vh;
+    margin-top: 2.5vh;
+    height: 0.1vh;
+    background-color: rgba(201, 196, 196, 0.664);
+}
+
+.fas {
+    font-size: 2vw;
+    margin-right: 4vw;
+    display: inline;
+}
+
+.userProfileTitle {
+    margin-left: 2vh;
+    text-decoration: underline;
+    display: inline;
+}
+
+.userFullName {
+    margin-left: 2vh;
+    display: inline;
+}
+
+.locationResult {
+    display: inline;
+    margin-left: 1.5vh;
+}
+
+.userEmail {
+    display: inline;
+    margin-left: 2vh;
+}
+
+.profile-location {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    align-content: center;
+}
+
+.fa-map-marker-alt {
+    margin-right: 5vw;
+    color: #182825;
+}
+
+.modeTitleAndIcon {
+    display: grid;
+    grid-template-columns: 1fr 4.5fr;
+}
+
+div.modeTitle.userProfileTitle {
+    margin: 0px 0px 0px 2vh;
+    align-self: center;
+}
+
+.buttonInPopUp {
+    width: 95%;
+    height: 30%;
+    padding-top: 5%;
+    background-color: grey;
+    border: solid #616161 2px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    font-size: 4vw;
+    font-weight: bold;
+    display: grid;
+}
+
+.user-profile .popup-content {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    width: 15vh !important;
+    height: 10vh !important;
+    border: none !important;
+    border-radius: 10px;
+    box-shadow: -3px 3px 5px 0px rgba(0, 0, 0, 0.75) !important;
+    border: solid black 2px !important;
+}
+
+.user-profile .popup-arrow {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    
 }
