@@ -95,4 +95,6 @@
 
 -- UPDATE users SET facebookId = "10157306388551006" WHERE facebookId = "10157306388551094"
 
-DELETE FROM users WHERE facebookId = "10157306388551094" 
+DELETE FROM hackaton.users WHERE facebookId = "10157306388551094" 
+
+
