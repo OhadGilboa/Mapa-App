@@ -42,7 +42,6 @@ export class UserData {
     this.user.facebookId = facebookId;
     await this.addPosition()
     await this.addUserToDataBase()
-    debugger
     await this.getLocationsList()
   };
 
@@ -68,7 +67,6 @@ export class UserData {
 
   @action addUserToDataBase = async () => {
     let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
-    await this.updateLocationToDB();
     if (!user.data[0]) {
       await axios.post(`${userRoute}/user`, {
         facebookId: this.user.facebookId,
@@ -95,6 +93,7 @@ export class UserData {
       this.user.mode = user.data[0].mode;
       this.user.range = user.data[0].range;
       this.user.silence = user.data[0].silence;
+      await this.updateLocationToDB();
     }
   };
   
@@ -129,7 +128,6 @@ export class UserData {
   }
 
   @action setDistance = distance =>{
-    debugger
     this.user.distance = distance
   }
 
