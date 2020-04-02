@@ -2,12 +2,6 @@
     color: white;
     display: grid;
     align-items: flex-end;
-    color: #182825;
-}
-
-.titleAndLogo{
-    display: grid;
-    justify-items: center;
 }
 
 .imgContainer {
@@ -32,12 +26,11 @@
     font-size: 1.7vh;
     display: grid;
     align-self: center;
-    color: #182825;
 }
 
 .imageAndName {
     display: grid;
-    grid-template-columns: 14% 30% 12% 44%;
+    grid-template-columns: 14% 28% 12% 42%;
 }
 
 .sticky {
@@ -46,7 +39,12 @@
     width: 100%;
 }
 
-
+.fas {
+    font-size: 4vh;
+    align-self: center;
+    justify-self: right;
+    cursor: pointer;
+}
 
 .popup-content {
     width: 75vw !important;
@@ -59,17 +57,3 @@
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.logo{
-    height: 5vh;
-    width: 5vh;
-}
-
-.fa-sliders-h{
-    margin-right: 7vw;
-    font-size: 4vh;
-    align-self: center;
-    justify-self: right;
-    cursor: pointer;
-    color: #182825;
-
-}

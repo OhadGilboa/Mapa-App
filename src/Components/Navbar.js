@@ -9,18 +9,18 @@ class Navbar extends Component {
     return (
       <div className="navbar-comp">
         <Link className="link" to="/UsersList">
-          <i className="fas fa-list navbarIcons"></i>
+          <i className="fas fa-list"></i>
         </Link>
         <Link className="link" to="/Map">
-          <i className="fas fa-map-marked-alt navbarIcons"></i>
+          <i className="fas fa-map-marked-alt"></i>
         </Link>
 
         <Link className="link" to="/Messages">
-          <i className="far fa-comments navbarIcons"></i>
+          <i className="far fa-comments"></i>
         </Link>
 
         <Link className="link" to="/Profile">
-          <i className="fas fa-user navbarIcons"></i>
+          <i className="fas fa-user"></i>
         </Link>
 
       </div>

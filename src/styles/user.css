@@ -32,7 +32,7 @@
 
 .user {
     display: grid;
-    grid-template-columns: 60vw 20vw 20vw;
+    grid-template-columns: 55vw 25vw 20vw;
     height: 10vh;
     font-size: 3.5vw;
 }
