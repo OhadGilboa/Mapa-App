@@ -43,4 +43,18 @@
     margin-bottom: 3vw;
     background-color: rgba(201, 196, 196, 0.664);
     height: 0.2vw;
+
 }
+
+.popup-content {
+    background-color: rgba(121, 121, 121, 0.034) !important;
+    width: 75vw !important;
+    height: 70vh;
+    display: grid;
+    justify-items: center;
+    border: none !important;
+    border-radius: 10px;
+    box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.75) !important;
+    border: solid #9c9b9bca 1.7px !important;
+}
+
