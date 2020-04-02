@@ -44,7 +44,7 @@ render() {
         facebookData = null :
         facebookData = (<FacebookLogin
             appId="578720732730431"
-            autoLoad={true}
+            autoLoad={false}
             fields="first_name,last_name,email,picture"
             onClick={this.componentClicked}
             callback={this.responseFacebook} />);
