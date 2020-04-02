@@ -54,6 +54,7 @@ router.post("/user", async function (req, res) {
     ${user.silence}
     )`;
   await sequelize.query(query);
+  res.end()
 });
 
 // Put user

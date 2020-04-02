@@ -20,7 +20,7 @@ class Facebook extends Component {
         };
     }
 
-    responseFacebook = response => {
+    responseFacebook = async response => {
         this.setState({
             auth: true,
             first_name: response.first_name,
@@ -29,9 +29,7 @@ class Facebook extends Component {
             picture: response.picture.data.url,
             facebookId: response.id
         });
-        debugger
-        this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture, this.state.facebookId)
-
+        await this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture, this.state.facebookId)
         this.props.usersStore.getUsers()
     
 }
