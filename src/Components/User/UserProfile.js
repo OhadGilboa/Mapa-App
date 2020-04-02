@@ -61,10 +61,10 @@ class UserProfile extends Component {
     }
   }
 
-  HandleOpenMode = () => this.setState({ isOpenMode: true })
-  HandleOpenGender = () => this.setState({ isOpenGender: true })
-  HandleOpenStatus = () => this.setState({ isOpenStatus: true })
-  HandleOpenAge = () => this.setState({ isOpenAge: true })
+  HandleOpenMode = () => this.setState({ isOpenMode: true, isOpenGender:false, isOpenStatus:false, isOpenAge:false })
+  HandleOpenGender = () => this.setState({ isOpenGender: true, isOpenMode:false, isOpenStatus:false, isOpenAge:false })
+  HandleOpenStatus = () => this.setState({ isOpenStatus: true,isOpenGender:false, isOpenMode:false, isOpenAge:false })
+  HandleOpenAge = () => this.setState({ isOpenAge: true, isOpenGender:false, isOpenStatus:false, isOpenMode:false })
 
 
 
@@ -108,90 +108,25 @@ class UserProfile extends Component {
       <div className="user-profile">
         <img className="profile-image" src={user.picture} alt={user.first_name}></img>
         <div className="profile-name">
-          <span className="categories">Name:</span> {user.first_name + " " + user.last_name}
+          <span className="nameTitle userProfileTitle">Name:</span>
+          <div className="userFullName"> {user.first_name + " " + user.last_name}</div>
         </div>
-        <div className="profile-email"><span className="categories">Email:</span> {user.email}</div>
-        <div className="profile-age">
-          <span className="categories">Age:</span> {user.age}
+        <div className="vlOnUserProfile"></div>
+        <div className="profile-email">
+          <span className="emailTitle userProfileTitle">Email:</span>
+          <div className="userEmail">{user.email}</div>
+        </div>
+        <div className="vlOnUserProfile"></div>
+        <div className="profile-mode">
+          <div className="modeTitleAndIcon">
+            <div className="modeTitle userProfileTitle">Mode:</div>
+            <div className="iconMode">{this.iconHandler(user.mode)}</div>
+          </div>
           <Popup
             trigger={
               <i className="fas fa-pencil-alt"></i>
             }
-            position="right center"
-            on="click"
-            open={this.state.isOpenAge}
-            onOpen={this.HandleOpenAge}
-          >
-            <div>
-              <div className="list-name">Select Age</div>
-              <input
-                type="text"
-                value={this.state.input}
-                onChange={this.changeValue}
-              ></input>
-              <button onClick={this.updateAge}> save </button>
-            </div>
-          </Popup>
-        </div>
-        <div className="profile-gender">
-          <span className="categories">Gender:</span> {user.gender}
-          <Popup
-            trigger={
-                <i className="fas fa-pencil-alt"></i>
-            }
-            position="right center"
-            on="click"
-            open={this.state.isOpenGender}
-            onOpen={this.HandleOpenGender}
-          >
-            <div>
-              <div className="list-name">Select Gender</div>
-              <select
-                value={this.state.input}
-                onChange={this.changeValue}
-                className="List">
-                <option value="love">-select</option>
-                <option value="male">male</option>
-                <option value="female">female</option>
-                <option value="Bigender">Bigender</option>
-              </select>
-              <button onClick={this.updateGender}> save </button>
-            </div>
-          </Popup>
-        </div>
-        <div className="profile-status">
-          <span className="categories">Status:</span> {user.user_status}
-          <Popup
-            trigger={
-                <i className="fas fa-pencil-alt"></i>
-            }
-            position="right center"
-            on="click"
-            open={this.state.isOpenStatus}
-            onOpen={this.HandleOpenStatus}
-          >
-            <div>
-              <div className="list-name">Select Status</div>
-              <select
-                value={this.state.input}
-                onChange={this.changeValue}
-                className="List">
-                <option value="love">-select</option>
-                <option value="online">online</option>
-                <option value="offline">offline</option>
-                <option value="doNotDisturb">Do Not Disturb</option>
-              </select>
-              <button onClick={this.updateStatus}> save </button>
-            </div>
-          </Popup>
-        </div>
-        <div className="profile-mode">
-          <span className="categories">Mode:</span>{this.iconHandler(user.mode)}
-          <Popup
-            trigger={
-                <i className="fas fa-pencil-alt"></i>
-            }
-            position="right center"
+            position="left top"
             on="click"
             open={this.state.isOpenMode}
             onOpen={this.HandleOpenMode}
@@ -212,12 +147,103 @@ class UserProfile extends Component {
                 <option value="beer">let's Drink</option>
                 <option value="movie">Movie</option>
               </select>
-              <button onClick={this.updateMode}> save </button>
+              <div className="buttonInPopUp" onClick={this.updateMode}> save </div>
             </div>
           </Popup>
         </div>
+        <div className="vlOnUserProfile"></div>
+        <div className="profile-age">
+          <div>
+            <div className="ageTitle userProfileTitle">Age:</div>
+            <div className="text">{user.age}</div>
+          </div>
+          <Popup
+            trigger={
+              <i className="fas fa-pencil-alt"></i>
+            }
+            position="left top"
+            on="click"
+            open={this.state.isOpenAge}
+            onOpen={this.HandleOpenAge}
+          >
+            <div>
+              <div className="list-name">Select Age</div>
+              <input
+                type="text"
+                value={this.state.input}
+                onChange={this.changeValue}
+              ></input>
+              <div className="buttonInPopUp" onClick={this.updateAge}> save </div>
+            </div>
+          </Popup>
+        </div>
+        <div className="vlOnUserProfile"></div>
+        <div className="profile-gender">
+          <div>
+            <div className="genderTitle userProfileTitle">Gender:</div>
+            <div className="text">{user.gender}</div>
+          </div>
+          <Popup
+            trigger={
+              <i className="fas fa-pencil-alt"></i>
+            }
+            position="left top"
+            on="click"
+            open={this.state.isOpenGender}
+            onOpen={this.HandleOpenGender}
+          >
+            <div>
+              <div className="list-name">Select Gender</div>
+              <select
+                value={this.state.input}
+                onChange={this.changeValue}
+                className="List">
+                <option value="love">-select</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="Bigender">Bigender</option>
+              </select>
+              <div className="buttonInPopUp" onClick={this.updateGender}> save </div>
+            </div>
+          </Popup>
+        </div>
+        <div className="vlOnUserProfile"></div>
+        <div className="profile-status">
+          <div>
+            <div className="statusTitle userProfileTitle">Status:</div>
+            <div className="text">{user.user_status}</div>
+          </div>
+          <Popup
+            trigger={
+              <i className="fas fa-pencil-alt"></i>
+            }
+            position="left top"
+            on="click"
+            open={this.state.isOpenStatus}
+            onOpen={this.HandleOpenStatus}
+          >
+            <div>
+              <div className="list-name">Select Status</div>
+              <select
+                value={this.state.input}
+                onChange={this.changeValue}
+                className="List">
+                <option value="love">-select</option>
+                <option value="online">Online</option>
+                <option value="offline">Offline</option>
+                <option value="doNotDisturb">Do Not Disturb</option>
+              </select>
+              <div className="buttonInPopUp" onClick={this.updateStatus}> Save </div>
+            </div>
+          </Popup>
+        </div>
+        <div className="vlOnUserProfile"></div>
         <div className="profile-location">
-          <span className="categories">Location:</span> {user.latitude + "," + user.longitude}
+          <div>
+            <div className="locationTitle userProfileTitle">Location:</div>
+            <div className="locationResult"> {Math.round(user.latitude * 100000) / 100000 + ", " + Math.round(user.longitude * 100000) / 100000}</div>
+          </div>
+          <i className="fas fa-map-marker-alt" onClick={this.props.userData.addPosition()}></i>
         </div>
       </div>
     );

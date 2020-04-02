@@ -12,9 +12,11 @@ class Settings extends Component {
             <div>
                 <div className="rangeTitle">Range:</div>
                 <Slider />
-                <div className="rangeTitle">Mode:</div>
+                <div className="vlInSettings"></div>
+                <div className="modeTitle">Mode:</div>
                 <ModeChanger />
-                <div className="rangeTitle">Silence:</div>
+                <div className="vlInSettings"></div>
+                <div className="silenceTitle">Silence:</div>
                 <Switches />
             </div>
         );

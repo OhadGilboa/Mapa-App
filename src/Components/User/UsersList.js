@@ -25,10 +25,15 @@ class UsersList extends Component {
     let indexToRemove = users.findIndex(u => u.facebookId === this.props.userData.facebookId)
     users.splice(indexToRemove, 1)
   }
+
+  sortUsersList(users){
+    
+  }
   
   render() {
     let users = this.props.usersStore.users
     this.addingDistanceToUsers(users)
+    this.sortUsersList(users)
     //this.removeMyself(users)
     return (
       <div className="userList">
