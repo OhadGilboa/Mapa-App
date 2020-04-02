@@ -103,27 +103,20 @@ const IOSSlider = withStyles({
 
 
 const CustomizedSlider = inject("userData")(observer((props) => {
-
-
-    let range = 2
- 
-
+    let range = props.userData.user
     const classes = useStyles();
-    
-
 
     const handleChange = (e, value) => {
         props.userData.setRange(value)
         range = value
     }
 
-
     return (
         <div className={classes.root}>
             {console.log(props.userData.user.range)}
             {console.log(range)}
             <Typography gutterBottom>iOS</Typography>
-            <IOSSlider max={10} aria-label="ios slider" onChangeCommitted={handleChange} defaultValue={range} marks={marks} valueLabelDisplay="on" />
+            <IOSSlider max={10} aria-label="ios slider" onChangeCommitted={handleChange} defaultValue={String(range)} marks={marks} valueLabelDisplay="on" />
         </div>
     );
 }))

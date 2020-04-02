@@ -1,4 +1,4 @@
-import { observable, action } from "mobx";
+import { observable, action, computed } from "mobx";
 import axios from "axios";
 const userRoute = "http://localhost:4200";
 
@@ -115,12 +115,13 @@ export class UserData {
     });
   }
 
-  @action getLocationsList = async () => {
+  @action getLocationsList = async () => { 
     const dis = await axios.get(`${userRoute}/distance/${this.user.facebookId}`)
     this.setDistance(dis)
   }
 
   @action setRange = range => {
+    console.log(range)
     this.user.range = range
     this.updateUserProfile("range", this.user.range)
 
@@ -138,5 +139,8 @@ export class UserData {
   @action setDistance = distance => {
     this.user.distance = distance
   }
+
+
+  @computed get rangeValue(){return this.user.range}
 
 }
