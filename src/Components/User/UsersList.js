@@ -9,10 +9,17 @@ import "../../styles/user.css"
 @inject('userData')
 class UsersList extends Component {
 
-  addingDistanceToUsers(users) {
+  constructor(){
+    super()
+    this.state= {
+      users: []
+    }
+  }
+
+  addingDistanceToUsers() {
+    debugger
     let dis = this.props.userData.user.distance.data
-    console.log(dis)
-    for (let u of users) {
+    for (let u of this.state.users) {
       for (let d of dis) {
         if (u.facebookId === d.id) {
           u.distance = d.distance
@@ -21,24 +28,24 @@ class UsersList extends Component {
     }
   }
 
-  removeMyself(users) {
-    let indexToRemove = users.findIndex(u => u.facebookId === this.props.userData.facebookId)
-    users.splice(indexToRemove, 1)
+  removeMyself() {
+    let indexToRemove = this.state.users.findIndex(u => u.facebookId === this.props.userData.facebookId)
+    this.state.users.splice(indexToRemove, 1)
   }
 
-  componentDidMount() {
-    this.props.usersStore.getUsers()
+  componentDidMount(){
+    debugger
+    this.state.users = this.props.usersStore.users
+    this.addingDistanceToUsers(this.state.users)
   }
-  
+
   render() {
-    let users = this.props.usersStore.users
     //this.removeMyself(users)
-    this.addingDistanceToUsers(users) 
     return (
       <div className="userList">
         <div className="headerPlace"></div>
         <div className="vl"></div>
-        {users.map(u => <User user={u} key={u.facebookId} />)}
+        {this.state.users.map(u => <User user={u} key={u.facebookId} />)}
         <div className="footerPlace"></div>
         <div className="vl"></div>
       </div>

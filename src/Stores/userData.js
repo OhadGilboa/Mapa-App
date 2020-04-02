@@ -34,13 +34,16 @@ export class UserData {
     return user;
   };
 
-  @action loggingIn = (first_name, last_name, email, picture, facebookId) => {
+  @action loggingIn = async (first_name, last_name, email, picture, facebookId) => {
     this.user.first_name = first_name;
     this.user.last_name = last_name;
     this.user.email = email;
     this.user.picture = picture;
     this.user.facebookId = facebookId;
-    this.getLocationsList()
+    await this.addPosition()
+    await this.addUserToDataBase()
+    debugger
+    await this.getLocationsList()
   };
 
 
@@ -64,7 +67,6 @@ export class UserData {
   };
 
   @action addUserToDataBase = async () => {
-    await this.addPosition();
     let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
     await this.updateLocationToDB();
     if (!user.data[0]) {
@@ -83,7 +85,6 @@ export class UserData {
         mode: "",
         range: 2,
         silence: false,
-
       });
     } else {
       this.user.email = user.data[0].email
@@ -108,8 +109,8 @@ export class UserData {
   }
 
   @action getLocationsList = async () => {
-    this.user.distance = await axios.get(`${userRoute}/distance/${this.user.facebookId}`);
-    console.log(this.user.distance)
+    const dis = await axios.get(`${userRoute}/distance/${this.user.facebookId}`)
+    this.setDistance(dis)
   }
 
   @action setRange = range => {
@@ -125,6 +126,11 @@ export class UserData {
   @action setSilence = silence => {
     this.user.silence = silence
     this.updateUserBoolean("silence",this.user.silence)
+  }
+
+  @action setDistance = distance =>{
+    debugger
+    this.user.distance = distance
   }
 
 }

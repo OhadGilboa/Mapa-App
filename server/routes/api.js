@@ -36,7 +36,6 @@ router.get("/user/:facebookId", async function (req, res) {
 // Post user
 router.post("/user", async function (req, res) {
   let user = req.body;
-  console.log(user)
   let query = `INSERT INTO users VALUES 
   (null, 
     '${user.facebookId}',
@@ -123,7 +122,6 @@ router.get("/conversation/:id", async function (req, res) {
 // Post message
 router.post("/message", async function (req, res) {
   let message = req.body;
-  console.log(message);
   let query = `INSERT INTO messages VALUES 
   (null, 
     '${message.message_date}',
@@ -137,12 +135,14 @@ router.post("/message", async function (req, res) {
 
 
 router.get("/distance/:facebookId", async function (req, res) {
+  console.log("im in")
   const arrDistance = []
   await sequelize
     .query("SELECT * FROM users")
     .spread(function (results, metadata) {
       let { facebookId } = req.params;
       let connectedUser = results.find(u => u.facebookId === facebookId)
+      console.log(connectedUser)
       results.map(u => {
         let temp = {id: u.facebookId, distance: Math.round(calcDistanceBetweenTwoPeopleInKM(connectedUser.latitude, connectedUser.longitude, u.latitude, u.longitude) * 10) / 10}
         arrDistance.push(temp)
