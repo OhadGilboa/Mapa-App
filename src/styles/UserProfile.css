@@ -42,7 +42,7 @@ div {
 
 .List {
     width: 100%;
-    background-color:#F1F5F2;
+    background-color:rgb(255, 255, 255);
     margin-bottom: 1vh;
     border-radius: 5px;
     font-family: 'Montserrat', sans-serif;
@@ -52,14 +52,16 @@ div {
     font-size: 4vw;
     text-align: center;
     font-weight: bold;
-
-
 }
 
 input {
-    max-width: 90px;
+    width: 95%;
     font-family: cursive;
     margin-left: 0.5vw;
+    margin-bottom: 1vh;
+    background-color:rgb(255, 255, 255);
+    border: solid #9c9b9bca 1.7px !important;
+
 }
 
 .iconMode {
@@ -98,10 +100,14 @@ input {
     background-color: rgba(201, 196, 196, 0.664);
 }
 
-.fas {
+.logoForProfilePage {
+    display: grid;
+    text-align: end;
     font-size: 2vw;
     margin-right: 4vw;
     display: inline;
+    color: #03312E;
+    font-size: 4vh;
 }
 
 .userProfileTitle {
@@ -127,13 +133,13 @@ input {
 
 .profile-location {
     display: grid;
-    grid-template-columns: 90% 10%;
+    grid-template-columns: 80% 20%;
     align-content: center;
 }
 
 .fa-map-marker-alt {
-    margin-right: 5vw;
-    color: #182825;
+    margin-right: 6vw;
+
 }
 
 .modeTitleAndIcon {
@@ -141,17 +147,17 @@ input {
     grid-template-columns: 1fr 4.5fr;
 }
 
-div.modeTitle.userProfileTitle {
+div.modeTitleProfilePage.userProfileTitle {
     margin: 0px 0px 0px 2vh;
     align-self: center;
 }
 
 .buttonInPopUp {
-    width: 95%;
+    width: 96%;
     height: 30%;
     padding-top: 5%;
-    background-color: grey;
-    border: solid #616161 2px;
+    background-color: #F1F5F2;
+    border: solid #9c9b9bca 1.7px;
     text-align: center;
     border-radius: 5px;
     text-decoration: none;
@@ -164,16 +170,16 @@ div.modeTitle.userProfileTitle {
 }
 
 .user-profile .popup-content {
-    background-color: rgba(0, 0, 0, 0.4) !important;
-    width: 15vh !important;
-    height: 10vh !important;
+    background-color: rgba(121, 121, 121, 0.034) !important;
+    width: 35vw !important;
+    height: 12vh !important;
     border: none !important;
     border-radius: 10px;
-    box-shadow: -3px 3px 5px 0px rgba(0, 0, 0, 0.75) !important;
-    border: solid black 2px !important;
+    box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.75) !important;
+    border: solid #9c9b9bca 1.7px !important;
 }
 
 .user-profile .popup-arrow {
-    background-color: rgba(0, 0, 0, 0.4) !important;
-    
+    background-color: rgba(255, 255, 255, 0) !important;
+    height: 0px !important;
 }
