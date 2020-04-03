@@ -11,7 +11,6 @@ import Header from "./Components/Header";
 import LoginFacebook from "./Components/Facebook";
 // const axios = require('axios')
 
-@inject("usersStore")
 @inject("userData")
 
 @observer
@@ -23,7 +22,6 @@ class App extends Component {
 
   //async componentDidMount() {
   // const usersOnline = await this.getUsersOnline()
-    //this.props.usersStore.updateUsersInRange(usersOnline.data)
    //}
   
   // getUsersOnline() {
@@ -32,7 +30,6 @@ class App extends Component {
 
   // async componentDidMount() {
   //   const usersOnline = await this.getUsersOnline()
-  //   this.props.usersStore.updateUsersInRange(usersOnline.data)
   // }
 
     

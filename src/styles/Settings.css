@@ -1,15 +1,15 @@
 .rangeTitle{
-    color:black;
+    color: #182825;
     font-size: 20px;
     margin-top: 1vh;
 }
 
 .silenceTitle{
-    color:black;
+    color: #182825;
     font-size: 20px;
 }
 .modeTitle{
-    color:black;
+    color: #182825;
     font-size: 20px;
     margin-bottom: 2vh;
 }
@@ -26,10 +26,10 @@
 }
 
 .iconSettings{
-    margin-top: 5vh;
-    margin-right: 2vw;
     width: 6vh;
     height: 6vh;
+    display: grid;
+    justify-self: center;
 }
 
 .sos{
@@ -47,14 +47,51 @@
 }
 
 .popup-content {
-    background-color: rgba(121, 121, 121, 0.034) !important;
+    background-color: rgb(255, 255, 255) !important;
     width: 75vw !important;
-    height: 70vh;
+    height: 75vh;
     display: grid;
     justify-items: center;
-    border: none !important;
     border-radius: 10px;
     box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.75) !important;
-    border: solid #9c9b9bca 1.7px !important;
+    border: solid #00C7DD 1.7px !important;
 }
 
+.MuiRadio-colorPrimary.Mui-checked{
+    color: #00C7DD !important;
+}
+
+.MuiRadio-colorPrimary{
+    color: #182825 !important;
+}
+
+.silenceSwitch{
+    display: grid;
+    justify-content: flex-start;
+}
+
+
+
+.MuiSwitch-colorSecondary.Mui-checked {
+    color: #00C7DD !important;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track{
+    background-color: #00C7DD !important;
+
+
+}
+
+.WithStyles\(ForwardRef\(Slider\)\)-root-33{
+    color: #00C7DD !important;
+}
+
+.WithStyles\(ForwardRef\(Slider\)\)-mark-39 {
+    color: #182825;
+    width:2px !important;
+
+}
+
+.WithStyles\(ForwardRef\(Slider\)\)-thumb-34{
+    background-color: #00C7DD !important;
+}

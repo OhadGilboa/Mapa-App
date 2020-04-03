@@ -3,7 +3,6 @@ import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import '../styles/Navbar.css'
 
-@observer
 class Navbar extends Component {
   render() {
     return (
