@@ -8,7 +8,7 @@ import Map from "./Components/Map";
 import Messages from "./Components/Messages/Messages";
 import UserProfile from "./Components/User/UserProfile";
 import Header from "./Components/Header";
-import LoginFacebook from "./Components/Facebook";
+import LoginFacebook from "./Components/Login/Facebook";
 // const axios = require('axios')
 
 @inject("userData")
