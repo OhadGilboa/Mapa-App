@@ -10,6 +10,8 @@ import "../../styles/Settings.css";
 import React from 'react';
 import Radio from '@material-ui/core/Radio';
 import { inject, observer } from "mobx-react"
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 
 
 
@@ -22,6 +24,9 @@ const RadioButtons = inject("userData")(observer((props) => {
     console.log(event.target.value)
   }
 
+
+
+
   return(
     <div className = "ModeSelector" >
       <div className="row">
@@ -33,6 +38,7 @@ const RadioButtons = inject("userData")(observer((props) => {
           checked={selectedValue === 'dog'}
           onChange={handleChange}
           value="dog"
+          color="primary"
           name="radio-button-demo"
           inputProps={{ 'aria-label': 'dog' }}
         />
@@ -40,6 +46,7 @@ const RadioButtons = inject("userData")(observer((props) => {
           checked={selectedValue === 'sport'}
           onChange={handleChange}
           value="sport"
+          color="primary"
           name="radio-button-demo"
           inputProps={{ 'aria-label': 'sport' }}
         />
@@ -47,6 +54,7 @@ const RadioButtons = inject("userData")(observer((props) => {
           checked={selectedValue === 'message'}
           onChange={handleChange}
           value="message"
+          color="primary"
           name="radio-button-demo"
           inputProps={{ 'aria-label': 'message' }}
         />
@@ -54,6 +62,7 @@ const RadioButtons = inject("userData")(observer((props) => {
           checked={selectedValue === 'sos'}
           onChange={handleChange}
           value="sos"
+          color="primary"
           name="radio-button-demo"
           inputProps={{ 'aria-label': 'sos' }}
         />
@@ -67,6 +76,7 @@ const RadioButtons = inject("userData")(observer((props) => {
           checked={selectedValue === 'cigarette'}
           onChange={handleChange}
           value="cigarette"
+          color="primary"
           name="radio-button-demo"
           inputProps={{ 'aria-label': 'cigarette' }}
         />
@@ -74,6 +84,7 @@ const RadioButtons = inject("userData")(observer((props) => {
           checked={selectedValue === 'beer'}
           onChange={handleChange}
           value="beer"
+          color="primary"
           name="radio-button-demo"
           inputProps={{ 'aria-label': 'beer' }}
         />
@@ -81,6 +92,7 @@ const RadioButtons = inject("userData")(observer((props) => {
           checked={selectedValue === 'coffee'}
           onChange={handleChange}
           value="coffee"
+          color="primary"
           name="radio-button-demo"
           inputProps={{ 'aria-label': 'coffee' }}
         />
@@ -88,6 +100,7 @@ const RadioButtons = inject("userData")(observer((props) => {
           checked={selectedValue === 'movie'}
           onChange={handleChange}
           value="movie"
+          color="primary"
           name="radio-button-demo"
           inputProps={{ 'aria-label': 'movie' }}
         />

@@ -15,9 +15,10 @@ export class UserData {
     mode: "",
     latitude: 0,
     longitude: 0,
-    distance: [],
     range: 2,
-    silence: false
+    silence: false,
+    users: [],
+    distance: [],
   };
 
   @action addPosition() {
@@ -29,16 +30,17 @@ export class UserData {
     }
   }
 
+  @action getUsers = async () => {
+    let users = await axios.get(`${userRoute}/users`)
+    this.user.users = users.data
+  }
+
   getPosition = function (options) {
     return new Promise(function (resolve, reject) {
       navigator.geolocation.getCurrentPosition(resolve, reject, options);
     });
   }
 
-  @action getUserActive = async () => {
-    let user = await axios.get(`${userRoute}/user/${this.user.email}`);
-    return user;
-  };
 
   @action loggingIn = async (first_name, last_name, email, picture, facebookId) => {
     this.user.first_name = first_name;
@@ -100,7 +102,7 @@ export class UserData {
       this.user.user_status = user.data[0].user_status;
       this.user.gender = user.data[0].gender;
       this.user.mode = user.data[0].mode;
-      this.user.range = user.data[0].range;
+      this.user.range = user.data[0].distanceRange;
       this.user.silence = user.data[0].silence;
       await this.updateLocationToDB();
     }
@@ -116,17 +118,17 @@ export class UserData {
     });
   }
 
-  @action getLocationsList = async () => { 
+  @action getLocationsList = async () => {
     const dis = await axios.get(`${userRoute}/distance/${this.user.facebookId}`)
     this.setDistance(dis)
   }
 
   @action setRange = range => {
-    console.log(range)
     this.user.range = range
-    this.updateUserProfile("range", this.user.range)
-
+    this.updateUserBoolean("distanceRange", this.user.range)
+    console.log(this.user.range)
   }
+
   @action setMode = mode => {
     this.user.mode = mode
     console.log(this.user.mode)
@@ -141,7 +143,12 @@ export class UserData {
     this.user.distance = distance
   }
 
+  @computed get getRange() {
+    return this.user.range
+  }
 
-  @computed get rangeValue(){return this.user.range}
+  @action setUsers = users => {
+    this.user.users = users;
+  }
 
 }

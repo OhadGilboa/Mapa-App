@@ -133,7 +133,7 @@ input {
 
 .profile-location {
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 90% 10%;
     align-content: center;
 }
 

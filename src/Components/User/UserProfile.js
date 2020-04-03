@@ -10,8 +10,8 @@ import dog from "./icons/dog.svg"
 import sport from "./icons/sport.svg"
 import message from "./icons/message.svg"
 import sos from "./icons/sos.svg"
+
 @inject("userData")
-@inject("usersStore")
 @observer
 class UserProfile extends Component {
   constructor() {
@@ -82,6 +82,7 @@ class UserProfile extends Component {
   };
 
   updateMode = async () => {
+    console.log("im here")
     this.props.userData.updateUserProfile("mode", this.state.input);
     this.setState({
       input: "",

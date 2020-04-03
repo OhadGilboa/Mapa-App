@@ -104,27 +104,22 @@ const IOSSlider = withStyles({
 
 
 const CustomizedSlider = inject("userData")(observer((props) => {
-    const [range, setRange] = useState(9);
+    const [range, setRange] = useState(props.userData.user.range);
 
 
     const classes = useStyles();
-    console.log(props.userData.rangeValue)
 
     const handleChange = (e, value) => {
-        props.userData.setRange(value)
+        {console.log("im here")}
         setRange(value)
+        props.userData.setRange(value)
     }
 
-    useEffect(() => {
-        // setRange(props.userData.user.range)
-    });
 
     return (
         <div className={classes.root}>
-            {console.log(props.userData.user.range)}
-            {console.log(range)}
             <Typography gutterBottom>iOS</Typography>
-            <IOSSlider max={10} aria-label="ios slider" onChangeCommitted={handleChange} defaultValue={props.userData.user.range || range} marks={marks} valueLabelDisplay="on" />
+            <IOSSlider max={10} aria-label="ios slider" onChangeCommitted={handleChange} value={range || 0} marks={marks} valueLabelDisplay="on" />
         </div>
     );
 }))

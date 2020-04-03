@@ -10,11 +10,11 @@ import sport from "./icons/sport.svg"
 import message from "./icons/message.svg"
 import sos from "./icons/sos.svg"
 
-@inject('usersStore')
+@inject('userData')
 @observer
 class User extends Component {
-    iconHandler(user) {
-        switch (user.mode) {
+    iconHandler(mode) {
+        switch (mode) {
             case "cigarette":
                 return (
                     <img src={cigarette} className="cigarette icon" alt={"cigarette"} />
@@ -52,16 +52,16 @@ class User extends Component {
     }
 
     render() {
-        const user = this.props.user
-        return (
-            <div className={user.mode === "sos" ? "bigUser sosBackground" : "bigUser"}>
-                <div className="user">
-                    <div className="person-name" className="fullName">{user.first_name + ' ' + user.last_name}</div>
-                    <div className="distance"> {user.distance}km</div>
-                    {this.iconHandler(user)}
-                </div>
-                <div className="vl"></div>
+    return(
+        
+                <div className = { this.props.user.mode === "sos" ? "bigUser sosBackground" : this.props.user.current ? "bigUser currentUser" : "bigUser" } >
+            <div className="user">
+                <div className="person-name" className="fullName">{this.props.user.first_name + ' ' + this.props.user.last_name}</div>
+                <div className="distance"> {this.props.user.distance}km</div>
+                {this.iconHandler(this.props.user.mode)}
             </div>
+            <div className="vl"></div>
+                </div>
         );
     }
 }

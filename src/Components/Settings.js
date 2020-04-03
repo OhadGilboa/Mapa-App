@@ -3,7 +3,6 @@ import Slider from "./Sliders/Slider"
 import ModeChanger from "./Sliders/ModeChanger"
 import Switches from "./Sliders/mySwitch"
 import "../styles/Settings.css";
-import { observer } from 'mobx-react';
 
 
 class Settings extends Component {
@@ -17,7 +16,7 @@ class Settings extends Component {
                 <ModeChanger />
                 <div className="vlInSettings"></div>
                 <div className="silenceTitle">Silence:</div>
-                <Switches />
+                <div className="silenceSwitch"> <Switches /> </div>
             </div>
         );
     }

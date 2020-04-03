@@ -63,3 +63,9 @@
     display: grid;
     align-self: center;
 }
+
+.currentUser{
+color:white;
+background-color: #182825;
+
+}
