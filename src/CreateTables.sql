@@ -1,7 +1,8 @@
---  CREATE DATABASE hackaton; 
---  DROP TABLE messages
---  DROP TABLE conversations
---  DROP TABLE users
+--  CREATE DATABASE hackaton;
+USE hackaton; 
+--  DROP TABLE messages;
+--  DROP TABLE conversations;
+--  DROP TABLE users;
 
 -- CREATE table hackaton.users(
 --     userId INT NOT NULL AUTO_INCREMENT,
@@ -95,6 +96,6 @@
 
 -- UPDATE users SET facebookId = "10157306388551006" WHERE facebookId = "10157306388551094"
 
-DELETE FROM hackaton.users WHERE facebookId = "10157306388551094" 
+-- DELETE FROM hackaton.users WHERE facebookId = "4195687070445265" 
 
 

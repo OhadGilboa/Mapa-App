@@ -61,6 +61,7 @@
     "react-dev-utils": "^10.2.0",
     "react-dom": "^16.13.0",
     "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.1.2",
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.1.2",
     "reactjs-popup": "^1.5.0",
