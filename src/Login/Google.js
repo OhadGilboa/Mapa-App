@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import GoogleLogin from "react-google-login";
 import { inject, observer } from "mobx-react";
+import { Redirect } from "react-router-dom";
 
 const responseGoogle = response => {
   console.log(response);
@@ -44,6 +45,8 @@ class Google extends Component {
         buttonText="Login"
         onSuccess={this.responseGoogle}
         onFailure={responseGoogle}
+        redirectUri="/UserList"
+        className="loginBtn loginBtn--google"
         cookiePolicy={"single_host_origin"}
       />
     );

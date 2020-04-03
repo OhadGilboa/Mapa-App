@@ -151,4 +151,13 @@ export class UserData {
     this.user.users = users;
   }
 
+  @action createMarkers =() =>{
+    
+
+
+
+
+    
+  }
+
 }

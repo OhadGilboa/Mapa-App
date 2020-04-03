@@ -1,6 +1,7 @@
 .Map-class {
+    display: grid;
+    align-content: center;
     width: 100vw;
-    height: 82.5vh;
-    position: absolute;
-    top: 9vh;
+    height: 83vh;
+    align-items: center;
 };

@@ -4,7 +4,7 @@ USE hackaton;
 --  DROP TABLE conversations;
 --  DROP TABLE users;
 
--- CREATE table hackaton.users(
+-- CREATE table users(
 --     userId INT NOT NULL AUTO_INCREMENT,
 --     facebookId VARCHAR(35),
 --     email VARCHAR(30),
@@ -57,23 +57,23 @@ USE hackaton;
 
 
 
---   INSERT INTO hackaton.users(userId,facebookId, email, first_name, last_name, pitch, age, user_status,gender,picture,latitude,longitude, mode, distanceRange, silence)
---     VALUES 
---         (null,'10157306388551009','yambam@gmail.com' , 'yam' , 'ohana', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/72.jpg', 31.963139899999998, 34.80461460000001, "movie",2,false),
---         (null,'10157306388551095','amitAlon@gmail.com' , 'amit' , 'alon', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/71.jpg', 30.963139899999998, 33.80461460000001, "message",2,false),
---         (null,'10157306388551096','inbarkal@gmail.com' , 'inbar' , 'kal', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/70.jpg', 32.963139899999998, 32.80461460000001, "cigarette",2,false),
---         (null,'10157306388551097','maoz@gmail.com' , 'maoz' , 'tzur', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/20.jpg', 32.963139899999998, 32.80461460000001, "sport",2,false),
---         (null,'10157306388551098','yoav@gmail.com' , 'yoav' , 'kal', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/80.jpg', 31.963139899999998, 31.80461460000001, "beer",2,false),
---         (null,'10157306388551099','bam@gmail.com' , 'moran' , 'ohana', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/67.jpg', 31.963139899999998, 34.80461460000001, "movie",2,false),
---         (null,'10157306388551000','yarden@gmail.com' , 'affmit' , 'alon', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/77.jpg', 30.963139899999998, 33.80461460000001, "sos",2,false),
---         (null,'10157306388551001','bbbbb@gmail.com' , 'shmolib' , 'kal', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/45.jpg', 32.963139899999998, 32.80461460000001, "cigarette",2,false),
---         (null,'10157306388551002','dddd@gmail.com' , 'yogev' , 'tzur', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/34.jpg', 32.963139899999998, 32.80461460000001, "dog",2,false),
---         (null,'10157306388551003','yoav@gmail.com' , 'yfff' , 'kal', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/33.jpg', 31.963139899999998, 31.80461460000001, "drink",2,false),
---         (null,'10157306388551004','bam@gmail.com' , 'moran' , 'ohana', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/12.jpg', 31.963139899999998, 34.80461460000001, "coffee",2,false),
---         (null,'10157306388551005','yarden@gmail.com' , 'affmit' , 'alon', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/28.jpg', 30.963139899999998, 33.80461460000001,"sos",2,false),
---         (null,'10157306388551006','bbbbb@gmail.com' , 'shmolib' , 'kal', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/42.jpg', 32.963139899999998, 32.80461460000001, "coffee",2,false),
---         (null,'10157306388551007','dddd@gmail.com' , 'yogev' , 'tzur', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/44.jpg', 32.963139899999998, 32.80461460000001, "movie",2,false),
---         (null,'10157306388551008','yoav@gmail.com' , 'yfff' , 'kal', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/45.jpg', 31.963139899999998, 31.80461460000001, "coffee",2,false)
+  INSERT INTO hackaton.users(userId,facebookId, email, first_name, last_name, pitch, age, user_status,gender,picture,latitude,longitude, mode, distanceRange, silence)
+    VALUES 
+        (null,'10157306388551009','yambam@gmail.com' , 'Yam' , 'Hadar', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/72.jpg', 31.963139899999998, 34.80461460000001, "movie",2,false),
+        (null,'10157306388551095','amitAlon@gmail.com' , 'Eram' , 'Chen', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/71.jpg', 31.991253, 34.770701, "message",2,false),
+        (null,'10157306388551096','inbarkal@gmail.com' , 'Inbar' , 'Levi', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/70.jpg', 32.004011, 34.768046, "cigarette",2,false),
+        (null,'10157306388551097','maoz@gmail.com' , 'Maor' , 'Tzur', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/20.jpg', 32.006900, 34.767752, "sport",2,false),
+        (null,'10157306388551098','yoav@gmail.com' , 'Yoav' , 'Natan', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/80.jpg', 32.010973, 34.768090, "beer",2,false),
+        (null,'10157306388551099','bam@gmail.com' , 'Nir' , 'Dankor', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/67.jpg', 32.014712, 34.767269, "movie",2,false),
+        (null,'10157306388551000','yarden@gmail.com' , 'Amir' , 'Shemesh', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/77.jpg', 32.017912, 34.765719, "sos",2,false),
+        (null,'10157306388551001','bbbbb@gmail.com' , 'Nofar' , 'Akhilov', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/45.jpg', 32.021727, 34.766935, "cigarette",2,false),
+        (null,'10157306388551002','dddd@gmail.com' , 'Noa' , 'Haina', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/34.jpg', 32.026501, 34.766090, "dog",2,false),
+        (null,'10157306388551003','yoav@gmail.com' , 'Yoni' , 'Shaked', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/33.jpg', 32.033556, 34.763185, "drink",2,false),
+        (null,'10157306388551004','bam@gmail.com' , 'Omer' , 'Morag', 'living the life',33, 'active', 'male','https://randomuser.me/api/portraits/med/men/12.jpg', 32.051968, 34.757965, "coffee",2,false),
+        (null,'10157306388551005','yarden@gmail.com' , 'Roy' , 'Sade', 'asta la vista baby',23, 'active', 'male','https://randomuser.me/api/portraits/med/men/28.jpg', 32.084162, 34.790629,"sos",2,false),
+        (null,'10157306388551006','bbbbb@gmail.com' , 'Shlomi' , 'Amir', 'like jogging',28, 'active', 'female','https://randomuser.me/api/portraits/med/men/42.jpg', 32.086343, 34.793526, "coffee",2,false),
+        (null,'10157306388551007','dddd@gmail.com' , 'Dan' , 'Shalom', 'boom bolent',24, 'active', 'male','https://randomuser.me/api/portraits/med/men/44.jpg', 32.091016, 34.786362, "movie",2,false),
+        (null,'10157306388551008','yoav@gmail.com' , 'Ron' , 'Moran', 'like boxing',28, 'active', 'male','https://randomuser.me/api/portraits/med/men/45.jpg', 32.093870, 34.791544, "coffee",2,false)
 
 
     -- INSERT INTO hackaton.conversations
