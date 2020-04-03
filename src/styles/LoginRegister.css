@@ -32,7 +32,6 @@ input:required + .help-text::before {
 }
 
 .text{
-    color: white;
     text-align: center;
 }
 

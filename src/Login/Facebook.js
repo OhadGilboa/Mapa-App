@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import { inject, observer } from 'mobx-react';
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -30,28 +31,29 @@ class Facebook extends Component {
         });
         await this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture, this.state.facebookId)
         this.props.userData.getUsers()
-}
+    }
 
-componentClicked = () => {
-    console.log('Facebook btn clicked');
-}
+    componentClicked = () => {
+        console.log('Facebook btn clicked');
+    }
 
-render() {
-    let facebookData;
-    this.state.auth ?
-        facebookData = null :
-        facebookData = (<FacebookLogin
-            appId="578720732730431"
-            autoLoad={false}
-            fields="first_name,last_name,email,picture"
-            onClick={this.componentClicked}
-            callback={this.responseFacebook} />);
-    return (
-        <>
-            {facebookData}
-        </>
-    );
-}
+    render() {
+        let facebookData;
+        this.state.auth ?
+            facebookData = null :
+            facebookData = (<FacebookLogin
+                appId="578720732730431"
+                autoLoad={false}
+                fields="first_name,last_name,email,picture"
+                onClick={this.componentClicked}
+                cssClass="fb btn"
+                callback={this.responseFacebook} />);
+        return (
+            <>
+                {facebookData}
+            </>
+        );
+    }
 }
 
 export default Facebook

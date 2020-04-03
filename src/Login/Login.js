@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import Facebook from "./Facebook";
 import Google from "./Google";
+import LoginRegister from "../Components/LoginRegister";
+import { inject } from "mobx-react";
 
-
-class Login extends Component { 
-    render() {
+@inject("userData")
+class Login extends Component {
+  render() {
     return (
-      <>
-        <Facebook />
-        <Google />
-      </>
+      <div className={this.props.userData.user.facebookId ? "loginDivHidden" : "loginDiv"}>
+          <Facebook />
+          <Google />
+      </div>
     );
   }
 }
