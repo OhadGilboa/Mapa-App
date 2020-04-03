@@ -7,7 +7,6 @@ const responseGoogle = response => {
 };
 
 @inject("userData")
-@inject("usersStore")
 @observer
 class Google extends Component {
   constructor() {
@@ -32,7 +31,7 @@ class Google extends Component {
         facebookId: response.profileObj.googleId
     });
     await this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture, this.state.facebookId)
-    this.props.usersStore.getUsers()
+    this.props.userData.getUsers()
   }
 
   render() {

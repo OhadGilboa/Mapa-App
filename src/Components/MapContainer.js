@@ -6,7 +6,9 @@ const mapStyles = {
   width: "100%",
   height: "100%"
 };
-@inject("usersStore")
+
+
+@inject("userData")
 @observer
 class MapContainer extends Component {
   state = {
@@ -37,7 +39,7 @@ class MapContainer extends Component {
       showingInfoWindow: true
     });
 
-  onClose = props => {
+  onClose = () => {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
@@ -47,7 +49,7 @@ class MapContainer extends Component {
   };
 
   userMarker = () => {
-    let users = this.props.usersStore.users;
+    let users = this.props.userData.user.users;
     // let users = this.state.stores;
     users.map((user, index) => {
       return (
@@ -84,8 +86,8 @@ class MapContainer extends Component {
           zoom={9}
           style={mapStyles}
           initialCenter={{ lat: 32.083, lng: 34.793 }}
-        >
-        {this.userMarker()}
+          >
+          {this.userMarker()}
         </Map>
       </div>
     );

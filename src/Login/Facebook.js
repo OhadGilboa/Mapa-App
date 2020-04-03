@@ -5,7 +5,6 @@ import { inject, observer } from 'mobx-react';
 
 
 @inject("userData")
-@inject("usersStore")
 @observer
 class Facebook extends Component {
     constructor() {
@@ -30,7 +29,7 @@ class Facebook extends Component {
             facebookId: response.id
         });
         await this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture, this.state.facebookId)
-        this.props.usersStore.getUsers()
+        this.props.userData.getUsers()
 }
 
 componentClicked = () => {
