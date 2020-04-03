@@ -8,7 +8,7 @@ import Map from "./Components/MapContainer";
 import Messages from "./Components/Messages/Messages";
 import UserProfile from "./Components/User/UserProfile";
 import Header from "./Components/Header";
-import LoginFacebook from "./Components/Facebook";
+import Login from "./Login/Login";
 // const axios = require('axios')
 
 @inject("usersStore")
@@ -44,11 +44,11 @@ class App extends Component {
                 <Header />
           </div>
           <div className="container">
-          <Route exact path="/" render={() => <div> <LoginFacebook /> </div>} />
-            <Route path="/UsersList" exact render={() => <div> {this.props.userData.user.first_name ? <UsersList /> : <LoginFacebook />}  </div>} />
-            <Route path="/Map" exact render={() => <div>{this.props.userData.user.first_name ? <Map />: <LoginFacebook />}  </div>} />
-            <Route path="/Messages" exact render={() => <div> {this.props.userData.user.first_name ?<Messages />: <LoginFacebook />}  </div>} />
-            <Route path="/Profile" exact render={() => <div className="userProfileApp"> {this.props.userData.user.first_name ?<UserProfile /> : <LoginFacebook />} </div>} />
+          <Route exact path="/" render={() => <div> <Login /> </div>} />
+            <Route path="/UsersList" exact render={() => <div> {this.props.userData.user.first_name ? <UsersList /> : <Login />}  </div>} />
+            <Route path="/Map" exact render={() => <div>{this.props.userData.user.first_name ? <Map />: <Login />}  </div>} />
+            <Route path="/Messages" exact render={() => <div> {this.props.userData.user.first_name ?<Messages />: <Login />}  </div>} />
+            <Route path="/Profile" exact render={() => <div className="userProfileApp"> {this.props.userData.user.first_name ?<UserProfile /> : <Login />} </div>} />
           </div>
           <div className="navbar">
             <Navbar />

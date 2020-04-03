@@ -72,10 +72,11 @@ export class UserData {
       facebookId: `${this.user.facebookId}`
     });
   };
-
+  
   @action addUserToDataBase = async () => {
     let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
     if (!user.data[0]) {
+      console.log(user.data[0])
       await axios.post(`${userRoute}/user`, {
         facebookId: this.user.facebookId,
         email: this.user.email,
