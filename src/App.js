@@ -4,7 +4,7 @@ import { observer, inject } from "mobx-react";
 import Navbar from "./Components/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import UsersList from "./Components/User/UsersList";
-import Map from "./Components/Map";
+import Map from "./Components/MapContainer";
 import Messages from "./Components/Messages/Messages";
 import UserProfile from "./Components/User/UserProfile";
 import Header from "./Components/Header";
