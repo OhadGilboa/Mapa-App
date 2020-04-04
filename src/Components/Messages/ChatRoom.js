@@ -17,53 +17,53 @@ import sos from "../User/icons/sos.svg"
 @inject("userData")
 @observer
 class ChatRoom extends Component {
-  constructor() {
-    super();
-    this.state = {
-      input: "",
-      isOpenInfo: false
-    };
-  }
-
-  iconHandler(mode) {
-    switch (mode) {
-      case "cigarette":
-        return (
-          <img src={cigarette} className="cigarette icon" alt={"cigarette"} />
-        )
-      case "movie":
-        return (
-          <img src={movie} className="movie icon" alt={"movie"} />
-        )
-      case "beer":
-        return (
-          <img src={beer} className="beer icon" alt={"beer"} />
-        )
-      case "coffee":
-        return (
-          <img src={coffee} className="coffee icon" alt={"coffee"} />
-        )
-      case "dog":
-        return (
-          <img src={dog} className="dog icon" alt={"dog"} />
-        )
-      case "sos":
-        return (
-          <img src={sos} className="sos icon" alt={"sos"} />
-        )
-      case "sport":
-        return (
-          <img src={sport} className="sport icon" alt={"sport"} />
-        )
-      default:
-        return (
-          <img src={message} className="message icon" alt={"message"} />
-        )
+    constructor() {
+        super();
+        this.state = {
+            input: "",
+            isOpenInfo: false
+        };
     }
-  }
+
+    iconHandler(mode) {
+        switch (mode) {
+            case "cigarette":
+                return (
+                    <img src={cigarette} className="cigarette icon" alt={"cigarette"} />
+                )
+            case "movie":
+                return (
+                    <img src={movie} className="movie icon" alt={"movie"} />
+                )
+            case "beer":
+                return (
+                    <img src={beer} className="beer icon" alt={"beer"} />
+                )
+            case "coffee":
+                return (
+                    <img src={coffee} className="coffee icon" alt={"coffee"} />
+                )
+            case "dog":
+                return (
+                    <img src={dog} className="dog icon" alt={"dog"} />
+                )
+            case "sos":
+                return (
+                    <img src={sos} className="sos icon" alt={"sos"} />
+                )
+            case "sport":
+                return (
+                    <img src={sport} className="sport icon" alt={"sport"} />
+                )
+            default:
+                return (
+                    <img src={message} className="message icon" alt={"message"} />
+                )
+        }
+    }
 
 
-  HandleOpenInfo = () => this.setState({ isOpenInfo: true})
+    HandleOpenInfo = () => this.setState({ isOpenInfo: true })
 
     sendMessage = () => {
         if (this.state.input) {
@@ -91,82 +91,84 @@ class ChatRoom extends Component {
     }
 
 
-  inputHandler = (e) => {
-    this.setState({
-      input: e.target.value,
-    });
-  };
+    inputHandler = (e) => {
+        this.setState({
+            input: e.target.value,
+        });
+    };
 
 
 
 
 
-  render() {
-    return (
-      <div className="chatRoom">
+    render() {
+        return (
+            <div className="chatRoom">
                 <div className="headerPlaceMsg"></div>
                 <div className="header-container">
                     <i onClick={this.props.userData.setShowChat} className="fas fa-arrow-left"></i>
                     <div className="pictureAndName">
                         <img className="pictureMsg" src={this.props.userConversation.picture} alt={this.props.userConversation.first_name}></img>
                         <div className="chatPartnerName">{this.props.userConversation.first_name + " " + this.props.userConversation.last_name}</div>
-          <Popup
-            trigger={<i className="fas fa-info"></i>}
-            position="left top"
-            on="click"
-            open={this.state.isOpenInfo}
-            onOpen={this.HandleOpenInfo}
-          >
-            <div className="infoItems">
-              <div className="infoItem infoItem-picture">
-              <img src={this.props.userConversation.picture} alt={this.props.userConversation.facebookId}></img>
-              </div>
-              <div className="infoItem"><span className="info-titles">Name</span>:{" "}
-              {this.props.userConversation.first_name +
-              " " +
-              this.props.userConversation.last_name}
-              </div>
-              <div className="infoItem"><span className="info-titles">Age</span>:{" "}
-                 {this.props.userConversation.age} 
-              </div>
-              <div className="infoItem"><span className="info-titles">Gender</span>:{" "}
-                 {this.props.userConversation.gender} 
-              </div>
-              <div className="infoItem"><span className="info-titles">Status</span>:{" "}
-                 {this.props.userConversation.user_status} 
-              </div>
-              {this.props.userConversation.email ?
-              <div className="infoItem"><span className="info-titles">Email</span>:{" "}
-                 {this.props.userConversation.email} 
-              </div> : null}
-              <div className="iconMode infoItem"><span className="info-titles">Mode</span>:{" "}
-              {this.iconHandler(this.props.userConversation.mode)}</div>
-            </div>
-          </Popup>
-        </div>
-        <div className="vlMsgTop"></div>
-        <div className="msgContainer">
-          <div className="marginTop"></div>
-          {this.props.userData.messages.map((m) => (
-            <Message message={m} key={m.message_id} />
-          ))}
-          <div className="marginBottom"></div>
-        </div>
-        <div className="input-container">
-          <input
-            className="message-input"
-            name="message"
-            value={this.state.input}
-            onChange={this.inputHandler}
-          />
-          <button className="btn-message" onClick={this.sendMessage}>
-                                    <i className="fas fa-paper-plane"></i>
+                    </div>
+                    <Popup
+                        trigger={<i className="fas fa-info"></i>}
+                        position="left top"
+                        on="click"
+                        open={this.state.isOpenInfo}
+                        onOpen={this.HandleOpenInfo}
+                    >
+                        <div className="infoItems">
+                            <div className="infoItem infoItem-picture">
+                                <img src={this.props.userConversation.picture} alt={this.props.userConversation.facebookId}></img>
+                            </div>
+                            <div className="infoItem"><span className="info-titles">Name</span>:{" "}
+                                {this.props.userConversation.first_name +
+                                    " " +
+                                    this.props.userConversation.last_name}
+                            </div>
+                            <div className="infoItem"><span className="info-titles">Age</span>:{" "}
+                                {this.props.userConversation.age}
+                            </div>
+                            <div className="infoItem"><span className="info-titles">Gender</span>:{" "}
+                                {this.props.userConversation.gender}
+                            </div>
+                            <div className="infoItem"><span className="info-titles">Status</span>:{" "}
+                                {this.props.userConversation.user_status}
+                            </div>
+                            {this.props.userConversation.email ?
+                                <div className="infoItem"><span className="info-titles">Email</span>:{" "}
+                                    {this.props.userConversation.email}
+                                </div> : null}
+                            <div className="iconMode infoItem"><span className="info-titles">Mode</span>:{" "}
+                                {this.iconHandler(this.props.userConversation.mode)}</div>
+                        </div>
+                    </Popup>
+                </div>
+                <div className="vlMsgTop"></div>
+                <div className="msgContainer">
+                    <div className="marginTop"></div>
+                    {this.props.userData.messages.map((m) => (
+                        <Message message={m} key={m.message_id} />
+                    ))}
+                    <div className="marginBottom"></div>
+                </div>
+                <div className="input-container">
+                    <input
+                        className="message-input"
+                        name="message"
+                        value={this.state.input}
+                        onChange={this.inputHandler}
+                    />
+                    <button className="btn-message" onClick={this.sendMessage}>
+                        <i className="fas fa-paper-plane"></i>
 
-          </button>
-        </div>
-      </div>
-    );
-  }
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
 }
 
 export default ChatRoom;
