@@ -150,9 +150,9 @@ router.post("/conversation", async function (req, res) {
 
 
 
-// Get messages by id
-router.get("/conversation/:id", async function (req, res) {
-  let conversationId = req.params.id;
+// Get messages by conversationId
+router.get("/messages/:conversationId", async function (req, res) {
+  let {conversationId} = req.params;
   await sequelize
     .query(
       `SELECT * 

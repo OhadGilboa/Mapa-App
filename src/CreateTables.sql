@@ -94,23 +94,23 @@ USE hackaton;
     --     (null, 2, 15)
 
 
-    INSERT INTO hackaton.messages VALUES
-        (null, "2008-11-11 13:21:44", 'Hi how are you', 1, 1, 16),
-        (null, "2008-11-11 13:23:46", "Hi how are you", 1, 16, 1),
-        (null, "2008-11-11 13:23:48", "Good thank for asking", 1, 1, 16),
-        (null, "2008-11-11 13:30:44", "Hi how are you", 1, 16, 1 ),
-        (null, "2008-11-11 13:44:44", 'Go to Hell!!!', 1, 16, 1),
-        (null, "2008-11-11 14:23:44", "Hey man", 1, 1, 16),
-        (null, "2008-11-11 14:33:44", "Love you too", 1, 1, 16),
-        (null, "2008-11-11 13:35:44", "i pee on your grave", 1, 16, 1),
+    -- INSERT INTO hackaton.messages VALUES
+    --     (null, "2008-11-11 13:21:44", 'Hi how are you', 1, 1, 16),
+    --     (null, "2008-11-11 13:23:46", "Hi how are you", 1, 16, 1),
+    --     (null, "2008-11-11 13:23:48", "Good thank for asking", 1, 1, 16),
+    --     (null, "2008-11-11 13:30:44", "Hi how are you", 1, 16, 1 ),
+    --     (null, "2008-11-11 13:44:44", 'Go to Hell!!!', 1, 16, 1),
+    --     (null, "2008-11-11 14:23:44", "Hey man", 1, 1, 16),
+    --     (null, "2008-11-11 14:33:44", "Love you too", 1, 1, 16),
+    --     (null, "2008-11-11 13:35:44", "i pee on your grave", 1, 16, 1),
 
-        (null, "2008-11-11 13:21:44", 'Hi how are you', 6, 2, 17),
-        (null, "2008-11-11 13:23:46", "Hi how are you", 6, 17, 2),
-        (null, "2008-11-11 13:23:48", "Good thank for asking", 6, 2, 17),
-        (null, "2008-11-11 13:30:44", "Hi how are you", 6, 17, 2 ),
-        (null, "2008-11-11 13:44:44", 'Go to Hell!!!', 6, 17, 2),
-        (null, "2008-11-11 14:23:44", "Hey man", 6, 2, 17),
-        (null, "2008-11-11 14:33:44", "Love you too", 6, 2, 17)
+    --     (null, "2008-11-11 13:21:44", 'Hi how are you', 6, 2, 17),
+    --     (null, "2008-11-11 13:23:46", "Hi how are you", 6, 17, 2),
+    --     (null, "2008-11-11 13:23:48", "Good thank for asking", 6, 2, 17),
+    --     (null, "2008-11-11 13:30:44", "Hi how are you", 6, 17, 2 ),
+    --     (null, "2008-11-11 13:44:44", 'Go to Hell!!!', 6, 17, 2),
+    --     (null, "2008-11-11 14:23:44", "Hey man", 6, 2, 17),
+    --     (null, "2008-11-11 14:33:44", "Love you too", 6, 2, 17)
 
 
 

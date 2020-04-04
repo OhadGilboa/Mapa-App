@@ -21,8 +21,9 @@ export class UserData {
     silence: false,
     distance: [],
     conversations: [],
-    showChat: false
+    showChat: false,
   };
+  @observable messages = []
   @observable users = []
 
   @action addPosition() {
@@ -61,8 +62,9 @@ export class UserData {
     this.user.latitude = position.coords.latitude;
     this.user.longitude = position.coords.longitude;
     await this.addUserToDataBase()
-    await this.getLocationsList()
+    await this.getUsers()
     await this.getConversations()
+    await this.getLocationsList()
   };
 
 
@@ -86,7 +88,7 @@ export class UserData {
   };
 
 
-  
+
 
   @action addUserToDataBase = async () => {
     let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
@@ -170,9 +172,52 @@ export class UserData {
   }
 
 
-  @action getConversations = async () =>{
+  @action getConversations = async () => {
     let conversations = await axios.get(`${userRoute}/conversations/${this.user.userId}`)
     this.user.conversations = conversations.data
+    for (let uc of this.user.conversations) {
+      for (let u of this.users) {
+        if ((uc.user_id1 === u.userId && u.userId !== this.user.userId) ||
+          uc.user_id2 === u.userId && u.userId !== this.user.userId) {
+          console.log("!")
+          uc.facebookId = u.facebookId
+          uc.first_name = u.first_name
+          uc.last_name = u.last_name
+          uc.email = u.email
+          uc.picture = u.picture
+          uc.gender = u.gender
+          uc.age = u.age
+          uc.user_status = u.user_status
+          uc.mode = u.mode
+          uc.latitude = u.latitude
+          uc.longitude = u.longitude
+        }
+      }
+    }
   }
+
+  @action postConversation = async conversation => {
+    await axios.post(`${userRoute}/conversation`, {
+      user_id1: conversation.user_id1,
+      user_id2: conversation.user_id2,
+    })
+  }
+
+  @action getMessagesOfConversation = async conId => {
+    let messages = await axios.get(`${userRoute}/messages/${conId}`)
+    this.messages = messages.data
+  }
+
+
+  @action postMessage = async message => {
+    await axios.post(`${userRoute}/message`, {
+      message_date: message.message_date,
+      message_text: message.text,
+      conversationId: message.conversationId,
+      user_sending_id: message.sender,
+      user_receiving_id: message.receiver
+    })
+  }
+
 
 }

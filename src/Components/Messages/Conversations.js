@@ -11,26 +11,23 @@ class Conversations extends Component {
     constructor() {
         super()
         this.state = {
-            facebookId: ""
+            userConversation: ""
         }
     }
 
     componentDidMount() {
         this.props.userData.user.showChat = false
-        console.log(this.props.userData.user.conversations)
     }
 
     renderList = () => {
         return (
             <div className="conversations">
                 <div className="conversation">
-                    <div className="userList">
                         <div className="headerPlace"></div>
                         <div className="vl"></div>
-                        {this.props.userData.users.map(u => <Conversation getBack={this.getBack} user={u} key={u.facebookId} />)}
+                        {this.props.userData.user.conversations.map(uc => <Conversation getBack={this.getBack} userConversation={uc} key={uc.conversation_id} />)}
                         <div className="footerPlace"></div>
                         <div className="vl"></div>
-                    </div>
                 </div>
             </div>
         );
@@ -39,13 +36,13 @@ class Conversations extends Component {
 
     renderRoom = () => {
         return (
-            <ChatRoom facebookId={this.state.facebookId} />
+            <ChatRoom userConversation={this.state.userConversation} />
         )
     }
 
-    getBack = facebookId => {
+    getBack = userConversation => {
         this.setState({
-            facebookId
+            userConversation
         })
         this.props.userData.setShowChat()
     }
