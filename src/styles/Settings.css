@@ -49,7 +49,7 @@
 .popup-content {
     background-color: rgb(255, 255, 255) !important;
     width: 75vw !important;
-    height: 75vh;
+    height: 65vh;
     display: grid;
     justify-items: center;
     border-radius: 10px;
