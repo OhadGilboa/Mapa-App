@@ -9,15 +9,17 @@ import ChatRoom from "./ChatRoom";
 class Conversation extends Component {
 
   sendBack = () => {
-   this.props.getBack(this.props.user.facebookId)
+    this.props.userData.getMessagesOfConversation(this.props.userConversation.conversation_id)
+    this.props.getBack(this.props.userConversation)
   }
 
 
   render() {
+    let user = this.props.userConversation
     return (
-      <div className={this.props.user.mode === "sos" ? "bigUser sosBackground" : this.props.user.current ? "bigUser currentUser" : "bigUser"} >
+      <div className={user.mode === "sos" ? "bigUser sosBackground" : user.current ? "bigUser currentUser" : "bigUser"} >
         <div className="user" onClick={this.sendBack}>
-          <div className="person-name" className="fullName">{this.props.user.first_name + ' ' + this.props.user.last_name}</div>
+          <div className="person-name" className="fullName">{user.first_name + ' ' + user.last_name}</div>
         </div>
         <div className="vl"></div>
       </div>

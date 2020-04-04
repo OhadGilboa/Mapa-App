@@ -3,22 +3,9 @@ import Conversation from "./Conversation";
 
 class Message extends Component {
   render() {
+    console.log(this.props)
     return <div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
-      <div> Message </div>
+        {this.props.message.message_text}
     </div>;
   }
 }
