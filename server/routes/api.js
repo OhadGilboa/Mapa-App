@@ -17,27 +17,40 @@ const sequelize = new Sequelize("mysql://root:1234@localhost/hackaton");
 // Get users
 router.get("/users", async function (req, res) {
   await sequelize
-    .query("SELECT * FROM users")
-    .spread(function (results, metadata) {
-      res.send(results);
-    });
+  .query("SELECT * FROM users")
+  .spread(function (results, metadata) {
+    res.send(results);
+  });
 });
+
+
 
 // Get user by facebookId
 router.get("/user/:facebookId", async function (req, res) {
   let { facebookId } = req.params;
   await sequelize
-    .query(`SELECT * FROM users WHERE facebookId = '${facebookId}'`)
-    .spread(function (results, metadata) {
-      res.send(results);
-    });
+  .query(`SELECT * FROM users WHERE facebookId = '${facebookId}'`)
+  .spread(function (results, metadata) {
+    res.send(results);
+  });
+});
+
+//Get userId
+router.get("/user/:facebookId", async function (req, res) {
+  let { facebookId } = req.params;
+  await sequelize
+  .query(`SELECT userId FROM users WHERE facebookId = '${facebookId}'`)
+  .spread(function (results, metadata) {
+    res.send(results);
+    console.log(results)
+  });
 });
 
 // Post user
 router.post("/user", async function (req, res) {
   let user = req.body;
   let query = `INSERT INTO users VALUES 
-  (null, 
+  (null,
     '${user.facebookId}',
     '${user.email}',
     '${user.first_name}', 
@@ -53,58 +66,89 @@ router.post("/user", async function (req, res) {
     '${user.range}',
     ${user.silence}
     )`;
-  await sequelize.query(query);
-  res.end()
-});
-
-// Put user
-router.put("/user", async function (req, res) {
-  let data = req.body;
+    await sequelize.query(query);
+    res.end()
+  });
+  
+  // Put user
+  router.put("/user", async function (req, res) {
+    let data = req.body;
   console.log(data)
   await sequelize
-    .query(
-      `UPDATE users
+  .query(
+    `UPDATE users
     SET ${data.column} = '${data.value}'
     WHERE facebookId = "${data.facebookId}"`
     )
     .spread(function (results, metadata) {
       res.send(results);
     });
-});
-
-//put user for boolean
-router.put("/boolean", async function (req, res) {
-  let data = req.body;
-  console.log(data)
-  await sequelize
+  });
+  
+  //put user for boolean
+  router.put("/boolean", async function (req, res) {
+    let data = req.body;
+    console.log(data)
+    await sequelize
     .query(
       `UPDATE users
-    SET ${data.column} = ${data.value}
-    WHERE facebookId = "${data.facebookId}"`
-    )
+      SET ${data.column} = ${data.value}
+      WHERE facebookId = "${data.facebookId}"`
+      )
+      .spread(function (results, metadata) {
+        res.send(results);
+      });
+    });
+    
+    //Put change 2 params in 1 call
+    router.put("/user2", async function (req, res) {
+      let data = req.body;
+      await sequelize
+      .query(
+        `UPDATE users
+        SET ${data.column1} = '${data.value1}',
+        ${data.column2} = '${data.value2}'
+        WHERE facebookId = "${data.facebookId}"`
+        )
     .spread(function (results, metadata) {
       res.send(results);
     });
-});
+  });
+  
+  //Delete user
 
-//Put change 2 params in 1 call
-router.put("/user2", async function (req, res) {
-  let data = req.body;
-  await sequelize
+  // Messages Routes:
+  
+  
+  //get all conversations table
+  router.get("/conversations/:userId", async function (req, res) {
+    let { userId } = req.params;
+    await sequelize
     .query(
-      `UPDATE users
-    SET ${data.column1} = '${data.value1}',
-    ${data.column2} = '${data.value2}'
-    WHERE facebookId = "${data.facebookId}"`
-    )
-    .spread(function (results, metadata) {
-      res.send(results);
-    });
+      `SELECT * 
+      FROM conversations
+      WHERE conversations.user_id1= ${userId}
+      OR conversations.user_id2= ${userId}`
+      )
+      .spread(function (results, metadata) {
+        res.send(results);
+      });
 });
 
-//Delete user
 
-// Messages Routes:
+// Post conversation
+router.post("/conversation", async function (req, res) {
+  let conversation = req.body;
+  let query = `INSERT INTO conversations VALUES 
+  (null, 
+    '${conversation.user_id1}',
+    '${conversation.user_id2}', 
+    )`;
+  await sequelize.query(query);
+  res.end()
+});
+
+
 
 // Get messages by id
 router.get("/conversation/:id", async function (req, res) {
@@ -120,6 +164,8 @@ router.get("/conversation/:id", async function (req, res) {
     });
 });
 
+
+
 // Post message
 router.post("/message", async function (req, res) {
   let message = req.body;
@@ -132,6 +178,7 @@ router.post("/message", async function (req, res) {
     '${message.user_receiving_id}'
     )`;
   await sequelize.query(query);
+  res.end()
 });
 
 
@@ -145,11 +192,11 @@ router.get("/distance/:facebookId", async function (req, res) {
       let connectedUser = results.find(u => u.facebookId === facebookId)
       console.log(connectedUser)
       results.map(u => {
-        let temp = {id: u.facebookId, distance: Math.round(calcDistanceBetweenTwoPeopleInKM(connectedUser.latitude, connectedUser.longitude, u.latitude, u.longitude) * 10) / 10}
+        let temp = { id: u.facebookId, distance: Math.round(calcDistanceBetweenTwoPeopleInKM(connectedUser.latitude, connectedUser.longitude, u.latitude, u.longitude) * 10) / 10 }
         arrDistance.push(temp)
       })
     });
-    res.send(arrDistance)
+  res.send(arrDistance)
 });
 
 

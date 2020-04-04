@@ -8,14 +8,14 @@ import "../../styles/user.css"
 @observer
 class UsersList extends Component {
 
-  index = this.props.userData.user.users.length
+  index = this.props.userData.users.length
 
   addingDistanceToUsers() {
     let dis = this.props.userData.user.distance.data
-    for (let u of this.props.userData.user.users) {
+    for (let u of this.props.userData.users) {
       for (let d of dis) {
         if (u.facebookId === d.id) {
-           u.distance = d.distance
+          //  u.distance = d.distance
         }
       }
     }
@@ -23,24 +23,24 @@ class UsersList extends Component {
 
   removeFarPeople() {
     console.log(this.props.userData.user.range)
-    this.index = this.props.userData.user.users.findIndex(u => u.distance > this.props.userData.user.range)
+    this.index = this.props.userData.users.findIndex(u => u.distance > this.props.userData.user.range)
     console.log(this.index)
-    console.log(this.props.userData.user.users[0].distance)
-    console.log(this.props.userData.user.users[1].distance)
-    console.log(this.props.userData.user.users[2].distance)
-    console.log(this.props.userData.user.users[3].distance)
-    console.log(this.props.userData.user.users[4].distance)
+    console.log(this.props.userData.users[0].distance)
+    console.log(this.props.userData.users[1].distance)
+    console.log(this.props.userData.users[2].distance)
+    console.log(this.props.userData.users[3].distance)
+    console.log(this.props.userData.users[4].distance)
     
   }
 
   removeMyself() {
-    let indexToRemove = this.props.userData.user.users.findIndex(u => u.facebookId === this.props.userData.facebookId)
-    this.props.userData.user.users.splice(indexToRemove, 1)
+    let indexToRemove = this.props.userData.users.findIndex(u => u.facebookId === this.props.userData.facebookId)
+    this.props.userData.users.splice(indexToRemove, 1)
   }
 
   markYourself() {
-    let index = this.props.userData.user.users.findIndex(u => u.id === this.props.userData.user.id)
-    this.props.userData.user.users[index].current = true;
+    let index = this.props.userData.users.findIndex(u => u.id === this.props.userData.user.id)
+    this.props.userData.users[index].current = true;
   }
 
 
@@ -48,11 +48,11 @@ class UsersList extends Component {
     let swapped;
     do {
       swapped = false;
-      for (let i = 0; i < this.props.userData.user.users.length - 1; i++) {
-        if (this.props.userData.user.users[i].distance > this.props.userData.user.users[i + 1].distance) {
-          let temp = this.props.userData.user.users[i];
-          this.props.userData.user.users[i] = this.props.userData.user.users[i + 1];
-          this.props.userData.user.users[i + 1] = temp;
+      for (let i = 0; i < this.props.userData.users.length - 1; i++) {
+        if (this.props.userData.users[i].distance > this.props.userData.users[i + 1].distance) {
+          let temp = this.props.userData.users[i];
+          this.props.userData.users[i] = this.props.userData.users[i + 1];
+          this.props.userData.users[i + 1] = temp;
           swapped = true;
         }
       }
@@ -65,16 +65,16 @@ class UsersList extends Component {
     this.addingDistanceToUsers()
     this.bubbleSort()
     this.removeFarPeople()
-    this.markYourself()
+    //this.markYourself()
     //this.removeFarPeople()
     return (
       <div className="userList">
         <div className="headerPlace"></div>
         <div className="vl"></div>
-        {/* <div>{this.props.userData.user.mode}</div>
-        <div>{this.props.userData.user.range}</div> */}
-        {/* {this.props.userData.user.users.map(u => <User user={u} key={u.facebookId} />)} */}
-        {this.props.userData.user.users.map((u,index) => this.index > index ? <User user={u} key={u.facebookId} /> : null)}
+        <div>{this.props.userData.users[16].mode}</div>
+        <div>{this.props.userData.user.range}</div>
+        {/* {this.props.userData.users.map(u => <User user={u} key={u.facebookId} />)} */}
+        {/* {this.props.userData.users.map((u,index) => this.index > index ? <User user={u} key={u.facebookId} /> : null)} */}
         <div className="footerPlace"></div>
         <div className="vl"></div>
       </div>

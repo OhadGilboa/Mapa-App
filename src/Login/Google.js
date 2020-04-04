@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import GoogleLogin from "react-google-login";
 import { inject, observer } from "mobx-react";
-import { Redirect } from "react-router-dom";
 
-const responseGoogle = response => {
-  console.log(response);
-};
+
 
 @inject("userData")
 @observer
@@ -24,12 +21,12 @@ class Google extends Component {
 
   responseGoogle = async response => {
     this.setState({
-        auth: true,
-        first_name: response.profileObj.givenName,
-        last_name: response.profileObj.familyName,
-        email: response.profileObj.email,
-        picture: response.profileObj.imageUrl,
-        facebookId: response.profileObj.googleId
+      auth: true,
+      first_name: response.profileObj.givenName,
+      last_name: response.profileObj.familyName,
+      email: response.profileObj.email,
+      picture: response.profileObj.imageUrl,
+      facebookId: response.profileObj.googleId
     });
     await this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture, this.state.facebookId)
     this.props.userData.getUsers()
@@ -40,15 +37,17 @@ class Google extends Component {
     this.state.auth ? (GoogleData = null) : (GoogleData = null);
     return (
       // {GoogleData}
-      <GoogleLogin
-        clientId="1078111533235-0m92tor2vngroac278sucl8fj20ojk6i.apps.googleusercontent.com"
-        buttonText="Login"
-        onSuccess={this.responseGoogle}
-        onFailure={responseGoogle}
-        redirectUri="/UserList"
-        className="loginBtn loginBtn--google"
-        cookiePolicy={"single_host_origin"}
-      />
+      <>
+        <GoogleLogin
+          clientId="1078111533235-0m92tor2vngroac278sucl8fj20ojk6i.apps.googleusercontent.com"
+          onSuccess={this.responseGoogle}
+        />
+        <i className="fa fa-google-plus" style={{
+          marginLeft:
+            '5px'
+        }} />
+        <span>&nbsp;&nbsp;Sign In with Google</span>
+      </>
     );
   }
 }

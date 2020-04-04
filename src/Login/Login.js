@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Facebook from "./Facebook";
 import Google from "./Google";
-import LoginRegister from "../Components/LoginRegister";
 import { inject } from "mobx-react";
 
 @inject("userData")

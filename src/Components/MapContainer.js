@@ -20,7 +20,7 @@ class MapContainer extends Component {
 
 
   async componentDidMount() {
-    await this.setState({ stores: this.props.userData.user.users })
+    await this.setState({ stores: this.props.userData.users })
     console.log(this.state.stores)
   }
 
