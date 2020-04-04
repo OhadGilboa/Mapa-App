@@ -62,7 +62,34 @@ class ChatRoom extends Component {
     }
   }
 
+
   HandleOpenInfo = () => this.setState({ isOpenInfo: true})
+
+    sendMessage = () => {
+        if (this.state.input) {
+            let receiver, sender
+            if (this.props.userConversation.user_id1 === this.props.userData.user.userId) {
+                receiver = this.props.userConversation.user_id2
+                sender = this.props.userConversation.user_id1
+            }
+            else {
+                receiver = this.props.userConversation.user_id1
+                sender = this.props.userConversation.user_id2
+            }
+            let message = {
+                message_date: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
+                text: this.state.input,
+                conversationId: this.props.userConversation.conversation_id,
+                sender,
+                receiver
+            }
+            this.props.userData.postMessage(message)
+            this.setState({
+                input: ""
+            })
+        }
+    }
+
 
   inputHandler = (e) => {
     this.setState({
@@ -70,40 +97,19 @@ class ChatRoom extends Component {
     });
   };
 
-  sendMessage = () => {
-    let receiver, sender;
-    if (
-      this.props.userConversation.user_id1 === this.props.userData.user.userId
-    ) {
-      receiver = this.props.userConversation.user_id2;
-      sender = this.props.userConversation.user_id1;
-    } else {
-      receiver = this.props.userConversation.user_id1;
-      sender = this.props.userConversation.user_id2;
-    }
-    let message = {
-      message_date: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
-      text: this.state.input,
-      conversationId: this.props.userConversation.conversation_id,
-      sender,
-      receiver,
-    };
-    this.props.userData.postMessage(message);
-  };
+
+
+
 
   render() {
     return (
       <div className="chatRoom">
-        <div className="headerPlace"></div>
-        <div className="header-container">
-          <div onClick={this.props.userData.setShowChat}>
-            <i className="fas fa-long-arrow-alt-left"></i>
-          </div>
-          <div className="chatPartnerName">
-            {this.props.userConversation.first_name +
-              " " +
-              this.props.userConversation.last_name}
-          </div>
+                <div className="headerPlaceMsg"></div>
+                <div className="header-container">
+                    <i onClick={this.props.userData.setShowChat} className="fas fa-arrow-left"></i>
+                    <div className="pictureAndName">
+                        <img className="pictureMsg" src={this.props.userConversation.picture} alt={this.props.userConversation.first_name}></img>
+                        <div className="chatPartnerName">{this.props.userConversation.first_name + " " + this.props.userConversation.last_name}</div>
           <Popup
             trigger={<i className="fas fa-info"></i>}
             position="left top"
@@ -147,7 +153,6 @@ class ChatRoom extends Component {
           <div className="marginBottom"></div>
         </div>
         <div className="input-container">
-          <div className="vlMsgBottom"></div>
           <input
             className="message-input"
             name="message"
@@ -155,7 +160,8 @@ class ChatRoom extends Component {
             onChange={this.inputHandler}
           />
           <button className="btn-message" onClick={this.sendMessage}>
-            send
+                                    <i className="fas fa-paper-plane"></i>
+
           </button>
         </div>
       </div>

@@ -6,40 +6,66 @@ input {
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 3vh 4vh 1px 73vh 1px 6vh;
+    grid-template-rows: 2vh 4vh 1px 73vh 6vh;
 }
 
 .btn-message {
     height: 5vh;
-    width: 30vw;
+    font-size: 5vw;
+    border-radius: 0px 20px 20px 0px;
+    text-align: center;
+    background-color: rgba(254, 255, 247, 0.978);
+    color: #293132;
+    border: 1px;
+    margin-right: 0.5vh;
+    height: 6.5vh;
 }
 
 .message-input {
-    height: 4.3vh;
-    width: 72vw;
+    background-color: rgba(254, 255, 247, 0.978);
+    border: none !important;
+    height: 6.3vh;
+    width: 90vw;
+    font-size: 3vw;
+    border-radius: 20px 0px 0px 20px;
 }
 
 .chatPartnerName {
-    text-align: center;
-    height: 4.3vh;
+    height: 100%;
     font-weight: bold;
-    font-size: 3.5vh;
+    font-size: 3vh;
+    align-items: center;
 }
 
-.fa-long-arrow-alt-left {
+.fa-arrow-left {
     font-size: 6vw;
+    justify-self: center;
+    align-self: center;
+}
+
+.fa-info {
+    justify-self: center;
+    align-self: center;
 }
 
 .msgSending {
     text-align: left;
     color: red;
-    margin-left:1vw;
+    background-color: white;
+    margin: 3vh;
+    margin-top: 3vh !important;
+    font-size: 3.5vw;
+    display: inline-block;
+    display:flex;
+    direction: rtl;
 }
 
 .msgReceiving {
-    text-align: right;
+    background-color: white;
+    margin-left: 2vw;
+    text-align: left;
     color: green;
-    margin-right:1vw;
+    margin-top: 2vh;
 }
 
 .msgContainer {
@@ -48,21 +74,26 @@ input {
 
 .input-container {
     display: grid;
-    grid-template-columns: 7fr 3fr;
+    grid-template-columns: 9fr 1fr;
     position: fixed;
-    bottom: 7.2vh;
+    bottom: 8.4vh;
     width: 100%;
 }
 
 .header-container {
     display: grid;
-    grid-template-columns: 2fr 12fr 2fr 1px;
+    grid-template-columns: 2fr 10fr 2fr;
     justify-items: center;
     align-items: center;
     position: fixed;
-    top: 10vh;
+    background-color: rgba(254, 255, 247, 0.978);
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+    top: 8vh;
     width: 100%;
-    background-color: #F1F5F2;
+    border-radius: 0px 0px 5vh 5vh;
+    align-items:start;
+
 }
 
 .fa-info {
@@ -70,7 +101,7 @@ input {
 }
 
 .marginTop {
-    margin-top: 2vh;
+    margin-top: 8vh;
 }
 
 .marginBottom {
@@ -86,11 +117,50 @@ input {
     background-color: rgba(201, 196, 196, 0.664);
 }
 
-.vlMsgTop{
-    bottom:10vh;
+.vlMsgTop {
+    bottom: 10vh;
 }
 
-.marginBottom{
+.marginBottom {
     height: 4vh;
     width: 100%;
+}
+
+.pictureMsg {
+    border-radius: 30%;
+    justify-self: right;
+    margin-right: 2vw;
+    height: 11vw;
+    width: 11vw;
+}
+
+.pictureAndName{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+}
+
+.header-container .popup-content {
+    background-color: rgba(255, 255, 255, 0.979) !important;
+    width: 75vw !important;
+    height: 50vh;
+    display: grid;
+    justify-items: center;
+    border-radius: 10px;
+    box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.75) !important;
+    border: solid #00C7DD 1.7px !important;
+}
+.infoItems{
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+.info-titles {
+    text-decoration: underline;
+}
+.infoItem-picture{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border-radius: 25%;
 }
