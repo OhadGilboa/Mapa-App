@@ -15,22 +15,14 @@ class UsersList extends Component {
     for (let u of this.props.userData.users) {
       for (let d of dis) {
         if (u.facebookId === d.id) {
-          //  u.distance = d.distance
+            u.distance = d.distance
         }
       }
     }
   }
 
   removeFarPeople() {
-    console.log(this.props.userData.user.range)
     this.index = this.props.userData.users.findIndex(u => u.distance > this.props.userData.user.range)
-    console.log(this.index)
-    console.log(this.props.userData.users[0].distance)
-    console.log(this.props.userData.users[1].distance)
-    console.log(this.props.userData.users[2].distance)
-    console.log(this.props.userData.users[3].distance)
-    console.log(this.props.userData.users[4].distance)
-    
   }
 
   removeMyself() {
@@ -71,10 +63,10 @@ class UsersList extends Component {
       <div className="userList">
         <div className="headerPlace"></div>
         <div className="vl"></div>
-        <div>{this.props.userData.users[16].mode}</div>
-        <div>{this.props.userData.user.range}</div>
+        {/* <div>{this.props.userData.users[16].mode}</div>
+        <div>{this.props.userData.user.range}</div> */}
         {/* {this.props.userData.users.map(u => <User user={u} key={u.facebookId} />)} */}
-        {/* {this.props.userData.users.map((u,index) => this.index > index ? <User user={u} key={u.facebookId} /> : null)} */}
+        {this.props.userData.users.map((u,index) => this.index > index ? <User user={u} key={u.facebookId} /> : null)}
         <div className="footerPlace"></div>
         <div className="vl"></div>
       </div>

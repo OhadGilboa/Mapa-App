@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { GoogleApiWrapper, InfoWindow, Marker, Map } from "google-maps-react";
+import { GoogleApiWrapper,  Marker, Map } from "google-maps-react";
 import "../styles/MapContainer.css";
 import { observer, inject } from "mobx-react";
-import MarkerComp from "./MarkerComp";
 const mapStyles = {
   width: "100%",
   height: "83%"
@@ -39,9 +38,9 @@ class MapContainer extends Component {
       <div className="Map-class">
         <Map
           google={this.props.google}
-          zoom={9}
+          zoom={15}
           style={mapStyles}
-          initialCenter={{ lat: 32.083, lng: 34.793 }}
+          initialCenter={{ lat: this.props.userData.user.latitude, lng: this.props.userData.user.longitude }}
         >
           {this.displayMarkers()}
         </Map>

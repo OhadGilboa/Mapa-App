@@ -10,7 +10,6 @@ import "../../styles/Settings.css";
 import React from 'react';
 import Radio from '@material-ui/core/Radio';
 import { inject, observer } from "mobx-react"
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
 
@@ -30,10 +29,10 @@ const RadioButtons = inject("userData")(observer((props) => {
   return(
     <div className = "ModeSelector" >
       <div className="row">
-        <img className="iconSettings dog" src={dog}></img>
-        <img className="iconSettings sport" src={sport}></img>
-        <img className="iconSettings message" src={message}></img>
-        <img className="iconSettings sos" src={sos}></img>
+        <img className="iconSettings dog" src={dog} alt="dog"></img>
+        <img className="iconSettings sport" src={sport} alt="sport"></img>
+        <img className="iconSettings message" src={message}  alt="message"></img>
+        <img className="iconSettings sos" src={sos} alt="sos"></img>
         <Radio
           checked={selectedValue === 'dog'}
           onChange={handleChange}
@@ -68,10 +67,10 @@ const RadioButtons = inject("userData")(observer((props) => {
         />
       </div>
       <div className="row">
-        <img className="iconSettings cigarette" src={cigarette}></img>
-        <img className="iconSettings beer" src={beer}></img>
-        <img className="iconSettings coffee" src={coffee}></img>
-        <img className="iconSettings movie" src={movie}></img>
+        <img className="iconSettings cigarette" src={cigarette} alt="cigarette"></img>
+        <img className="iconSettings beer" src={beer} alt="beer" ></img>
+        <img className="iconSettings coffee" src={coffee} alt="coffee"></img>
+        <img className="iconSettings movie" src={movie} alt="movie"></img>
         <Radio
           checked={selectedValue === 'cigarette'}
           onChange={handleChange}

@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-import { Link } from "react-router-dom";
-import User from "../User/User";
-import ChatRoom from "./ChatRoom";
 
 @inject("userData")
 @observer
@@ -19,7 +16,7 @@ class Conversation extends Component {
     return (
       <div className={user.mode === "sos" ? "bigUser sosBackground" : user.current ? "bigUser currentUser" : "bigUser"} >
         <div className="user" onClick={this.sendBack}>
-          <div className="person-name" className="fullName">{user.first_name + ' ' + user.last_name}</div>
+          <div className="person-name fullName">{user.first_name + ' ' + user.last_name}</div>
         </div>
         <div className="vl"></div>
       </div>

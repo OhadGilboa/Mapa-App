@@ -55,7 +55,7 @@ class User extends Component {
         return (
             <div className={this.props.user.mode === "sos" ? "bigUser sosBackground" : this.props.user.current ? "bigUser currentUser" : "bigUser"} >
                 <div className="user">
-                    <div className="person-name" className="fullName">{this.props.user.first_name + ' ' + this.props.user.last_name}</div>
+                    <div className="person-name fullName">{this.props.user.first_name + ' ' + this.props.user.last_name}</div>
                     <div className="distance"> {this.props.user.distance}km</div>
                     {this.iconHandler(this.props.user.mode)}
                 </div>

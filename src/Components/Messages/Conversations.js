@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import Conversation from "./Conversation";
-import { Link } from "react-router-dom";
-import User from "../User/User";
 import ChatRoom from "./ChatRoom";
 
 @inject("userData")

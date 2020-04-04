@@ -1,6 +1,5 @@
 import { observable, action, computed } from "mobx";
 import axios from "axios";
-import { act } from "react-dom/test-utils";
 const userRoute = "http://localhost:4200";
 
 export class UserData {
@@ -179,7 +178,6 @@ export class UserData {
       for (let u of this.users) {
         if ((uc.user_id1 === u.userId && u.userId !== this.user.userId) ||
           uc.user_id2 === u.userId && u.userId !== this.user.userId) {
-          console.log("!")
           uc.facebookId = u.facebookId
           uc.first_name = u.first_name
           uc.last_name = u.last_name
