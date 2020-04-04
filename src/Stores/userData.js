@@ -1,9 +1,11 @@
 import { observable, action, computed } from "mobx";
 import axios from "axios";
+import { act } from "react-dom/test-utils";
 const userRoute = "http://localhost:4200";
 
 export class UserData {
   @observable user = {
+    userId: 0,
     facebookId: "",
     first_name: "",
     last_name: "",
@@ -17,9 +19,11 @@ export class UserData {
     longitude: 0,
     range: 2,
     silence: false,
-    users: [],
     distance: [],
+    conversations: [],
+    showChat: false
   };
+  @observable users = []
 
   @action addPosition() {
     if (navigator.geolocation) {
@@ -32,7 +36,12 @@ export class UserData {
 
   @action getUsers = async () => {
     let users = await axios.get(`${userRoute}/users`)
-    this.user.users = users.data
+    this.users = users.data
+  }
+
+  @action getUserId = async () => {
+    let userId = await axios.get(`${userRoute}/userId`)
+    this.users.userId = userId.data
   }
 
   getPosition = function (options) {
@@ -53,6 +62,7 @@ export class UserData {
     this.user.longitude = position.coords.longitude;
     await this.addUserToDataBase()
     await this.getLocationsList()
+    await this.getConversations()
   };
 
 
@@ -74,11 +84,13 @@ export class UserData {
       facebookId: `${this.user.facebookId}`
     });
   };
+
+
   
+
   @action addUserToDataBase = async () => {
     let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
     if (!user.data[0]) {
-      console.log(user.data[0])
       await axios.post(`${userRoute}/user`, {
         facebookId: this.user.facebookId,
         email: this.user.email,
@@ -95,7 +107,9 @@ export class UserData {
         range: 2,
         silence: false,
       });
+      this.user.userId = await this.getUserId()
     } else {
+      this.user.userId = user.data[0].userId
       this.user.email = user.data[0].email
       this.user.pitch = user.data[0].pitch;
       this.user.age = user.data[0].age;
@@ -148,16 +162,17 @@ export class UserData {
   }
 
   @action setUsers = users => {
-    this.user.users = users;
+    this.users = users;
   }
 
-  @action createMarkers =() =>{
-    
+  @action setShowChat = () => {
+    this.user.showChat = !this.user.showChat;
+  }
 
 
-
-
-    
+  @action getConversations = async () =>{
+    let conversations = await axios.get(`${userRoute}/conversations/${this.user.userId}`)
+    this.user.conversations = conversations.data
   }
 
 }
