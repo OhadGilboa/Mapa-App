@@ -33,10 +33,8 @@ class Google extends Component {
   }
 
   render() {
-    let GoogleData;
-    this.state.auth ? (GoogleData = null) : (GoogleData = null);
+
     return (
-      // {GoogleData}
       <>
         <GoogleLogin
           clientId="1078111533235-0m92tor2vngroac278sucl8fj20ojk6i.apps.googleusercontent.com"

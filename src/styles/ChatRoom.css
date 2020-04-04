@@ -1,0 +1,96 @@
+input {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chatRoom {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 3vh 4vh 1px 73vh 1px 6vh;
+}
+
+.btn-message {
+    height: 5vh;
+    width: 30vw;
+}
+
+.message-input {
+    height: 4.3vh;
+    width: 72vw;
+}
+
+.chatPartnerName {
+    text-align: center;
+    height: 4.3vh;
+    font-weight: bold;
+    font-size: 3.5vh;
+}
+
+.fa-long-arrow-alt-left {
+    font-size: 6vw;
+}
+
+.msgSending {
+    text-align: left;
+    color: red;
+    margin-left:1vw;
+}
+
+.msgReceiving {
+    text-align: right;
+    color: green;
+    margin-right:1vw;
+}
+
+.msgContainer {
+    width: 100vw;
+}
+
+.input-container {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    position: fixed;
+    bottom: 7.2vh;
+    width: 100%;
+}
+
+.header-container {
+    display: grid;
+    grid-template-columns: 2fr 12fr 2fr 1px;
+    justify-items: center;
+    align-items: center;
+    position: fixed;
+    top: 10vh;
+    width: 100%;
+    background-color: #F1F5F2;
+}
+
+.fa-info {
+    font-size: 6vw;
+}
+
+.marginTop {
+    margin-top: 2vh;
+}
+
+.marginBottom {
+    margin-bottom: 10vh;
+    width: 100%;
+}
+
+.vlMsgBottom {
+    position: fixed;
+    bottom: 14vh;
+    height: 0.7px;
+    width: 100vw;
+    background-color: rgba(201, 196, 196, 0.664);
+}
+
+.vlMsgTop{
+    bottom:10vh;
+}
+
+.marginBottom{
+    height: 4vh;
+    width: 100%;
+}
