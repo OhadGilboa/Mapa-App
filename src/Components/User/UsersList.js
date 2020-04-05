@@ -8,18 +8,18 @@ import "../../styles/user.css"
 @observer
 class UsersList extends Component {
 
-  index = this.props.userData.users.length
+  // index = this.props.userData.users.length
 
-  addingDistanceToUsers() {
-    let dis = this.props.userData.user.distance.data
-    for (let u of this.props.userData.users) {
-      for (let d of dis) {
-        if (u.facebookId === d.id) {
-            u.distance = d.distance
-        }
-      }
-    }
-  }
+  // addingDistanceToUsers() {
+  //   let dis = this.props.userData.user.distance.data
+  //   for (let u of this.props.userData.users) {
+  //     for (let d of dis) {
+  //       if (u.facebookId === d.id) {
+  //           u.distance = d.distance
+  //       }
+  //     }
+  //   }
+  // }
 
   removeFarPeople() {
     this.index = this.props.userData.users.findIndex(u => u.distance > this.props.userData.user.range)
@@ -36,37 +36,37 @@ class UsersList extends Component {
   }
 
 
-  bubbleSort = function () {
-    let swapped;
-    do {
-      swapped = false;
-      for (let i = 0; i < this.props.userData.users.length - 1; i++) {
-        if (this.props.userData.users[i].distance > this.props.userData.users[i + 1].distance) {
-          let temp = this.props.userData.users[i];
-          this.props.userData.users[i] = this.props.userData.users[i + 1];
-          this.props.userData.users[i + 1] = temp;
-          swapped = true;
-        }
-      }
-    } while (swapped);
-  }
+  // bubbleSort = function () {
+  //   let swapped;
+  //   do {
+  //     swapped = false;
+  //     for (let i = 0; i < this.props.userData.users.length - 1; i++) {
+  //       if (this.props.userData.users[i].distance > this.props.userData.users[i + 1].distance) {
+  //         let temp = this.props.userData.users[i];
+  //         this.props.userData.users[i] = this.props.userData.users[i + 1];
+  //         this.props.userData.users[i + 1] = temp;
+  //         swapped = true;
+  //       }
+  //     }
+  //   } while (swapped);
+  // }
 
 
-
+  // componentDidMount(){
+  //   this.addingDistanceToUsers()
+  //   this.bubbleSort()
+  // }
+  
+  
   render() {
-    this.addingDistanceToUsers()
-    this.bubbleSort()
-    this.removeFarPeople()
+    // this.removeFarPeople()
     //this.markYourself()
     //this.removeFarPeople()
     return (
       <div className="userList">
         <div className="headerPlace"></div>
         <div className="vl"></div>
-        {/* <div>{this.props.userData.users[16].mode}</div>
-        <div>{this.props.userData.user.range}</div> */}
-        {/* {this.props.userData.users.map(u => <User user={u} key={u.facebookId} />)} */}
-        {this.props.userData.users.map((u,index) => this.index > index ? <User user={u} key={u.facebookId} /> : null)}
+         {this.props.userData.users.map((u,index) => this.props.userData.user.indexForRange > index ? <User user={u} key={u.facebookId} /> : null)}
         <div className="footerPlace"></div>
         <div className="vl"></div>
       </div>

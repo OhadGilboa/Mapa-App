@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { GoogleApiWrapper,  Marker, Map } from "google-maps-react";
+import { GoogleApiWrapper, Marker, Map } from "google-maps-react";
 import "../styles/MapContainer.css";
 import { observer, inject } from "mobx-react";
 const mapStyles = {
@@ -25,11 +25,9 @@ class MapContainer extends Component {
 
   displayMarkers = () => {
     return this.state.stores.map((store, index) => {
-      return <Marker key={index} id={index} position={{
-        lat: store.latitude,
-        lng: store.longitude
-      }}
-        onClick={() => console.log("You clicked me!")} />
+      if (this.props.userData.user.indexForRange >= index) {
+        return (<Marker key={index} id={index} position={{ lat: store.latitude, lng: store.longitude }} onClick={() => console.log("You clicked me!")} />)
+      }
     })
   }
 

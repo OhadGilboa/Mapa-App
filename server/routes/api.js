@@ -142,7 +142,7 @@ router.post("/conversation", async function (req, res) {
   let query = `INSERT INTO conversations VALUES 
   (null, 
     '${conversation.user_id1}',
-    '${conversation.user_id2}', 
+    '${conversation.user_id2}' 
     )`;
   await sequelize.query(query);
   res.end()
