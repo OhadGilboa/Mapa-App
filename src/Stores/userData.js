@@ -210,11 +210,12 @@ export class UserData {
   @action postMessage = async message => {
     await axios.post(`${userRoute}/message`, {
       message_date: message.message_date,
-      message_text: message.text,
+      message_text: message.message_text,
       conversationId: message.conversationId,
-      user_sending_id: message.sender,
-      user_receiving_id: message.receiver
+      user_sending_id: message.user_sending_id,
+      user_receiving_id: message.user_receiving_id
     })
+    this.messages.push(message)
   }
 
 

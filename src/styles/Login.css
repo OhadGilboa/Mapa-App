@@ -1,0 +1,12 @@
+.loginDiv {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 20vh;
+    width: 80vw;
+  }
+  
+  .loginDivHidden {
+    display: none;
+  }
+  

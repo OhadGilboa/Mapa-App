@@ -62,26 +62,31 @@ class ChatRoom extends Component {
         }
     }
 
+    getNewMsg = () => {
+        setInterval( () => {
+            this.props.userData.getMessagesOfConversation(this.props.userConversation.conversation_id)
+        }, 5000);
+    }
 
     HandleOpenInfo = () => this.setState({ isOpenInfo: true })
 
     sendMessage = () => {
         if (this.state.input) {
-            let receiver, sender
+            let user_receiving_id, user_sending_id
             if (this.props.userConversation.user_id1 === this.props.userData.user.userId) {
-                receiver = this.props.userConversation.user_id2
-                sender = this.props.userConversation.user_id1
+                user_receiving_id = this.props.userConversation.user_id2
+                user_sending_id = this.props.userConversation.user_id1
             }
             else {
-                receiver = this.props.userConversation.user_id1
-                sender = this.props.userConversation.user_id2
+                user_receiving_id = this.props.userConversation.user_id1
+                user_sending_id = this.props.userConversation.user_id2
             }
             let message = {
                 message_date: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
-                text: this.state.input,
+                message_text: this.state.input,
                 conversationId: this.props.userConversation.conversation_id,
-                sender,
-                receiver
+                user_sending_id,
+                user_receiving_id
             }
             this.props.userData.postMessage(message)
             this.setState({
@@ -98,10 +103,16 @@ class ChatRoom extends Component {
     };
 
 
+    componentDidMount() {
+        this.getNewMsg()
+
+    }
+
 
 
 
     render() {
+        console.log(this.props.userConversation)
         return (
             <div className="chatRoom">
                 <div className="headerPlaceMsg"></div>
@@ -148,8 +159,8 @@ class ChatRoom extends Component {
                 <div className="vlMsgTop"></div>
                 <div className="msgContainer">
                     <div className="marginTop"></div>
-                    {this.props.userData.messages.map((m) => (
-                        <Message message={m} key={m.message_id} />
+                    {this.props.userData.messages.map((m, index) => (
+                        <Message message={m} key={index} />
                     ))}
                     <div className="marginBottom"></div>
                 </div>

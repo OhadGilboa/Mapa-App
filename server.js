@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const api = require('./server/routes/api')
 const bodyParser = require("body-parser")
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 
 
 app.use(bodyParser.json())

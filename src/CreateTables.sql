@@ -4,7 +4,6 @@ USE hackaton;
 
 --  DROP TABLE messages;
 --  DROP TABLE conversations;
-
 --  DROP TABLE users;
 
 -- CREATE table users(
@@ -87,7 +86,7 @@ USE hackaton;
     --     (null, 16, 5),
     --     (null, 2, 17),
     --     (null, 12, 15),
-    --     (null, 2, 17),
+    --     (null, 16, 17),
     --     (null, 2, 5),
     --     (null, 2, 17),
     --     (null, 17, 5),

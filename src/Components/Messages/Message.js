@@ -7,7 +7,6 @@ class Message extends Component {
     return <span className={this.props.userData.user.userId === this.props.message.user_sending_id ? "msgSending" : "msgReceiving"}>
       {this.props.message.message_text}
     </span>
-;
   }
 }
 export default Message;
