@@ -170,7 +170,7 @@ class UserProfile extends Component {
             <div>
               <div className="list-name">Select Age</div>
               <input
-                type="text"
+                type="number"
                 value={this.state.input}
                 onChange={this.changeValue}
               ></input>

@@ -56,6 +56,7 @@ class User extends Component {
     }
 
     render() {
+        console.log(this.props.userData.user)
         return (
             < div onClick={this.startCon} className={this.props.user.mode === "sos" ? "bigUser sosBackground" : this.props.user.current ? "bigUser currentUser" : "bigUser"} >
                 <div className="user">
