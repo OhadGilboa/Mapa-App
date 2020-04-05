@@ -1,0 +1,19 @@
+.message-container {
+    position: relative;
+    height: 80vh;
+  }
+  
+  .input-container {
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  }
+  
+  .message-input{
+    position: relative;
+    width: 80vw;
+    background-color: antiquewhite;
+  }
+  
