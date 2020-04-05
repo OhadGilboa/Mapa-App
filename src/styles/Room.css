@@ -1,0 +1,66 @@
+.main-container {
+    height: 90%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 8% 84% 8%;
+    margin: 8px;
+    border-radius: 20px;
+    background-color: #00C7DD;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+
+}
+
+.header-container {
+    height: 5vh;
+    width:100%;
+    /* background-color: blanchedalmond; */
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.message-container {
+    height: 100%;
+    width: 100%;
+}
+
+.input-container {
+    width: auto;
+}
+
+.btn-message{
+    display: inline-block;
+    width: 18%;
+    height: 6vh;
+    border-radius: 3px;
+    border-bottom-right-radius: 12px;
+}
+
+.message-input{
+    display: inline-block;
+    width: 80%;
+    height: 5vh;
+    border-bottom-left-radius: 12px;
+
+}
+
+/* .message-container {
+    position: relative;
+    height: 80vh;
+  }
+  
+  .input-container {
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  }
+  
+  .message-input{
+    position: relative;
+    width: 80vw;
+    background-color: antiquewhite;
+  }
+   */
