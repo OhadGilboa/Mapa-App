@@ -56,17 +56,19 @@ class UsersList extends Component {
   //   this.addingDistanceToUsers()
   //   this.bubbleSort()
   // }
-  
-  
+
+
   render() {
     // this.removeFarPeople()
     //this.markYourself()
     //this.removeFarPeople()
+    console.log(this.props.userData.user.modeSelected)
     return (
       <div className="userList">
         <div className="headerPlace"></div>
         <div className="vl"></div>
-         {this.props.userData.users.map((u,index) => this.props.userData.user.indexForRange > index ? <User user={u} key={u.facebookId} /> : null)}
+        {this.props.userData.users.map((u, index) => this.props.userData.user.indexForRange > index && this.props.userData.user.modeSelected === "all" ? <User user={u} key={u.facebookId} /> : null)}
+        {this.props.userData.users.map((u, index) => this.props.userData.user.indexForRange > index && this.props.userData.user.modeSelected === u.mode ? <User user={u} key={u.facebookId} /> : null)}
         <div className="footerPlace"></div>
         <div className="vl"></div>
       </div>

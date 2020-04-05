@@ -37,18 +37,21 @@ const iOSBoxShadow =
 
 const marks = [
     {
-        value: 1,
+        value: 4,
     },
     {
-        value: 2,
+        value: 8,
     },
     {
-        value: 5,
+        value: 12,
     },
     {
-        value: 10,
+        value: 16,
     },
-];
+    {
+        value: 20,
+    },
+    ];
 
 const IOSSlider = withStyles({
     root: {
@@ -118,7 +121,7 @@ const CustomizedSlider = inject("userData")(observer((props) => {
     return (
         <div className={classes.root}>
             <Typography gutterBottom>iOS</Typography>
-            <IOSSlider max={10} aria-label="ios slider" onChangeCommitted={handleChange} value={range || 0} marks={marks} valueLabelDisplay="on" />
+            <IOSSlider max={20} aria-label="ios slider" onChangeCommitted={handleChange} value={range || 0} marks={marks} valueLabelDisplay="on" />
         </div>
     );
 }))

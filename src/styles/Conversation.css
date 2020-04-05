@@ -1,0 +1,40 @@
+.bigUser {
+    display: grid;
+    grid-template-rows: 1fr 0.7px;
+ 
+}
+
+.vl {
+    width: 100vw;
+    height: 0.7px;
+    background-color: rgba(201, 196, 196, 0.664);
+}
+
+.sosBackground {
+    background-color: #fd19008f;
+    width: 100vw;
+}
+
+.user-conversation {
+    display: grid;
+    grid-template-columns: 16vw 35vw 49vw;
+    height: 10vh;
+    font-size: 3.5vw;
+    align-items: center;
+}
+
+.imgContainer-user {
+    position: relative;
+    height: 12vw;
+    width: 12vw;
+    border-radius: 10%;
+    margin-left: 2vw;
+}
+
+.conversation .fullName {
+    display: grid;
+    text-align: left;
+    align-content: center;
+
+    font-size: 4.5vw;
+}

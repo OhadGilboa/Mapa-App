@@ -3,6 +3,8 @@
     display: grid;
     align-items: flex-end;
     color: #182825;
+    font-weight: bolder;
+
 }
 
 .titleAndLogo{
@@ -33,6 +35,7 @@
     display: grid;
     align-self: center;
     color: #182825;
+    font-weight: bolder;
 }
 
 .imageAndName {
