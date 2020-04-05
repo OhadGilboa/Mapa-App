@@ -23,6 +23,7 @@ export class UserData {
     conversations: [],
     showChat: false,
     indexForRange: -1,
+    modeSelected: "all"
   };
 
   @observable messages = []
@@ -148,10 +149,18 @@ export class UserData {
   }
 
   @action setMode = mode => {
-    this.user.mode = mode
+    const user = {...this.user}
+    user.mode = mode
+    this.user = user
     console.log(this.user.mode)
     this.updateUserProfile("mode", this.user.mode)
   }
+
+  @action setModeSelected = modeSelected => {
+    this.user.modeSelected = modeSelected
+  }
+
+
   @action setSilence = silence => {
     this.user.silence = silence
     this.updateUserBoolean("silence", this.user.silence)
@@ -277,7 +286,9 @@ export class UserData {
 
   @action setIndexForRange = () =>{
     this.user.indexForRange = this.users.findIndex(u => u.distance > this.user.range)
-    console.log(this.user.indexForRange)
+    if(this.user.indexForRange === -1){
+      this.user.indexForRange = this.users.length;
+    }
   }
 
 
