@@ -14,6 +14,7 @@ class Conversations extends Component {
     }
 
     componentDidMount() {
+        this.props.userData.getConversations()
         this.props.userData.user.showChat = false
     }
 

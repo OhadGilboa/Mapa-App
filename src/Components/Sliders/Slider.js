@@ -110,7 +110,6 @@ const CustomizedSlider = inject("userData")(observer((props) => {
     const classes = useStyles();
 
     const handleChange = (e, value) => {
-        {console.log("im here")}
         setRange(value)
         props.userData.setRange(value)
     }

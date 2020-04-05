@@ -1,5 +1,6 @@
 import { observable, action, computed } from "mobx";
 import axios from "axios";
+import { userStore } from "./userStore";
 const userRoute = "http://localhost:4200";
 
 export class UserData {
@@ -21,9 +22,12 @@ export class UserData {
     distance: [],
     conversations: [],
     showChat: false,
+    indexForRange: -1,
   };
+
   @observable messages = []
   @observable users = []
+  @observable interval;
 
   @action addPosition() {
     if (navigator.geolocation) {
@@ -36,7 +40,7 @@ export class UserData {
 
   @action getUsers = async () => {
     let users = await axios.get(`${userRoute}/users`)
-    this.users = users.data
+    this.users = users.data.map(u => new userStore(u))
   }
 
   @action getUserId = async () => {
@@ -64,6 +68,8 @@ export class UserData {
     await this.getUsers()
     await this.getConversations()
     await this.getLocationsList()
+    await this.addingDistanceToUsers()
+    this.setIndexForRange()
   };
 
 
@@ -85,9 +91,6 @@ export class UserData {
       facebookId: `${this.user.facebookId}`
     });
   };
-
-
-
 
   @action addUserToDataBase = async () => {
     let user = await axios.get(`${userRoute}/user/${this.user.facebookId}`);
@@ -141,7 +144,7 @@ export class UserData {
   @action setRange = range => {
     this.user.range = range
     this.updateUserBoolean("distanceRange", this.user.range)
-    console.log(this.user.range)
+    this.setIndexForRange()
   }
 
   @action setMode = mode => {
@@ -168,6 +171,7 @@ export class UserData {
 
   @action setShowChat = () => {
     this.user.showChat = !this.user.showChat;
+    clearInterval(this.interval)
   }
 
 
@@ -194,6 +198,31 @@ export class UserData {
     }
   }
 
+  @action startCon = async userId => {
+    let counter = this.user.conversations.length
+    if (this.user.conversations !== 0) {
+      this.user.conversations.map(c => {
+        if (c.user_id1 !== userId && c.user_id2 !== userId) {
+          counter--;
+        }
+        if (counter < 1) {
+          this.postConversation({
+            user_id1: this.user.userId,
+            user_id2: userId,
+          })
+          this.getConversations();
+        }
+      })
+    }
+    else {
+      this.postConversation({
+        user_id1: this.user.userId,
+        user_id2: userId,
+      })
+      this.getConversations();
+    }
+  }
+
   @action postConversation = async conversation => {
     await axios.post(`${userRoute}/conversation`, {
       user_id1: conversation.user_id1,
@@ -216,6 +245,39 @@ export class UserData {
       user_receiving_id: message.user_receiving_id
     })
     this.messages.push(message)
+  }
+
+  @action bubbleSort = function () {
+    let swapped;
+    do {
+      swapped = false;
+      for (let i = 0; i < this.users.length - 1; i++) {
+        if (this.users[i].distance > this.users[i + 1].distance) {
+          let temp = this.users[i];
+          this.users[i] = this.users[i + 1];
+          this.users[i + 1] = temp;
+          swapped = true;
+        }
+      }
+    } while (swapped);
+  }
+
+
+  @action addingDistanceToUsers= () => {
+    let dis = this.user.distance.data
+    for (let u of this.users) {
+      for (let d of dis) {
+        if (u.facebookId === d.id) {
+          u.distance = d.distance
+        }
+      }
+    }
+    this.bubbleSort()
+  }
+
+  @action setIndexForRange = () =>{
+    this.user.indexForRange = this.users.findIndex(u => u.distance > this.user.range)
+    console.log(this.user.indexForRange)
   }
 
 

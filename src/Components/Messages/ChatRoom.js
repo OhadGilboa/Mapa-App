@@ -63,9 +63,10 @@ class ChatRoom extends Component {
     }
 
     getNewMsg = () => {
-        setInterval( () => {
+        let inter = setInterval( () => {
             this.props.userData.getMessagesOfConversation(this.props.userConversation.conversation_id)
-        }, 5000);
+        }, 1000);
+        this.props.userData.interval = inter
     }
 
     HandleOpenInfo = () => this.setState({ isOpenInfo: true })

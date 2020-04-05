@@ -18,9 +18,8 @@ const RadioButtons = inject("userData")(observer((props) => {
   const [selectedValue, setSelectedValue] = React.useState(props.userData.user.mode);
 
   const handleChange = (event) => {
-    setSelectedValue(event.target.value)
     props.userData.setMode(event.target.value);
-    console.log(event.target.value)
+    setSelectedValue(event.target.value)
   }
 
 
