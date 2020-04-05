@@ -23,8 +23,8 @@ class Header extends Component {
             <div className="lsatName">{user ? user.last_name : null}</div>
           </div>
           <div className="titleAndLogo">
-          <img className="logo"src={logo} alt="logo"></img>
           <div className="title">Mapa</div>
+          <img className="logo"src={logo} alt="logo"></img>
           </div>
           <Popup
             trigger={

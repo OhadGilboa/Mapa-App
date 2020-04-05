@@ -14,7 +14,7 @@ class Conversation extends Component {
   render() {
     let user = this.props.userConversation
     return (
-      <div className={user.mode === "sos" ? "bigUser sosBackground" : user.current ? "bigUser currentUser" : "bigUser"} >
+      <div className={"bigUser"}>
         <div className="user" onClick={this.sendBack}>
           <div className="person-name fullName">{user.first_name + ' ' + user.last_name}</div>
         </div>
