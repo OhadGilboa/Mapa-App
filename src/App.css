@@ -16,24 +16,18 @@
   align-items: center;
   position: fixed;
   z-index: 9;
-
 }
 
 .container {
   background-position: center;
   background-repeat: no-repeat;
   margin: 2px;
-  background-color: rgb(248, 248, 248);
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  justify-self: center;
-  justify-content: center;
-  position: absolute;
-  left: -2px;
+}
 
+.background {
+  background-image: url(./styles/Mappa.png);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .navbar {
@@ -43,7 +37,6 @@
   width: 100%;
   background-color: #00C7DD;
   overflow: hidden;
-
 }
 
 .userProfileApp {
@@ -52,26 +45,25 @@
   height: 75%;
 }
 
-
-.btnFacebook { 
+.btnFacebook {
   width: 165px;
-  height:35px;  
+  height: 35px;
   border-radius: 4px;
   background: #3b5998;
-  color:white;
-  border:0px transparent;  
+  color: white;
+  border: 0px transparent;
   text-align: center;
-  margin:5px;
+  margin: 5px;
   display: inline-block;
 }
 
-.btnGoogle { 
-  margin:5px;
+.btnGoogle {
+  margin: 5px;
   width: 165px;
-  height:35px;
+  height: 35px;
   border-radius: 4px;
   background: #db3236;
-  color:white;
-  border:0px transparent;
+  color: white;
+  border: 0px transparent;
   text-align: center;
 }
