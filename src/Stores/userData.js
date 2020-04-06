@@ -211,7 +211,7 @@ export class UserData {
 
   @action startCon = async userId => {
     let counter = this.user.conversations.length
-    if (this.user.conversations !== 0) {
+    if (this.user.conversations.length !== 0) {
       this.user.conversations.map(c => {
         if (c.user_id1 !== userId && c.user_id2 !== userId) {
           counter--;
