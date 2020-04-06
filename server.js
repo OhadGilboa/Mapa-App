@@ -3,8 +3,6 @@ const app = express()
 const path = require("path")
 const api = require('./server/routes/api')
 const bodyParser = require("body-parser")
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
 
 
@@ -15,6 +13,7 @@ app.use(bodyParser.urlencoded({
 
 /////////////////////////////////////////////////////////////////////////////
 app.use(express.static(path.join(__dirname, 'build')));
+
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
