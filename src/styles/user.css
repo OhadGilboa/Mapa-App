@@ -1,17 +1,7 @@
-.footerPlace {
-    height: 7vh;
-    width: 100%;
-}
-
-.headerPlace {
-    height: 9vh;
-    width: 100%;
-
-}
-
 .bigUser {
     display: grid;
     grid-template-rows: 1fr 0.7px;
+    height: 12vh;
  
 }
 

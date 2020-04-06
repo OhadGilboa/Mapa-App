@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import { inject, observer } from 'mobx-react';
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -29,6 +30,7 @@ class Facebook extends Component {
             facebookId: response.id
         });
         await this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture, this.state.facebookId)
+        
     }
 
     componentClicked = () => {

@@ -39,8 +39,10 @@
 }
 
 .conversations{
+    height: 82.7vh;
+    display: grid;
+    position: relative;
+    grid-template-rows: repeat(8,1fr);
+    scroll-behavior: smooth;
     margin-top: 9vh;
-    
-  
-
 }

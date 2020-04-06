@@ -3,6 +3,7 @@ input {
 }
 
 .chatRoom {
+    margin-top: 5vh;
     height: 100%;
     width: 100%;
     display: grid;
@@ -128,7 +129,7 @@ input {
 }
 
 .marginBottom {
-    height: 4vh;
+    height: 6vh;
     width: 100%;
 }
 

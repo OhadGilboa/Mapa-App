@@ -63,7 +63,7 @@ class UsersList extends Component {
       <div className="userList">
         {this.props.userData.users.map((u, index) => this.props.userData.user.indexForRange > index && this.props.userData.user.modeSelected === "all" ? <User user={u} key={u.facebookId} /> : null)}
         {this.props.userData.users.map((u, index) => this.props.userData.user.indexForRange > index && this.props.userData.user.modeSelected === u.mode ? <User user={u} key={u.facebookId} /> : null)}
-        <div className="vl"></div>
+        <div className="footerPlace"></div>
       </div>
     )
   }
