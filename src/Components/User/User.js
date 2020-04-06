@@ -62,7 +62,7 @@ class User extends Component {
                 <div className="user">
                     <div className="person-name fullName">{this.props.user.first_name + ' ' + this.props.user.last_name}</div>
                     <div className="distance"> {this.props.user.distance}km</div>
-                    {this.props.userData.userId === this.props.user.userId ? this.iconHandler(this.props.userData.user.mode) : this.iconHandler(this.props.user.mode)}
+                    {this.props.userData.user.userId === this.props.user.userId ? this.iconHandler(this.props.userData.user.mode) : this.iconHandler(this.props.user.mode)}
                 </div>
                 <div className="vl"></div>
             </div >

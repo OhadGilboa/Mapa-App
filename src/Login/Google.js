@@ -29,6 +29,7 @@ class Google extends Component {
       facebookId: response.profileObj.googleId
     });
     await this.props.userData.loggingIn(this.state.first_name, this.state.last_name, this.state.email, this.state.picture, this.state.facebookId)
+    this.props.handleClick()
   }
 
   render() {

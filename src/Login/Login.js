@@ -1,39 +1,27 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 import Facebook from "./Facebook";
 import Google from "./Google";
+// import { inject, observer } from "mobx-react";
+import "../styles/Login.css";
+
+import React, { useState } from "react";
 import { inject, observer } from "mobx-react";
-import "../styles/Login.css"
+import { useHistory } from "react-router-dom";
 
-@observer
-@inject("userData")
-class Login extends Component {
+const Login = inject("userData")(
+  observer((props) => {
+  
+      let history = useHistory();
 
-  renderLoginBtn = () => {
-    return (
-      <div className={this.props.userData.user.facebookId ? "loginDivHidden" : "loginDiv"}>
-        <Facebook />
-        <Google />
-      </div>
-    )
-  }
+      function handleClick() {
+        history.push("/UsersList");
+      }
 
-  renderWelcome = () => {
-    return (
-      <div className="welcome">
-        <div className="welcomeDiv"> Welcome + {this.props.userData.user.first_name}</div>
-        <div className="welcomeBtn">Continue</div>
-      </div>
-    )
-  }
+    return <div>
+        <Facebook handleClick={handleClick}/>
+        <Google handleClick={handleClick}/>
+    </div>;
+  })
+);
 
-
-  render() {
-    console.log(this.props.userData.user.first_name)
-    return (
-      <>
-        {this.props.userData.user.first_name ? this.renderWelcome() : this.renderLoginBtn()}
-      </>
-    );
-  }
-}
 export default Login;
