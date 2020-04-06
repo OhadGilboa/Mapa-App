@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import { inject, observer } from 'mobx-react';
-import { Redirect } from 'react-router-dom';
-
 
 
 @inject("userData")
