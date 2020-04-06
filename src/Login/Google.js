@@ -37,8 +37,10 @@ class Google extends Component {
     return (
       <>
         <GoogleLogin
-          clientId="1078111533235-0m92tor2vngroac278sucl8fj20ojk6i.apps.googleusercontent.com"
+        clientId="1078111533235-0m92tor2vngroac278sucl8fj20ojk6i.apps.googleusercontent.com"
           onSuccess={this.responseGoogle}
+          className="googleButton"
+          buttonText="Login with Google"
         />
 
       </>

@@ -3,7 +3,7 @@ import { GoogleApiWrapper, Marker, Map, InfoWindow } from "google-maps-react";
 import "../styles/MapContainer.css";
 import { observer, inject } from "mobx-react";
 const mapStyles = {
-  top:'8.4vh',
+  top: '8.6vh',
   width: "100%",
   height: "103.7%",
 };
@@ -24,6 +24,7 @@ class MapContainer extends Component {
       activeMarker: marker,
       showingInfoWindow: true,
     });
+
 
   onClose = () => {
     if (this.state.showingInfoWindow) {
@@ -47,8 +48,9 @@ class MapContainer extends Component {
             key={index}
             id={index}
             position={{ lat: store.latitude, lng: store.longitude }}
-          >
-          </Marker>
+            onClick={this.onMarkerClick}>
+            )}
+          </Marker >
         );
       }
     });

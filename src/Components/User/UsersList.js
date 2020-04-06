@@ -35,30 +35,8 @@ class UsersList extends Component {
     this.props.userData.users[index].current = true;
   }
 
-
-  // bubbleSort = function () {
-  //   let swapped;
-  //   do {
-  //     swapped = false;
-  //     for (let i = 0; i < this.props.userData.users.length - 1; i++) {
-  //       if (this.props.userData.users[i].distance > this.props.userData.users[i + 1].distance) {
-  //         let temp = this.props.userData.users[i];
-  //         this.props.userData.users[i] = this.props.userData.users[i + 1];
-  //         this.props.userData.users[i + 1] = temp;
-  //         swapped = true;
-  //       }
-  //     }
-  //   } while (swapped);
-  // }
-
-
-  // componentDidMount(){
-  //   this.addingDistanceToUsers()
-  //   this.bubbleSort()
-  // }
-
-
   render() {
+    this.props.userData.users.map(u => console.log(u.mode))
     return (
       <div className="userList">
         {this.props.userData.users.map((u, index) => this.props.userData.user.indexForRange > index && this.props.userData.user.modeSelected === "all" ? <User user={u} key={u.facebookId} /> : null)}

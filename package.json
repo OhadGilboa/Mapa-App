@@ -76,7 +76,6 @@
     "semantic-ui-react": "^0.88.2",
     "semver": "6.3.0",
     "sequelize": "^5.21.5",
-    "socket.io": "^2.3.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "2.3.4",
     "ts-pnp": "1.1.5",
@@ -89,7 +88,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node scripts/build.js",
-    "start": "node scripts/start.js"
+    "start": "node server"
   },
   "eslintConfig": {
     "extends": "react-app"
