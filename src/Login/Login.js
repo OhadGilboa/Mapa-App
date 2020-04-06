@@ -2,7 +2,6 @@ import React from "react";
 import Facebook from "./Facebook";
 import Google from "./Google";
 import "../styles/Login.css";
-
 import { inject, observer } from "mobx-react";
 import { useHistory } from "react-router-dom";
 
