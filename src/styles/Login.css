@@ -13,15 +13,15 @@
   display: none;
 }
 
-button {  
-  padding: 12px;
-  width: 210px;
+.buttonFacebook {  
+  padding: 3.2vw;
+  width: 43.5vw;
   border: none;
   border-radius: 2px;
   margin: 5px 0;
   opacity: 0.90;
   display: inline-block;
-  font-size: 17px;
+  font-size: 3vw;
   line-height: 20px;
   text-decoration: none;
   background-color: #3B5998;
