@@ -39,11 +39,7 @@ class Google extends Component {
           clientId="1078111533235-0m92tor2vngroac278sucl8fj20ojk6i.apps.googleusercontent.com"
           onSuccess={this.responseGoogle}
         />
-        <i className="fa fa-google-plus" style={{
-          marginLeft:
-            '5px'
-        }} />
-        <span>&nbsp;&nbsp;Sign In with Google</span>
+
       </>
     );
   }

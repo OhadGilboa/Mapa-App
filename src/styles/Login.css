@@ -1,12 +1,38 @@
 .loginDiv {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    height: 20vh;
-    width: 80vw;
-  }
-  
-  .loginDivHidden {
-    display: none;
-  }
-  
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+  height: 20vh;
+  width: 80vw;
+
+
+}
+
+.loginDivHidden {
+  display: none;
+}
+
+button {  
+  padding: 12px;
+  width: 210px;
+  border: none;
+  border-radius: 2px;
+  margin: 5px 0;
+  opacity: 0.90;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  background-color: #3B5998;
+  color: white;
+  box-shadow: rgba(0,0,0,0.24) 0px 2px 2px 0px;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.fa-google-plus {
+  display: none;
+}
