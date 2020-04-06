@@ -88,8 +88,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "build": "react-scripts build"
+    "start": "node server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
