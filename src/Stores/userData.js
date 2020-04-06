@@ -37,7 +37,7 @@ export class UserData {
       navigator.geolocation.getCurrentPosition(position => {
         this.user.latitude = position.coords.latitude;
         this.user.longitude = position.coords.longitude;
-      }, this.options);
+      });
     }
   }
 
