@@ -16,6 +16,7 @@
   align-items: center;
   position: fixed;
   z-index: 9;
+
 }
 
 .container {
@@ -33,6 +34,7 @@
   justify-content: center;
   position: absolute;
   left: -2px;
+
 }
 
 .navbar {
@@ -41,6 +43,8 @@
   bottom: 0;
   width: 100%;
   background-color: #00C7DD;
+  overflow: hidden;
+
 }
 
 .userProfileApp {

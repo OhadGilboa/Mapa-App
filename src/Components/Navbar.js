@@ -1,23 +1,31 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import '../styles/Navbar.css'
+import { inject } from "mobx-react";
 
+
+@inject("userData")
 class Navbar extends Component {
+
+clearInterval= ()=>{
+  clearInterval(this.props.userData.interval)
+}
+
   render() {
     return (
       <div className="navbar-comp">
-        <Link className="link" to="/UsersList">
+        <Link onClick={this.clearInterval}className="link" to="/UsersList">
           <i className="fas fa-list navbarIcons"></i>
         </Link>
-        <Link className="link" to="/Map">
+        <Link onClick={this.clearInterval}className="link" to="/Map">
           <i className="fas fa-map-marked-alt navbarIcons"></i>
         </Link>
 
-        <Link className="link" to="/Messages">
+        <Link onClick={this.clearInterval} className="link" to="/Messages">
           <i className="far fa-comments navbarIcons"></i>
         </Link>
 
-        <Link className="link" to="/Profile">
+        <Link onClick={this.clearInterval} className="link" to="/Profile">
           <i className="fas fa-user navbarIcons"></i>
         </Link>
 

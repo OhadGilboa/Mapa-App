@@ -8,8 +8,10 @@ import "../../styles/Conversation.css";
 class Conversation extends Component {
 
   sendBack = () => {
-    this.props.userData.getMessagesOfConversation(this.props.userConversation.conversation_id)
-    this.props.getBack(this.props.userConversation)
+    
+    this.props.userData.conversationHolder = this.props.userConversation
+    this.props.userData.getMessagesOfConversation(this.props.userData.conversationHolder.conversation_id)
+    this.props.getBack()
   }
 
 

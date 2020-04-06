@@ -64,7 +64,7 @@ class ChatRoom extends Component {
 
     getNewMsg = () => {
         let inter = setInterval( () => {
-            this.props.userData.getMessagesOfConversation(this.props.userConversation.conversation_id)
+            this.props.userData.getMessagesOfConversation(this.props.userData.conversationHolder.conversation_id)
         }, 1000);
         this.props.userData.interval = inter
     }
@@ -74,18 +74,18 @@ class ChatRoom extends Component {
     sendMessage = () => {
         if (this.state.input) {
             let user_receiving_id, user_sending_id
-            if (this.props.userConversation.user_id1 === this.props.userData.user.userId) {
-                user_receiving_id = this.props.userConversation.user_id2
-                user_sending_id = this.props.userConversation.user_id1
+            if (this.props.userData.conversationHolder.user_id1 === this.props.userData.user.userId) {
+                user_receiving_id = this.props.userData.conversationHolder.user_id2
+                user_sending_id = this.props.userData.conversationHolder.user_id1
             }
             else {
-                user_receiving_id = this.props.userConversation.user_id1
-                user_sending_id = this.props.userConversation.user_id2
+                user_receiving_id = this.props.userData.conversationHolder.user_id1
+                user_sending_id = this.props.userData.conversationHolder.user_id2
             }
             let message = {
                 message_date: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
                 message_text: this.state.input,
-                conversationId: this.props.userConversation.conversation_id,
+                conversationId: this.props.userData.conversationHolder.conversation_id,
                 user_sending_id,
                 user_receiving_id
             }
@@ -113,15 +113,15 @@ class ChatRoom extends Component {
 
 
     render() {
-        console.log(this.props.userConversation)
+        console.log(this.props.userData.conversationHolder)
         return (
             <div className="chatRoom">
                 <div className="headerPlaceMsg"></div>
                 <div className="header-container">
                     <i onClick={this.props.userData.setShowChat} className="fas fa-arrow-left"></i>
                     <div className="pictureAndName">
-                        <img className="pictureMsg" src={this.props.userConversation.picture} alt={this.props.userConversation.first_name}></img>
-                        <div className="chatPartnerName">{this.props.userConversation.first_name + " " + this.props.userConversation.last_name}</div>
+                        <img className="pictureMsg" src={this.props.userData.conversationHolder.picture} alt={this.props.userData.conversationHolder.first_name}></img>
+                        <div className="chatPartnerName">{this.props.userData.conversationHolder.first_name + " " + this.props.userData.conversationHolder.last_name}</div>
                     </div>
                     <Popup
                         trigger={<i className="fas fa-info"></i>}
@@ -132,28 +132,28 @@ class ChatRoom extends Component {
                     >
                         <div className="infoItems">
                             <div className="infoItem infoItem-picture">
-                                <img src={this.props.userConversation.picture} alt={this.props.userConversation.facebookId}></img>
+                                <img src={this.props.userData.conversationHolder.picture} alt={this.props.userData.conversationHolder.facebookId}></img>
                             </div>
                             <div className="infoItem"><span className="info-titles">Name</span>:{" "}
-                                {this.props.userConversation.first_name +
+                                {this.props.userData.conversationHolder.first_name +
                                     " " +
-                                    this.props.userConversation.last_name}
+                                    this.props.userData.conversationHolder.last_name}
                             </div>
                             <div className="infoItem"><span className="info-titles">Age</span>:{" "}
-                                {this.props.userConversation.age}
+                                {this.props.userData.conversationHolder.age}
                             </div>
                             <div className="infoItem"><span className="info-titles">Gender</span>:{" "}
-                                {this.props.userConversation.gender}
+                                {this.props.userData.conversationHolder.gender}
                             </div>
                             <div className="infoItem"><span className="info-titles">Status</span>:{" "}
-                                {this.props.userConversation.user_status}
+                                {this.props.userData.conversationHolder.user_status}
                             </div>
-                            {this.props.userConversation.email ?
+                            {this.props.userData.conversationHolder.email ?
                                 <div className="infoItem"><span className="info-titles">Email</span>:{" "}
-                                    {this.props.userConversation.email}
+                                    {this.props.userData.conversationHolder.email}
                                 </div> : null}
                             <div className="iconMode infoItem"><span className="info-titles">Mode</span>:{" "}
-                                {this.iconHandler(this.props.userConversation.mode)}</div>
+                                {this.iconHandler(this.props.userData.conversationHolder.mode)}</div>
                         </div>
                     </Popup>
                 </div>

@@ -6,12 +6,7 @@ import ChatRoom from "./ChatRoom";
 @inject("userData")
 @observer
 class Conversations extends Component {
-    constructor() {
-        super()
-        this.state = {
-            userConversation: ""
-        }
-    }
+
 
     componentDidMount() {
         this.props.userData.getConversations()
@@ -35,14 +30,11 @@ class Conversations extends Component {
 
     renderRoom = () => {
         return (
-            <ChatRoom userConversation={this.state.userConversation} />
+            <ChatRoom />
         )
     }
 
-    getBack = userConversation => {
-        this.setState({
-            userConversation
-        })
+    getBack = () => {
         this.props.userData.setShowChat()
     }
 
