@@ -36,7 +36,6 @@ class UsersList extends Component {
   }
 
   render() {
-    this.props.userData.users.map(u => console.log(u.mode))
     return (
       <div className="userList">
         {this.props.userData.users.map((u, index) => this.props.userData.user.indexForRange > index && this.props.userData.user.modeSelected === "all" ? <User user={u} key={u.facebookId} /> : null)}

@@ -65,7 +65,7 @@ class ChatRoom extends Component {
     getNewMsg = () => {
         let inter = setInterval( () => {
             this.props.userData.getMessagesOfConversation(this.props.userData.conversationHolder.conversation_id)
-        }, 1000);
+        }, 5000);
         this.props.userData.interval = inter
     }
 

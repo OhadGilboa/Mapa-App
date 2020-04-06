@@ -82,7 +82,6 @@ class UserProfile extends Component {
   };
 
   updateMode = async () => {
-    console.log("im here")
     this.props.userData.updateUserProfile("mode", this.state.input);
     this.setState({
       input: "",

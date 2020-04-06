@@ -31,9 +31,7 @@ class Facebook extends Component {
         this.props.handleClick()
     }
 
-    componentClicked = () => {
-        console.log('Facebook btn clicked');
-    }
+ 
 
     render() {
         let facebookData;

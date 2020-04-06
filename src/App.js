@@ -25,7 +25,7 @@ class App extends Component {
           <div className="header">
             <Header />
           </div>
-          <div  className={!this.props.userData.user.first_name ?"container background":"container"}     >
+          <div className="container">
             <Route path="/Room/:key" exact render={({ match }) => <div className="main-container-room"> {this.props.userData.user.first_name ? <ChatRoom match={match} /> : <Login />}  </div>} />
             <Route path="/" exact render={() => <div> {this.props.userData.user.first_name ? <Redirect to="/" /> : <Login />} </div>} />
             <Route path="/UsersList" exact render={() => <div> {this.props.userData.user.first_name ? <UsersList /> : <Redirect to="/" />}  </div>} />
