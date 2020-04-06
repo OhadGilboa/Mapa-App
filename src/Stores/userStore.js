@@ -1,5 +1,4 @@
 import { observable } from "mobx";
-import { observer } from "mobx-react";
 
 export class userStore{
     @observable userId;
