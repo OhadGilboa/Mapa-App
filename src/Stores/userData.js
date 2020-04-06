@@ -154,7 +154,6 @@ export class UserData {
     const user = { ...this.user }
     user.mode = mode
     this.user = user
-    console.log(this.user.mode)
     this.updateUserProfile("mode", this.user.mode)
   }
 
