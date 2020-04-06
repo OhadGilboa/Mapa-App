@@ -12,7 +12,6 @@ self.addEventListener("activate", event => {
       .then(keyList =>
         Promise.all(keyList.map(key => {
           if (!cacheWhitelist.includes(key)) {
-            console.log('Deleting cache: ' + key)
             return caches.delete(key);
           }
         }))
@@ -41,7 +40,6 @@ self.addEventListener('install', function(event) {
                 assets["main.js"]
               ]
               cache.addAll(urlsToCache)
-              console.log('cached');
             })
         })
     );
