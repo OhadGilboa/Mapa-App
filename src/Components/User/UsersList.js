@@ -61,11 +61,8 @@ class UsersList extends Component {
   render() {
     return (
       <div className="userList">
-        <div className="headerPlace"></div>
-        <div className="vl"></div>
         {this.props.userData.users.map((u, index) => this.props.userData.user.indexForRange > index && this.props.userData.user.modeSelected === "all" ? <User user={u} key={u.facebookId} /> : null)}
         {this.props.userData.users.map((u, index) => this.props.userData.user.indexForRange > index && this.props.userData.user.modeSelected === u.mode ? <User user={u} key={u.facebookId} /> : null)}
-        <div className="footerPlace"></div>
         <div className="vl"></div>
       </div>
     )

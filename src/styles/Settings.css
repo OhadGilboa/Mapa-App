@@ -53,11 +53,11 @@
     justify-items: center;
     border-radius: 10px;
     box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.75) !important;
-    border: solid #00C7DD 1.7px !important;
+    border: solid #3880FF 1.7px !important;
 }
 
 .MuiRadio-colorPrimary.Mui-checked{
-    color: #00C7DD !important;
+    color: #3880FF !important;
 }
 
 .MuiRadio-colorPrimary{
@@ -72,17 +72,17 @@
 
 
 .MuiSwitch-colorSecondary.Mui-checked {
-    color: #00C7DD !important;
+    color: #3880FF !important;
 }
 
 .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track{
-    background-color: #00C7DD !important;
+    background-color: #3880FF !important;
 
 
 }
 
 .WithStyles\(ForwardRef\(Slider\)\)-root-33{
-    color: #00C7DD !important;
+    color: #3880FF !important;
 }
 
 .WithStyles\(ForwardRef\(Slider\)\)-mark-39 {
@@ -92,7 +92,7 @@
 }
 
 .WithStyles\(ForwardRef\(Slider\)\)-thumb-34{
-    background-color: #00C7DD !important;
+    background-color: #3880FF !important;
 }
 
 

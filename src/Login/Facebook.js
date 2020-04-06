@@ -42,6 +42,7 @@ class Facebook extends Component {
             facebookData = (<FacebookLogin
                 appId="578720732730431"
                 autoLoad={false}
+                isMobile={false}
                 fields="first_name,last_name,email,picture"
                 onClick={this.componentClicked}
                 cssClass="buttonFacebook"

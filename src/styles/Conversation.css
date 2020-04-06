@@ -35,6 +35,12 @@
     display: grid;
     text-align: left;
     align-content: center;
-
     font-size: 4.5vw;
+}
+
+.conversations{
+    margin-top: 9vh;
+    
+  
+
 }
