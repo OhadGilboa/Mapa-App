@@ -59,10 +59,6 @@ class UsersList extends Component {
 
 
   render() {
-    // this.removeFarPeople()
-    //this.markYourself()
-    //this.removeFarPeople()
-    console.log(this.props.userData.user.modeSelected)
     return (
       <div className="userList">
         <div className="headerPlace"></div>

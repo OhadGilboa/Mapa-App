@@ -2,6 +2,7 @@ import { observable, action, computed } from "mobx";
 import axios from "axios";
 import { userStore } from "./userStore";
 const userRoute = "http://localhost:4200";
+const userRoute = "";
 
 export class UserData {
   @observable user = {
@@ -29,6 +30,7 @@ export class UserData {
   @observable messages = []
   @observable users = []
   @observable interval;
+  @observable conversationHolder
 
   @action addPosition() {
     if (navigator.geolocation) {
@@ -149,7 +151,7 @@ export class UserData {
   }
 
   @action setMode = mode => {
-    const user = {...this.user}
+    const user = { ...this.user }
     user.mode = mode
     this.user = user
     console.log(this.user.mode)
@@ -272,7 +274,7 @@ export class UserData {
   }
 
 
-  @action addingDistanceToUsers= () => {
+  @action addingDistanceToUsers = () => {
     let dis = this.user.distance.data
     for (let u of this.users) {
       for (let d of dis) {
@@ -284,10 +286,37 @@ export class UserData {
     this.bubbleSort()
   }
 
-  @action setIndexForRange = () =>{
+  @action setIndexForRange = () => {
     this.user.indexForRange = this.users.findIndex(u => u.distance > this.user.range)
-    if(this.user.indexForRange === -1){
+    if (this.user.indexForRange === -1) {
       this.user.indexForRange = this.users.length;
+    }
+  }
+
+
+  @action getConversationBy2Ids = id => {
+    let conversations = await axios.get(`${userRoute}/conversations/${this.user.userId}/${id}`)
+    if (conversations.data[0]) {
+      conversations = await axios.get(`${userRoute}/conversations/${id}/${this.user.userId}`)
+    }
+    this.user.conversations = conversations.data
+    for (let uc of this.user.conversations) {
+      for (let u of this.users) {
+        if ((uc.user_id1 === u.userId && u.userId !== this.user.userId) ||
+          uc.user_id2 === u.userId && u.userId !== this.user.userId) {
+          uc.facebookId = u.facebookId
+          uc.first_name = u.first_name
+          uc.last_name = u.last_name
+          uc.email = u.email
+          uc.picture = u.picture
+          uc.gender = u.gender
+          uc.age = u.age
+          uc.user_status = u.user_status
+          uc.mode = u.mode
+          uc.latitude = u.latitude
+          uc.longitude = u.longitude
+        }
+      }
     }
   }
 
