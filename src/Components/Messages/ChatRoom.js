@@ -113,7 +113,6 @@ class ChatRoom extends Component {
 
 
     render() {
-        console.log(this.props.userData.conversationHolder)
         return (
             <div className="chatRoom">
                 <div className="headerPlaceMsg"></div>

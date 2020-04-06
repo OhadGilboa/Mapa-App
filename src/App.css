@@ -35,9 +35,7 @@
   margin-top: 8vh;
   width: 60vh;
   height: 84vh;
-  background-image: url(./styles/Mappa.png);
-  background-position: center;
-  background-repeat: no-repeat;
+
 }
 
 .navbar {

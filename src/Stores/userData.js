@@ -37,7 +37,7 @@ export class UserData {
       navigator.geolocation.getCurrentPosition(position => {
         this.user.latitude = position.coords.latitude;
         this.user.longitude = position.coords.longitude;
-      }, this.options);
+      });
     }
   }
 
@@ -154,7 +154,6 @@ export class UserData {
     const user = { ...this.user }
     user.mode = mode
     this.user = user
-    console.log(this.user.mode)
     this.updateUserProfile("mode", this.user.mode)
   }
 
@@ -211,7 +210,7 @@ export class UserData {
 
   @action startCon = async userId => {
     let counter = this.user.conversations.length
-    if (this.user.conversations !== 0) {
+    if (this.user.conversations.length !== 0) {
       this.user.conversations.map(c => {
         if (c.user_id1 !== userId && c.user_id2 !== userId) {
           counter--;
