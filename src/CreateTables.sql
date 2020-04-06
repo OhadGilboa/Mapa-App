@@ -25,12 +25,12 @@ USE hackaton;
 --     PRIMARY KEY (userId)
 -- );
 
--- CREATE table hackaton.conversations(
+-- CREATE table conversations(
 --     conversation_id INT NOT NULL AUTO_INCREMENT ,
 --     user_id1 INT,
 --     user_id2 INT,
---     FOREIGN KEY (user_id1) REFERENCES hackaton.users(userId),
---     FOREIGN KEY (user_id2) REFERENCES hackaton.users(userId),
+--     FOREIGN KEY (user_id1) REFERENCES users(userId),
+--     FOREIGN KEY (user_id2) REFERENCES users(userId),
 --     PRIMARY KEY (conversation_id)
 -- );
 
@@ -45,13 +45,13 @@ USE hackaton;
 --     user_sending_id INT,
 --     user_receiving_id INT,
 --     FOREIGN KEY
---     (user_sending_id) REFERENCES  hackaton.users
+--     (user_sending_id) REFERENCES  users
 --     (userId),
 --     FOREIGN KEY
---     (user_receiving_id) REFERENCES  hackaton.users
+--     (user_receiving_id) REFERENCES  users
 --     (userId),
 --     FOREIGN KEY
---     (conversationId) REFERENCES  hackaton.conversations
+--     (conversationId) REFERENCES  conversations
 --     (conversation_id),
 --     PRIMARY KEY
 --     (message_id)
