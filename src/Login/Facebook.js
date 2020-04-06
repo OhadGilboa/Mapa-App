@@ -43,6 +43,7 @@ class Facebook extends Component {
                 appId="578720732730431"
                 autoLoad={false}
                 isMobile={false}
+                icon="fa-facebook"
                 fields="first_name,last_name,email,picture"
                 onClick={this.componentClicked}
                 cssClass="buttonFacebook"

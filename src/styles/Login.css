@@ -5,16 +5,14 @@
   height: 100vh;
   width: 80vw;
   justify-self: center;
-  align-self: center ;
-
-
+  align-self: center;
 }
 
 .loginDivHidden {
   display: none;
 }
 
-.buttonFacebook {  
+.buttonFacebook {
   padding: 3.2vw;
   width: 43.5vw;
   border: none;
@@ -27,7 +25,7 @@
   text-decoration: none;
   background-color: #3B5998;
   color: white;
-  box-shadow: rgba(0,0,0,0.24) 0px 2px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
 }
 
 button:hover {
@@ -36,4 +34,56 @@ button:hover {
 
 .fa-google-plus {
   display: none;
+}
+
+.loginButton {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 0vh;
+  justify-items: center;
+}
+
+.buttonFacebook.metro {
+  font-size: 3.2vw;
+  margin: 2vw 2vw 2vw 2vw;
+  padding: 2vh 0vw 2vh 0vw;
+  width: 46vw;
+  height: 8.5vh;
+}
+
+.fa.fa-facebook {
+  margin-right: 3vw;
+  font-size: 6vw
+}
+
+.googleButton {
+  width: 46vw;
+  height: 8.5vh;
+  margin: 2vw 2vw 2vw 2vw;
+  padding: 2vh 0vw 2vh 0vw;
+  background-color: #dd4b39 !important;
+  color: white !important;
+  z-index: 199999;
+}
+
+.googleButton div {
+  background-color: #dd4b39 !important;
+}
+
+div path[fill="#EA4335"] {
+  fill: white !important;
+}
+div path[fill="#4285F4"] {
+  fill: white !important;
+  width:20vh !important;
+  height:20vh !important;
+  size:20vh !important;
+}
+div path[fill="#FBBC05"] {
+  fill: white !important;
+}
+div path[fill="#34A853"] {
+  fill: white !important;
 }
