@@ -3,6 +3,7 @@ import { GoogleApiWrapper, Marker, Map, InfoWindow } from "google-maps-react";
 import "../styles/MapContainer.css";
 import { observer, inject } from "mobx-react";
 const mapStyles = {
+  top:'8.4vh',
   width: "100%",
   height: "103.7%",
 };

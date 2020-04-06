@@ -26,13 +26,13 @@ class Header extends Component {
           <div className="title">Mapa</div>
           <img className="logo"src={logo} alt="logo"></img>
           </div>
-          <Popup
+          {user.first_name?<Popup
             trigger={
               <i className="fas fa-sliders-h"></i>
             }
             position="left top">
               <Settings />
-          </Popup>
+          </Popup>:null}
         </div>
       </div>)
   }
