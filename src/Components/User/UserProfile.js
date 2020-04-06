@@ -182,7 +182,7 @@ class UserProfile extends Component {
         <div className="profile-gender">
           <div>
             <div className="genderTitle userProfileTitle">Gender:</div>
-            <div className="text">{user.gender == "undefined" ? null  : user.gender}</div>
+            <div className="text">{user.gender === "undefined" ? null  : user.gender}</div>
           </div>
           <Popup
             trigger={
