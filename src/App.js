@@ -22,11 +22,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="mainRoutes">
+        <div className="mainRoutes" >
           <div className="header">
             <Header />
           </div>
-          <div className="container">
+          <div  className={!this.props.userData.user.first_name ?"container background":"container"}     >
             <Route path="/Room/:key" exact render={({ match }) => <div className="main-container-room"> {this.props.userData.user.first_name ? <ChatRoom match={match} /> : <Login />}  </div>} />
             <Route path="/" exact render={() => <div> {this.props.userData.user.first_name ? <Redirect to="/" /> : <Login />} </div>} />
             <Route path="/UsersList" exact render={() => <div> {this.props.userData.user.first_name ? <UsersList /> : <Redirect to="/" />}  </div>} />
@@ -35,7 +35,7 @@ class App extends Component {
             <Route path="/Profile" exact render={() => <div className="userProfileApp"> {this.props.userData.user.first_name ? <UserProfile /> : <Redirect to="/" />} </div>} />
           </div>
           <div className="navbar">
-            <Navbar />
+            {this.props.userData.user.first_name ? <Navbar /> : null}
           </div>
         </div>
       </Router>

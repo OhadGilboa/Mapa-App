@@ -1,8 +1,8 @@
 .Map-class {
-    display: grid;
-    align-content: center;
+    /* display: grid; */
+    /* align-content: center; */
     width: 100vw;
-    height: 83vh;
-    align-items: center;
-    overflow: hidden;
+    height: 100vh;
+    /* align-items: center; */
+    /* overflow: hidden; */
 };
