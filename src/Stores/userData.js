@@ -2,7 +2,7 @@ import { observable, action, computed } from "mobx";
 import axios from "axios";
 import { userStore } from "./userStore";
 const userRoute = "http://localhost:4200";
-const userRoute = "";
+// const userRoute = "";
 
 export class UserData {
   @observable user = {
