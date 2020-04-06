@@ -13,6 +13,7 @@ input{
     grid-template-rows: 4fr 0.2 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr 0.2vh 2.5fr;
     align-items: center;
     font-size: 5vw;
+    margin-top: 11vh;
 }
 
 .user-profile button {

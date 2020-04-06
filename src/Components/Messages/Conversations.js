@@ -16,13 +16,8 @@ class Conversations extends Component {
     renderList = () => {
         return (
             <div className="conversations">
-                <div className="conversation">
-                        <div className="headerPlace"></div>
-                        <div className="vl"></div>
-                        {this.props.userData.user.conversations.map(uc => <Conversation getBack={this.getBack} userConversation={uc} key={uc.conversation_id} />)}
-                        <div className="footerPlace"></div>
-                        <div className="vl"></div>
-                </div>
+                {this.props.userData.user.conversations.map(uc => <Conversation getBack={this.getBack} userConversation={uc} key={uc.conversation_id} />)}
+                <div className="footerPlace"></div>
             </div>
         );
     }

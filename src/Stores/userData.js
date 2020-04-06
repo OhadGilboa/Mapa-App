@@ -30,7 +30,7 @@ export class UserData {
   @observable messages = []
   @observable users = []
   @observable interval;
-  @observable conversationHolder
+  @observable userIdToChat
 
   @action addPosition() {
     if (navigator.geolocation) {

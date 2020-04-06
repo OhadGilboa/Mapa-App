@@ -1,9 +1,14 @@
 
 .userList{
-    height: 100vh;
+    height: 82.7vh;
     display: grid;
     position: relative;
-    grid-template-rows: repeat(6,1fr);
+    grid-template-rows: repeat(8,1fr);
     scroll-behavior: smooth;
+    margin-top: 9vh;
 }
 
+.footerPlace{
+    width: 100%;
+    height: 8vh;
+}

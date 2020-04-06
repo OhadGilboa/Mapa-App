@@ -10,7 +10,6 @@ import Header from "./Components/Header";
 import Login from "./Login/Login";
 import Conversations from "./Components/Messages/Conversations";
 import ChatRoom from "./Components/Messages/ChatRoom";
-// const axios = require('axios')
 
 @inject("userData")
 

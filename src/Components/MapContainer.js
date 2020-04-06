@@ -5,7 +5,7 @@ import { observer, inject } from "mobx-react";
 const mapStyles = {
   top:'8.4vh',
   width: "100%",
-  height: "83.5vh",
+  height: "103.7%",
 };
 
 @inject("userData")

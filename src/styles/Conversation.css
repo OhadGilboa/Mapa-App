@@ -35,6 +35,14 @@
     display: grid;
     text-align: left;
     align-content: center;
-
     font-size: 4.5vw;
+}
+
+.conversations{
+    height: 82.7vh;
+    display: grid;
+    position: relative;
+    grid-template-rows: repeat(8,1fr);
+    scroll-behavior: smooth;
+    margin-top: 9vh;
 }
