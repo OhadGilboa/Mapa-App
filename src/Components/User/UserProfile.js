@@ -72,8 +72,10 @@ class UserProfile extends Component {
     await this.setState({
       input: e.target.value
     });
+
   };
   updateStatus = async () => {
+    console.log(this.state.input)
     this.props.userData.updateUserProfile("user_status", this.state.input);
     this.setState({
       input: "",
