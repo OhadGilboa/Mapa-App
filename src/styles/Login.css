@@ -38,10 +38,9 @@ button:hover {
 
 .loginButton {
   display: grid;
-  grid-template-columns: 50% 50%;
   width: 100%;
   position: absolute;
-  bottom: 0vh;
+  bottom: 10vh;
   justify-items: center;
 }
 
@@ -86,4 +85,11 @@ div path[fill="#FBBC05"] {
 }
 div path[fill="#34A853"] {
   fill: white !important;
+}
+
+
+.loginAvatar{
+  height: 40vw;
+  margin-bottom: 9vh;
+  
 }
