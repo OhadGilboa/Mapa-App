@@ -72,6 +72,7 @@ button:hover {
 
 .googleButton div {
   background-color: #dd4b39 !important;
+  margin: none !important;
 }
 
 div path[fill="#EA4335"] {
