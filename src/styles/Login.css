@@ -40,15 +40,15 @@ button:hover {
   display: grid;
   width: 100%;
   position: absolute;
-  bottom: 10vh;
+  bottom: 0vh;
   justify-items: center;
 }
 
 .buttonFacebook.metro {
-  font-size: 3.2vw;
+  font-size: 5vw;
   margin: 2vw 2vw 2vw 2vw;
   padding: 2vh 0vw 2vh 0vw;
-  width: 46vw;
+  width: 70vw;
   height: 8.5vh;
 }
 
@@ -58,13 +58,16 @@ button:hover {
 }
 
 .googleButton {
-  width: 46vw;
+  width: 70vw;
   height: 8.5vh;
   margin: 2vw 2vw 2vw 2vw;
   padding: 2vh 0vw 2vh 0vw;
   background-color: #dd4b39 !important;
   color: white !important;
   z-index: 199999;
+  font-size: 5vw !important;
+  font-family: 'Montserrat', sans-serif !important;
+
 }
 
 .googleButton div {
@@ -92,4 +95,17 @@ div path[fill="#34A853"] {
   height: 40vw;
   margin-bottom: 9vh;
   
+}
+
+.capitalLetter{
+  font-size: 9.5vw;
+  color: #3880FF;
+}
+
+.smallLetters{
+  font-size: 5.5vw;
+}
+
+.logoTitle{
+  margin-bottom: 8vh;
 }

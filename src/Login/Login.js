@@ -2,7 +2,7 @@ import React from "react";
 import Facebook from "./Facebook";
 import Google from "./Google";
 import "../styles/Login.css";
-import loginAvatar from "./loginAvatar.png"
+import loginAvatar from "../Components/User/icons/logo.svg"
 import { inject, observer } from "mobx-react";
 import { useHistory } from "react-router-dom";
 
@@ -16,6 +16,16 @@ const Login = inject("userData")(
     }
 
     return <div className="loginButton">
+      <div className="logoTitle">
+        <span className="capitalLetter">M</span>
+        <span className="smallLetters">eet </span>
+        <span className="capitalLetter">A</span>
+        <span className="smallLetters">wesome </span>
+        <span  className="capitalLetter">P</span>
+        <span className="smallLetters">eople </span>
+        <span className="capitalLetter">A</span>
+        <span className="smallLetters">round </span>
+      </div>
       <img className="loginAvatar" src={loginAvatar} alt={null}></img>
       <div>
         <Facebook handleClick={handleClick} />

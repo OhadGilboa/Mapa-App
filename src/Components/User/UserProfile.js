@@ -233,7 +233,6 @@ class UserProfile extends Component {
                 <option value="love">-select</option>
                 <option value="online">Online</option>
                 <option value="offline">Offline</option>
-                <option value="doNotDisturb">Do Not Disturb</option>
               </select>
               <div className="buttonInPopUp" onClick={this.updateStatus}> Save </div>
             </div>

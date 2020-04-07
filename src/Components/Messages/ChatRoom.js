@@ -167,6 +167,7 @@ class ChatRoom extends Component {
                 <div className="input-container">
                     <input
                         className="message-input"
+                        autocomplete="off"
                         name="message"
                         value={this.state.input}
                         onChange={this.inputHandler}
