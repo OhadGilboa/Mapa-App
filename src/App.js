@@ -33,7 +33,7 @@ class App extends Component {
             <Route path="/Messages" exact render={() => <div> {this.props.userData.user.first_name ? <Conversations /> : <Redirect to="/" />}  </div>} />
             <Route path="/Profile" exact render={() => <div className="userProfileApp"> {this.props.userData.user.first_name ? <UserProfile /> : <Redirect to="/" />} </div>} />
           </div>
-          <div className="navbar">
+          <div  className={this.props.userData.user.userId ? "navbar" : "navbar colorBackground"}>
             {this.props.userData.user.first_name ? <Navbar /> : null}
           </div>
         </div>

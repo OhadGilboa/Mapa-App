@@ -24,7 +24,7 @@ const Login = inject("userData")(
         <span  className="capitalLetter">P</span>
         <span className="smallLetters">eople </span>
         <span className="capitalLetter">A</span>
-        <span className="smallLetters">round </span>
+        <span className="smallLetters">round</span>
       </div>
       <img className="loginAvatar" src={loginAvatar} alt={null}></img>
       <div>

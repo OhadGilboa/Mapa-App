@@ -45,10 +45,10 @@
 
 }
 
-.popup-content {
+.imageAndName .popup-content{
     background-color: rgb(255, 255, 255) !important;
     width: 75vw !important;
-    height: 65vh;
+    height: 85vh;
     display: grid;
     justify-items: center;
     border-radius: 10px;
