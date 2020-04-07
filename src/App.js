@@ -22,8 +22,8 @@ class App extends Component {
     return (
       <Router>
         <div className="mainRoutes" >
-          <div className="header">
-            <Header />
+          <div  className={this.props.userData.user.userId ? "header" : null}>
+            {this.props.userData.user.userId ? <Header /> : null }
           </div>
           <div className="container">
             <Route path="/Room/:key" exact render={({ match }) => <div className="main-container-room"> {this.props.userData.user.first_name ? <ChatRoom match={match} /> : <Login />}  </div>} />
@@ -33,7 +33,7 @@ class App extends Component {
             <Route path="/Messages" exact render={() => <div> {this.props.userData.user.first_name ? <Conversations /> : <Redirect to="/" />}  </div>} />
             <Route path="/Profile" exact render={() => <div className="userProfileApp"> {this.props.userData.user.first_name ? <UserProfile /> : <Redirect to="/" />} </div>} />
           </div>
-          <div className="navbar">
+          <div  className={this.props.userData.user.userId ? "navbar" : null}>
             {this.props.userData.user.first_name ? <Navbar /> : null}
           </div>
         </div>
