@@ -61,7 +61,7 @@
     "react": "^16.13.0",
     "react-app-polyfill": "^1.0.6",
     "react-auto-scroll": "^1.1.0",
-    "react-dev-utils": "^10.2.0",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.13.0",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.1.3",
